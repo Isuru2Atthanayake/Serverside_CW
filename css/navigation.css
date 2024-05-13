@@ -96,24 +96,24 @@ body {
     color: #52B2CF;
 	text-decoration: underline;
 }
-.searchresults, .notifications{
-    position: fixed; 
-    display: none; 
-    height: fit-content;
-    top: 70px;
-    right: 0;
-    bottom: 0;
-    background-color: white; 
-    box-shadow: 0 0 10px 4px rgba(126, 196, 207, 0.25);
-    z-index: 2; 
-    border-radius: 10px;
-}
-.searchresults{
-    width: 30%; 
-    max-width: 30%;
-    max-height: 400px; 
-    left: 40%;
-}
+/*.searchresults, .notifications{*/
+/*    position: fixed; */
+/*    display: none; */
+/*    height: fit-content;*/
+/*    top: 70px;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    background-color: white; */
+/*    box-shadow: 0 0 10px 4px rgba(126, 196, 207, 0.25);*/
+/*    z-index: 2; */
+/*    border-radius: 10px;*/
+/*}*/
+/*.searchresults{*/
+/*    width: 30%; */
+/*    max-width: 30%;*/
+/*    max-height: 400px; */
+/*    left: 40%;*/
+/*}*/
 .notifications{
     width: 30%; 
     max-width: 30%;

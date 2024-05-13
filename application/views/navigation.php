@@ -16,19 +16,19 @@
 <!--          <div class="searchdiv">-->
 <!--               <input type="text" class="search" id="search" placeholder="Search for Questions..." onkeyup='searchusers()'/>-->
 <!--          </div>-->
-<!--          <div class="linkdiv">-->
-<!--               <div class="linkelement">-->
-<!--                    <a href="--><?php //echo base_url()?><!--index.php/posts">-->
-<!--                    <img class="linkimage" src="--><?php //echo base_url() ?><!--images/add.png"/></a>-->
-<!--               </div>-->
-<!--               <div class="linkelement">-->
-<!--                    <a href="--><?php //echo base_url()?><!--index.php/home">-->
-<!--                    <img class="linkimage" src="--><?php //echo base_url() ?><!--images/home.png"/></a>-->
-<!--               </div>-->
-<!--               <div class="linkelement">-->
-<!--                    <img style="cursor:pointer" onclick='notifications();' class="linkimage" src="--><?php //echo base_url() ?><!--images/bell.png"/>-->
-<!--               </div>-->
-<!--          </div>-->
+          <div class="linkdiv">
+               <div class="linkelement">
+                    <a href="<?php echo base_url()?>index.php/posts">
+                    <img class="linkimage" src="<?php echo base_url() ?>images/add.png"/></a>
+               </div>
+               <div class="linkelement">
+                    <a href="<?php echo base_url()?>index.php/home">
+                    <img class="linkimage" src="<?php echo base_url() ?>images/home.png"/></a>
+               </div>
+               <div class="linkelement">
+                    <img style="cursor:pointer" onclick='notifications();' class="linkimage" src="<?php echo base_url() ?>images/bell.png"/>
+               </div>
+          </div>
           <div class="profilediv">
                <div class="userlink">
                <a href="<?php echo base_url()?>index.php/myprofile" class="profilelink"><span><?php echo $username ?></span></a></div>

@@ -19,7 +19,7 @@
 <!--  444  the search bar inside the side bar start here-->
     <div>
         <input type="text"  class="searchdiv" id="search" placeholder="Search..." onkeyup='searchusers()'/>
-        <div class="searchresults" id="searchresults"></div>
+        <div class="searchresults2" id="searchresults"></div>
     </div>
 
     <!--These are the  Navigation Links -->
@@ -40,13 +40,13 @@
 
     <!-- Icon Links -->
     <div class="link-div">
-        <a href="<?php echo base_url()?>index.php/posts">
-            <img class="link-image" src="<?php echo base_url() ?>images/add.png" alt="Add Post"/>
-        </a>
-        <a href="<?php echo base_url()?>index.php/home">
-            <img class="link-image" src="<?php echo base_url() ?>images/home.png" alt="Home"/>
-        </a>
-        <img style="cursor:pointer" onclick='notifications();' class="link-image" src="<?php echo base_url() ?>images/bell.png" alt="Notifications"/>
+<!--        <a href="--><?php //echo base_url()?><!--index.php/posts">-->
+<!--            <img class="link-image" src="--><?php //echo base_url() ?><!--images/add.png" alt="Add Post"/>-->
+<!--        </a>-->
+<!--        <button><a href="--><?php //echo base_url()?><!--index.php/home">-->
+<!--            <img class="link-image" src="--><?php //echo base_url() ?><!--" alt="Home"/>-->
+<!--        </a></button>-->
+<!--        <img style="cursor:pointer" onclick='notifications();' class="link-image" src="--><?php //echo base_url() ?><!--images/bell.png" alt="Notifications"/>-->
     </div>
 </div>
 <!--The code of Sidebar navigation end here -->

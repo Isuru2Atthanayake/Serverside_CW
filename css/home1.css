@@ -249,11 +249,11 @@ body {
 }
 
 .searchresults, .notifications{
-    position: fixed;
+    position: relative;
     display: none;
     height: fit-content;
-    top: 70px;
-    right: 0;
+    top: 0px;
+    right: 100%;
     bottom: 0;
     background-color: white;
     box-shadow: 0 0 10px 4px rgba(126, 196, 207, 0.25);
@@ -261,10 +261,10 @@ body {
     border-radius: 10px;
 }
 .searchresults{
-    width: 30%;
-    max-width: 30%;
+    width: 80%;
+    max-width: 70%;
     max-height: 400px;
-    left: 40%;
+    left: 15%;
 }
 /* the search bar end here */
 
