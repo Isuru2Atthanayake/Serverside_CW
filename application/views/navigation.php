@@ -18,8 +18,12 @@
 <!--          </div>-->
           <div class="linkdiv">
                <div class="linkelement">
-                    <a href="<?php echo base_url()?>index.php/posts">
-                    <img class="linkimage" src="<?php echo base_url() ?>images/add.png"/></a>
+<!--                    <a href="--><?php //echo base_url()?><!--index.php/posts">-->
+<!--                    <img class="linkimage" src="--><?php //echo base_url() ?><!--images/add.png"/></a>-->
+                        <a href="<?php echo base_url()?>index.php/posts" class="icon-button">
+                            <img class="linkimage" src="<?php echo base_url() ?>" alt="Add Post"/>
+                            <span>Ask a Question</span>
+                        </a>
                </div>
                <div class="linkelement">
                     <a href="<?php echo base_url()?>index.php/home">
@@ -28,11 +32,23 @@
                <div class="linkelement">
                     <img style="cursor:pointer" onclick='notifications();' class="linkimage" src="<?php echo base_url() ?>images/bell.png"/>
                </div>
+<!--              <div class="profilediv">-->
+<!--                  <div class="userlink">-->
+<!--                      <a href="--><?php //echo base_url()?><!--index.php/myprofile" class="profilelink"><span>--><?php //echo $username ?><!--</span></a></div>-->
+<!--              </div>-->
+              <div class="linkelement profilediv">
+                  <a href="<?php echo base_url()?>index.php/myprofile" class="profilelink">
+                      <span><?php echo $username ?></span>
+                  </a>
+              </div>
+<!--              <div class=" profilediv">-->
+<!--                  <a href="--><?php //echo base_url()?><!--index.php/myprofile" class="profilelink">-->
+<!--                      <img src="--><?php //echo base_url() ?><!--images/user_icon.png" alt="Profile Icon" class="profile-icon"/>-->
+<!--                      <span>--><?php //echo $username ?><!--</span>-->
+<!--                  </a>-->
+<!--              </div>-->
           </div>
-          <div class="profilediv">
-               <div class="userlink">
-               <a href="<?php echo base_url()?>index.php/myprofile" class="profilelink"><span><?php echo $username ?></span></a></div>
-          </div>
+
      </div>
      <!-- search and notification overlays -->
      <div class="searchresults" id="searchresults"></div>

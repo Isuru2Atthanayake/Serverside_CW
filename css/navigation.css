@@ -51,26 +51,67 @@ body {
     outline: none !important;
     border:2px solid #52B2CF;
 }
+/*buttons in the nav bar start */
 .linkdiv{
-    float: left;
-    height: 100%;
-    position: relative;
-    width: 15%;
-    margin: 0 0 0 2%;
+    /*float: left;*/
+    /*height: 100%;*/
+    /*position: relative;*/
+    width: 25%;
+    /*margin: 0 0 0 2%;*/
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    /*background-color: #2C3E50; !* Optional: Depends on your navbar color *!*/
+    border-radius: 10px;
+    float:right;
 }
 .linkelement{
-    height: 100%;
-    width: 30%;
-    float: left;
+    /*height: 100%;*/
+    /*width: 30%;*/
+    /*float: left;*/
+    flex-grow: 1;
+    text-align: center; /* Centering content within the div */
 }
 .linkimage{
-    height: 40%;
-    width: auto;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: auto;
+    /*height: 40%;*/
+    /*width: auto;*/
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*transform: translateY(-50%);*/
+    /*width: auto;*/
+    width: 30px; /* Icon size */
+    height: 30px; /* Maintain aspect ratio */
+    margin-bottom: 5px; /* Space between icon and text */
 }
+.icon-button {
+    height: 20px;
+    display: inline-block;
+    background-color: #34495E; /* Dark background for contrast */
+    color: #FFFFFF; /* White text for visibility */
+    text-decoration: none; /* Remove underline from links */
+    padding: 10px; /* Padding for spacing */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+}
+.icon-button span {
+    display: block; /* Make text appear below the icon */
+    font-size: 12px; /* Smaller font size for text under icons */
+}
+
+.linkelement, .profilediv {
+    margin-right: 20px; /* Margin for spacing between links */
+}
+.icon-button:hover {
+    background-color: #1ABC9C; /* Light blue for hover effect */
+    cursor: pointer;
+
+}
+
+/*buttons in the nav bar end */
 .profilediv{
     float: right;
     height: 100%;
@@ -78,10 +119,11 @@ body {
     max-width:13%;
     margin: 0 2% 0 0;
     position: relative;
+    /*top: 1%;*/
 }
 .userlink{
     position: absolute;
-    top: 50%;
+    /*top: 500%;*/
     transform: translateY(-50%);
     font-size: 1.25rem;
     height: auto;
