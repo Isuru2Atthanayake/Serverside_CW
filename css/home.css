@@ -24,6 +24,7 @@
 /*    display: block;*/
 /*}*/
 .locationdiv{
+    top: 0px;
     margin:  1% 5%;
     font-size: 16px;
     letter-spacing: 0.5px;
@@ -131,6 +132,11 @@
     width: 100%;
     display: block;
     overflow: auto;
+
+    /*display: flex;*/
+    /*width: 100%; !* Full width of the container *!*/
+    /*min-height: 100vh; !* Full viewport height *!*/
+    /*background-color: #f4f4f4; !* Light grey background for overall container *!*/
 }
 .locationlistdiv{
     width: 20%;
@@ -138,6 +144,15 @@
     position: fixed;
     display: flex;
     flex-flow: column;
+
+    width: 250px; /* Fixed width for the sidebar */
+    background-color: #2C3E50; /* Dark blue for contrast */
+    color: #ffffff; /* White text for readability */
+    padding: 20px; /* Padding for internal spacing */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Shadow for depth */
+    height: 100%; /* Full height of the viewport */
+    box-sizing: border-box; /* Include padding in width calculation */
+    overflow-y: auto; /* Enable scrolling if content is long */
 }
 .postlocadiv{
     box-shadow: 0px 0px 10px 0px  rgba(152, 162, 203, 0.25) ;
@@ -167,12 +182,34 @@
     letter-spacing: 1px;
     margin: 20px 0 0 10%;
     color: #52B2CF;
+
+    font-size: 20px; /* Larger font size for the location name */
+    font-weight: bold; /* Bold for emphasis */
+    margin-bottom: 20px; /* Space below the header */
+    padding-bottom: 10px; /* Padding for visual separation */
+    border-bottom: 1px solid #34495E; /* Subtle line for separation */
+
 }
 #locationlist{
     font-size: 16px;
     letter-spacing: 1px;
     margin: 20px 0 0 10%;
+
+    padding: 10px 0; /* Padding for each item */
+    border-bottom: 1px solid #34495E; /* Lines between items */
 }
+
+#locationlist div:last-child {
+    border-bottom: none; /* No border for the last item */
+}
+
+.postlocadiv {
+    flex-grow: 1; /* Take remaining space */
+    background-color: #ffffff; /* White background for content area */
+    padding: 20px; /* Padding around content */
+    overflow-y: auto; /* Enable scrolling if content is long */
+}
+
 #locationlist a{
     color: #666666;
     text-decoration: none;
