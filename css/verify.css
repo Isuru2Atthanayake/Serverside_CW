@@ -1,0 +1,163 @@
+body {
+	font-family: "DM Sans", sans-serif;
+	line-height: 1.5;
+	background-color: #ffffff;
+  }
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+.logodiv  {
+    margin:3% auto 0 auto;
+    height:fit-content;
+    width:fit-content;
+}
+.logoimage  {
+    width: 350px;
+    height: auto;
+}
+
+.signform, .loginform, .pwform {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 425px;
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 1.5%;
+}
+.signform{
+	margin: 1% auto;
+	box-shadow: 0 0 10px 4px rgba(236, 182, 213, 0.25);
+}
+.loginform{
+	margin: 1% auto;
+	box-shadow: 0 0 10px 4px rgba(199, 182, 237, 0.25);
+}
+.pwform{
+	margin:8% auto;
+	box-shadow: 0 0 10px 4px rgba(199, 182, 237, 0.25);
+}
+  
+  .authforms {
+	padding: 0 3%;
+  }
+  
+  .input {
+	display: flex;
+	flex-direction: column-reverse;
+	position: relative;
+	padding-top: 1.5rem;
+  }
+  .input + .input {
+	margin-top: 1.5rem;
+  }
+  
+  .signlabel, .loginlabel {
+	color: #BABABA;
+	position: absolute;
+	top: 1.5rem;
+	transition: 0.25s ease;
+  }
+  
+  .signfield, .loginfield {
+	border: 0;
+	z-index: 1;
+	background-color: transparent;
+	font: inherit;
+	font-size: 1.125rem;
+	padding: 0.25rem 0;
+  }
+.signfield{
+	border-bottom: 2px solid #B6E3EC;
+}
+.loginfield{
+	border-bottom: 2px solid #B6EDDA;
+}
+.signfield:focus, .signfield:valid, .signfield:hover {
+	outline: 0;
+	border-bottom-color: #95C2E5;
+}
+.loginfield:focus, .loginfield:valid, .loginfield:hover {
+	outline: 0;
+	border-bottom-color: #7EC4CF;
+}
+
+.signfield:focus + .signlabel, .signfield:valid + .signlabel,.signfield:hover + .signlabel{
+	color: #95C2E5;
+	transform: translateY(-1.5rem);
+  }
+.loginfield:focus + .loginlabel, .loginfield:valid + .loginlabel, .loginfield:hover + .loginlabel {
+	color: #7EC4CF;
+	transform: translateY(-1.5rem);
+  }
+  
+  .action {
+	width: 50%;
+	margin: 2rem auto 0 auto;
+  }
+  
+  .signupbtn, .loginbtn{
+	font: inherit;
+	font-size: 1.25rem;
+	padding: 0.5rem;
+	width: 100%;
+	font-weight: 500;
+	border-radius: 25px;
+	color: #fff;
+	border: 0;
+	transition: transform .4s;
+  }
+  .signupbtn:enabled:hover, .loginbtn:enabled:hover{
+	transform: scale(1.05);
+  }
+  .signupbtn:disabled{
+	opacity: 0.4;
+	background-color: #ECB6D5;
+  }
+  .loginbtn:disabled{
+	opacity: 0.4;
+	background-color: #C7B6ED;
+  }
+
+  .signupbtn:enabled{
+	background-color: #ECB6D5;
+  }
+  .loginbtn:enabled {
+	background-color: #C7B6ED;
+  }
+ 
+  .signspandiv, .loginspandiv {
+	padding: 1rem;
+	text-align: center;
+	color: #585858;
+  }
+  
+  .signspandiv a {
+	color: #95C2E5;
+	text-decoration: none;
+  }
+  .signspandiv a:hover {
+	color: #95C2E5;
+	text-decoration:underline;
+  }
+  .loginspandiv a {
+	color: #7EC4CF;
+	text-decoration: none;
+  }
+  .loginspandiv a:hover {
+	color: #7EC4CF;
+	text-decoration:underline;
+  }
+  .logheading, .pwresetheading{
+	font-size: 2.5rem;
+    font-weight: 550;
+    letter-spacing: 1px;
+    color: #C7B6ED;
+	text-align: center;
+  }
+  .errormsg{
+	color: #EB9494;
+  }

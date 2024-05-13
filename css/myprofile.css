@@ -1,0 +1,135 @@
+body {
+	background-color: #ffffff;
+}
+.profilecontainer{
+    width: 100%;
+    display: block;
+    overflow: auto;
+}
+.profiledeetdiv{
+    width: 34%;
+    max-width: 34%;
+    float: left;
+    margin-left: 2%;
+    padding: 2%;
+    position: fixed;
+    box-shadow: 0px 0px 10px 0px  rgba(152, 162, 203, 0.25) ;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column;
+    height: 73%;
+}
+.postsdiv{
+    width: 56%;
+    float: right;
+    max-width: 60%;
+    display: block;
+    overflow: auto;
+    margin-left: 4%;
+}
+.postimagediv{
+    width: 30%;
+    aspect-ratio : 1 / 1;
+    float: left;
+    margin: 2% 2% 2% 1%;
+}
+.postimage{
+    width: 96%;
+    aspect-ratio : 1 / 1;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform .4s;
+}
+.postimage:hover{
+	transform: scale(1.05);
+  }
+  .topdiv{
+    width: 100%;
+  }
+.profpicdiv{
+    width: 62%;
+    height: 250px;
+    float: left;
+    align-items: center;
+}
+.profileimage{
+    width: 96%;
+    aspect-ratio : 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.followdiv{
+    float: left;
+    height: 250px;
+    width: 38%;
+    text-align: center;
+}
+.flabel{
+    margin-top: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #666666;
+}
+.fcount{
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: #90CDD6;
+}
+.usernamediv{
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: #8EA0E3;
+    margin-top: 20px;
+}
+.namediv{
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #666666;
+}
+.biodiv{
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: normal;
+    color: #666666;
+    margin: 5px 0 40px 0;
+}
+.profbottomdiv{
+    width: 100%;
+}
+a{
+    text-decoration: none;
+}
+#followbutton{
+    padding: 10px;
+    background-color: #90CDD6;
+    width: 40%;
+    letter-spacing: 1px;
+    margin: auto;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 20px;
+    transition: transform .4s;
+}
+#followbutton:hover{
+    transform: scale(1.05);
+}
+.logoutlink, .editprlink{
+    font-size: 16px;
+    font-weight: 550;
+    letter-spacing: 1px;
+    text-decoration: underline;
+}
+
+.editprlink{
+    color: #7EC4CF;
+}
+.logoutlink{
+    color: #EB9494;
+    margin-left: 80px;
+}

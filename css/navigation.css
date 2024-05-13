@@ -1,0 +1,172 @@
+body {
+	font-family: "DM Sans", sans-serif;
+	line-height: 1.5;
+	background-color: #ffffff;
+    margin: 0px;
+  }
+.navigationdiv{
+    max-height: 85px;
+    height: 85px;
+    margin: 0 0 20px 0;
+    position:sticky;
+    top: 0px;
+    box-shadow: 0px 5px 5px -3px rgba(82, 178, 207, 0.3) ;
+    background-color: #ffffff;
+    z-index: 2; 
+}
+.logodiv{
+    float: left;
+    height: 100%;
+    position: relative;
+    margin: 0 0 0 2%;
+    width: 18%;
+}
+.logoimage{
+    height:auto;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%)
+}
+.searchdiv{
+    float: left;
+    width: 25%;
+    height: 100%;
+    position:relative;
+    margin: 0 0 0 23%;
+}
+.search{
+    width: 95%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 3% 0 3% 3%;
+    border-radius: 50px;
+    font-size: 1rem;
+    border: 2px solid #666666;
+    color: #666666;
+}
+.search:focus, .search:hover{
+    outline: none !important;
+    border:2px solid #52B2CF;
+}
+.linkdiv{
+    float: left;
+    height: 100%;
+    position: relative;
+    width: 15%;
+    margin: 0 0 0 2%;
+}
+.linkelement{
+    height: 100%;
+    width: 30%;
+    float: left;
+}
+.linkimage{
+    height: 40%;
+    width: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+}
+.profilediv{
+    float: right;
+    height: 100%;
+    width: 13%;
+    max-width:13%;
+    margin: 0 2% 0 0;
+    position: relative;
+}
+.userlink{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+    height: auto;
+    width: 100%;
+    text-align: right;
+}
+.profilelink{
+    color: #52B2CF;
+	text-decoration: none;
+}
+.profilelink:hover{
+    color: #52B2CF;
+	text-decoration: underline;
+}
+.searchresults, .notifications{
+    position: fixed; 
+    display: none; 
+    height: fit-content;
+    top: 70px;
+    right: 0;
+    bottom: 0;
+    background-color: white; 
+    box-shadow: 0 0 10px 4px rgba(126, 196, 207, 0.25);
+    z-index: 2; 
+    border-radius: 10px;
+}
+.searchresults{
+    width: 30%; 
+    max-width: 30%;
+    max-height: 400px; 
+    left: 40%;
+}
+.notifications{
+    width: 30%; 
+    max-width: 30%;
+    max-height: 500px; 
+    left: 60%;
+}
+.user{
+    height: 56px;
+    padding: 0 2%;
+    box-shadow: 0px 0px 4px 0px rgba(82, 178, 207, 0.25)
+}
+.userlinks{
+    color: #666666;
+    text-decoration: none;
+}
+.seauserimagediv{
+    padding: 3px 0 0 2px;
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+.seauserimage{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.searuserdeet{
+    padding: 3px 0 0 65px;
+    box-sizing: border-box;
+}
+.noresult{
+    text-align: center;
+    color: #666666;
+    padding-top: 15px;
+    box-sizing: border-box;
+}
+.notifications div{
+    width: 100%;
+    box-sizing: border-box;
+    padding:10px 0 10px 5%;
+    height:fit-content;
+    box-shadow: 0px 0px 4px 0px rgba(82, 178, 207, 0.25)
+}
+.notifications a{
+    color: #666666;
+    text-decoration: none;
+}
+.notifications a:hover{
+    color: #52B2CF;
+}
+.commentspam{
+    font-size: 14px;
+    color: #666666;
+    padding-left: 4px;
+    font-weight: 600;
+}

@@ -1,0 +1,115 @@
+.uppostcontainer{
+    width: 100%;
+    display: block;
+    overflow: auto;
+}
+.filediv {
+    width: 55%;
+    float: left;
+    position: relative;
+  }
+.captiondiv{
+    width: 45%;
+    float: right; 
+}
+input[type=file] {
+    position: absolute;
+    margin: 0 35%;
+    width: 30%;
+    height: 40px;
+    opacity: 0%;
+    cursor: pointer;
+  }
+.dummy {
+    width: 30%;
+    margin: 0 35%;
+    background-color: #EB9494;
+    text-align: center;
+    border-radius: 15px;
+    height: 45px;
+ 
+  }
+.dummy p{
+    color: #F9F5F5;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin: 0;
+    padding-top: 5px;
+}
+input[type=file]:valid + .dummy {
+    background-color: #52B2CF;
+}
+.postpicdiv{
+    width: 40%;
+    margin: 0 auto 10px auto;
+}
+#postpicid{
+    width: 100%;
+    aspect-ratio : 1 / 1;
+    object-fit: cover;
+}
+.errormsg{
+    margin:20px auto;
+    width: 40%;
+	color: #EB9494;
+    text-align: center;
+}
+.postsubmitdiv{
+    margin-top: 40px;
+    width: 100%;
+    /* color: #EB9494; */
+    float: left;
+}
+#uploadpost{
+    width: 25%;
+    background-color: #8FD6C2;
+	font-size: 1.3rem;
+	padding: 0.8rem 0.5rem;
+	border-radius: 25px;
+	color: #fff;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+	transition: background-color .4s;
+}
+#uploadpost:hover{
+    background-color: #7EC4CF
+}
+.caplabel, .loclabel{
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #8EA0E3;
+}
+textarea{
+    width: 60%;
+    height: 100px;
+    padding: 12px 20px;
+    border: 2px solid #cccccc;
+    border-radius: 8px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: normal;
+    color: #666666;
+    resize: none;
+    outline: none;
+    font-family: "DM Sans", sans-serif;
+}
+textarea:focus{
+    border: 2px solid #8FD6C2;
+}
+select{
+    width: 50%;
+    height: 30px;
+    border-radius: 4px;
+    outline: none;
+    border: 2px solid #cccccc;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    line-height: normal;
+    color: #666666;
+}
+select:focus{
+    border: 2px solid #8FD6C2;
+}

@@ -1,0 +1,181 @@
+.postcontainer{
+    width: 100%;
+    display: block;
+    overflow: auto;
+}
+.leftdiv{
+    margin-top: 10px;
+    width: 55%;
+    max-width: 55%;
+    float: left;
+    position: fixed;
+}
+.rightdiv{
+    width: 45%;
+    float: right;
+    max-width: 45%;
+    display: block;
+    overflow: auto;
+}
+.postimagediv, .locationlikediv{
+    margin: auto;
+    display: block;
+    overflow: auto;
+}
+.postimagediv{
+    width: 60%;
+}
+.locationlikediv{
+    width: 58%;
+}
+.postimage{
+    width: 100%;
+    aspect-ratio : 1 / 1;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.locationdiv{
+    width: 60%;
+    float: right;
+    box-sizing: border-box;
+    text-align: right;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding-top: 4px;
+}
+.likediv{
+    width: fit-content;
+    float: left;
+    font-size: 30px;
+}
+.likecount{
+    width: 20%;
+    float: left;
+    font-size: 17px;
+    font-weight: 550;
+    margin: 8px 0 0 10px;
+    color: #666666;
+
+}
+.fa-location-dot{
+    margin-right: 3%;
+}
+.locationdiv a{
+    color: #666666;
+    text-decoration: none;
+    transition: color .4s;
+}
+.locationdiv a:hover{
+    color: #52B2CF;
+    text-decoration: none;
+}
+.fa-heart{
+    padding: 0;
+    cursor: pointer;
+    transition: transform .4s;
+}
+.fa-heart:hover{
+    transform: scale(1.03);
+}
+
+.usernameimgdiv{
+    width: 100%;
+    display: block;
+    overflow: auto;
+}
+.userimagediv{
+    width: 12%;
+    aspect-ratio : 1 / 1;
+    float: left;
+}
+.userimage{
+    width: 100%;
+    aspect-ratio : 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.usernamediv{
+    width: 50%;
+    float: left;
+    padding-left: 3%;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+    margin-top: 1%;
+}
+.usernamediv a{
+    color: #52B2CF;
+    text-decoration: none;
+    transition: color .4s;
+}
+.usernamediv a:hover{
+    color: #32AFD5;
+    text-decoration: none;
+}
+.captiondiv{
+    width: 90%;
+    font-size: 18px;
+    color: #666666;
+}
+.commentareadiv{
+    margin: 15px 0;
+    width: 95%;
+    display: block;
+    overflow: auto;
+}
+.commentsdiv{
+    width: 90%;
+    font-size: 15px;
+    color: #666666;
+}
+.commentsdiv a{
+    color: #9A618E;
+    text-decoration: none;
+    padding-right: 2%;
+}
+.commentsdiv a:hover{
+    color: #9A618E;
+    text-decoration: underline;
+}
+.comments{
+    padding: 15px 0 12px 0;
+    border-bottom: 1px solid #52B2CF;
+}
+textarea{
+    width: 60%;
+    height: 50px;
+    padding: 8px;
+    border: 2px solid #cccccc;
+    border-radius: 8px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: normal;
+    color: #666666;
+    resize: none;
+    float: left;
+    outline: none;
+    font-family: "DM Sans", sans-serif;
+}
+textarea:focus{
+    border: 2px solid #8FD6C2;
+}
+button{
+    height: 40px;
+    float: left;
+    width: 25%;
+    border-radius: 20px;
+    margin-left: 2%;
+    margin-top: 15px;
+    border: none;
+    font-size: 16px;
+    transition: background-color .4s;
+    cursor: pointer;
+}
+button:disabled{
+	background-color: #cccccc;
+    color: #7C7D7C;
+}
+button:enabled{
+	background-color: #52B2CF;
+    color: white;
+}
