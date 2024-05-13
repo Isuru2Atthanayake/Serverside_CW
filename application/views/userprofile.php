@@ -13,19 +13,19 @@
 <div class="profiledeetdiv">
     <div class="topdiv">
         <div class="profpicdiv"></div>
-        <div class="followdiv">
+        <!-- <div class="followdiv">
             <div class="flabel">FOLLOWING</div>
             <div class="fcount" id="followingc"></div>
             <div class="flabel">FOLLOWERS</div>
             <div class="fcount" id="followerc"></div>
-        </div>
+        </div> -->
     </div>
     <div class="usernamediv"><?php echo $username ?></div>
     <div class="namediv"></div>
     <div class="biodiv"></div>
-    <div class="profbottomdiv">
+    <!-- <div class="profbottomdiv">
     <a href="#" onclick='follow();'><div id="followbutton">  </div></a>
-    </div>
+    </div>  -->
 </div>
 <div class="postsdiv" id="postsdiv">
 </div>
@@ -36,7 +36,7 @@
     $(document).ready(function () {
         event.preventDefault();
         postCollection.fetch();//fetch the posts from collection on start
-        checkfollow();//check if the current user follows this user
+        //checkfollow();//check if the current user follows this user
         $.ajax({//get user details and display
             url: "<?php echo base_url() ?>index.php/users/userdetails?username="+username,
             method: "GET"
@@ -48,7 +48,7 @@
             var bio ="<span>"+data.UserBio+"</span>";
             $('.biodiv').append(bio);
         });
-        followcount();
+        // followcount();
     });
     var Post = Backbone.Model.extend({
         url: "<?php echo base_url() ?>index.php/posts/userposts?username="+username
@@ -72,104 +72,78 @@
                 // html = html + "<div class='postimagediv'><a href='<?php echo base_url() ?>index.php/posts/post?postid="
                 // + m.get('PostId') +"'><img class='postimage' src='<?php echo base_url() ?>images/userposts/"
                 // + m.get('PostImage') + "'/></a></div>";
-                html = html + "<div class='postimagediv'><a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'>" +
+
+
+                html = html + "<div class='questdiv'><a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'>" +
                 "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></a></div>" +
                 "<div class='commentsdiv' id='commentsdiv" + m.get('PostId') + "'></div>";
+
+                //this is used to display the content to the user , the poted questions
+                //html = html + "<div class='question-box'>" +
+                //    "<div class='question-content'>" +
+                //    //"<a href='<?php ////echo base_url() ?>////index.php/posts/post?postid="+
+                //    "<a href='<?php //echo base_url() ?>//index.php/posts/post?postid=" + m.get('PostId') + "'></br>" +
+                //    "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></div>" +
+                //    "<div class='comments-section' id='commentsdiv" + m.get('PostId') + "'></div></div>" ;//to display the comments on the post;
             });
             this.$el.html(html);
         }
-        // showResults: function () {
-        //     var html = "";
-        //     this.model.each(function (m) {
-        //         // html = html + "<div class='postimagediv'>" +
-        //         // <a href='<?php echo base_url() ?>index.php/posts/post?postid="
-        //         // + m.get('PostId') +"'><img class='postimage' src='<?php echo base_url() ?>images/userposts/"
-        //         // + m.get('PostImage') + "'/></a></div>";
-        //         "<div class='locationdiv'>" +
-        //         "<a href='<?php echo base_url() ?>index.php/posts/locations?locationid=" + m.get('LocationId') + "'>" +
-        //         // "<a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'>" +
-        //         "<span><i class='fa-solid fa-location-dot'></i>" + m.get('LocationName') + "</span></a></div>" +
-        //         // "<a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'>" +
-        //         // "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></a></div>" +
-
-        //         "<div class='questiondiv'><p>" + m.get('Question') + "</p></div>" + // Display the question
-        //         "<div class='userlikediv'>" +
-        //         "<div class='usernamediv'><a href='<?php echo base_url() ?>index.php/users/userprofile/?username=" + m.get('Username') + "'>" +
-        //         "<span>" + m.get('Username') + "</span></a></div>" +
-        //         "<div class='likediv' id='likediv" + m.get('PostId') + "'>" +
-        //         "<i onclick='like(" + m.get('PostId') + ");' class='fa-solid fa-heart'></i></div></div>" +
-        //         "<div class='captiondiv'>" + m.get('Caption') + 
-                
-        //         "<a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'>" +
-        //         "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></a></div>" +
-        //         "<div class='commentsdiv' id='commentsdiv" + m.get('PostId') + "'></div></div>";
-        //         });
-        //     this.$el.html(html);
-        //     //get comments for each post and display them
-        //     $.ajax({
-        //             url: "<?php echo base_url() ?>index.php/home/comments?postid="+m.get('PostId'),
-        //             method: "GET"
-        //         }).done(function (res) {
-        //             if(res.length!=0){             
-        //                 for (i = 0; i < res.length; i++) {
-        //                     if(i<2){
-        //                         var div ="<span><a class='commuserlink' href='<?php echo base_url() ?>index.php/users/userprofile/?username="+res[i].Username+"'>"+res[i].Username+"</a>"
-        //                         +res[i].CommentBody+"</span></br>";
-        //                         $('#commentsdiv'+m.get('PostId')).append(div);
-        //                     }
-        //             } 
-        //             }
-        //         });
-        //         $.ajax({//check if the user has already liked them or not and change color accordingly
-        //             url: "<?php echo base_url() ?>index.php/home/checklikes?username="+username+"&postid="+m.get('PostId'),
-        //             method: "GET"
-        //         }).done(function (res) {
-        //             if(res){
-        //                 document.getElementById("likediv"+m.get('PostId')).style.color = "#FC6464";
-        //             }
-        //             else{
-        //                 document.getElementById("likediv"+m.get('PostId')).style.color = "#666666";
-        //             }
-        //         });
-        //     }
-        
 
     });
     var postCollection = new PostCollection();
     var postDisplay = new PostDisplay({model: postCollection})
-    function followcount(){
-        $.ajax({//get follower/following count and display
-            url: "<?php echo base_url() ?>index.php/myprofile/followcount?username="+username,
+
+    //to follow the user start
+    // function followcount(){
+    //     $.ajax({//get follower/following count and display
+    //         url: "<?php echo base_url() ?>index.php/myprofile/followcount?username="+username,
+    //         method: "GET"
+    //     }).done(function (data) {
+    //         document.getElementById("followingc").innerHTML = data.following
+    //         document.getElementById("followerc").innerHTML = data.followers
+    //     });
+    // }
+    // function follow(){//when follow button is clicked on
+    //     $.ajax({
+    //         url: "<?php echo base_url() ?>index.php/myprofile/follow",
+    //         data: JSON.stringify({isfollowing: username}),
+    //         contentType: "application/json",
+    //         method: "POST"
+    //     }).done(function () {
+    //         checkfollow();
+    //         followcount();
+    //     });
+    // }
+    // function checkfollow(){//check if the user is already followed and change the button accordingly
+    //     $.ajax({
+    //         url: "<?php echo base_url() ?>index.php/myprofile"+username,
+    //         method: "GET"
+    //     }).done(function (data) {
+    //         //to remove the following button
+    //         // if (data) {
+    //         //      document.getElementById("followbutton").innerHTML = "UNFOLLOW"
+    //         // }
+    //         // else {
+    //         //     document.getElementById("followbutton").innerHTML = "FOLLOW"
+    //         // }
+    //     });
+    // } 
+    function user_profileimage(){
+        //user profile image loader
+        $.ajax({
+            url: "<?php echo base_url() ?>index.php/myprofile"+username,
             method: "GET"
         }).done(function (data) {
-            document.getElementById("followingc").innerHTML = data.following
-            document.getElementById("followerc").innerHTML = data.followers
-        });
-    }
-    function follow(){//when follow button is clicked on
-        $.ajax({
-            url: "<?php echo base_url() ?>index.php/myprofile/follow",
-            data: JSON.stringify({isfollowing: username}),
-            contentType: "application/json",
-            method: "POST"
-        }).done(function () {
-            checkfollow();
-            followcount();
-        });
-    }
-    function checkfollow(){//check if the user is already followed and change the button accordingly
-        $.ajax({
-            url: "<?php echo base_url() ?>index.php/myprofile/checkfollow?isfollowing="+username,
-            method: "GET"
-        }).done(function (data) {
-            if (data) {
-                 document.getElementById("followbutton").innerHTML = "UNFOLLOW"
-            }
-            else {
-                document.getElementById("followbutton").innerHTML = "FOLLOW"
-            }
+            //to remove the following button
+            // if (data) {
+            //      document.getElementById("followbutton").innerHTML = "UNFOLLOW"
+            // }
+            // else {
+            //     document.getElementById("followbutton").innerHTML = "FOLLOW"
+            // }
         });
     }        
+    //to follow the user end  
 </script>
 </body>
 </html>

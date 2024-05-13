@@ -41,35 +41,35 @@ class Myprofile extends \Restserver\Libraries\REST_Controller {
             $this->response($result);
     }
     //api post to follow
-    public function follow_post(){
-        if ($this->usersmod->is_logged_in()) {
-            $username = $this->session->username;
-            $isfollowing = $this->post('isfollowing');
-            $result=$this->usersmod->followuser($username, $isfollowing);
-            $this->response($result); 
-        }
-        else {
-            $this->load->view('login');
-        }
-    }
-    //api to check if a user is following already
-    public function checkfollow_get(){
-        if ($this->usersmod->is_logged_in()) {
-            $username = $this->session->username;
-            $isfollowing = $this->get('isfollowing');
-            $result=$this->usersmod->checkfollowing($username, $isfollowing);
-            $this->response($result); 
-        }
-        else {
-            $this->load->view('login');
-        }
-    }
-    //api to get follower/following count
-    public function followcount_get(){
-        $username = $this->get('username');
-        $result=$this->usersmod->followcount($username);
-        $this->response($result); 
-    }    
+    // public function follow_post(){
+    //     if ($this->usersmod->is_logged_in()) {
+    //         $username = $this->session->username;
+    //         $isfollowing = $this->post('isfollowing');
+    //         $result=$this->usersmod->followuser($username, $isfollowing);
+    //         $this->response($result); 
+    //     }
+    //     else {
+    //         $this->load->view('login');
+    //     }
+    // }
+    // //api to check if a user is following already
+    // public function checkfollow_get(){
+    //     if ($this->usersmod->is_logged_in()) {
+    //         $username = $this->session->username;
+    //         $isfollowing = $this->get('isfollowing');
+    //         $result=$this->usersmod->checkfollowing($username, $isfollowing);
+    //         $this->response($result); 
+    //     }
+    //     else {
+    //         $this->load->view('login');
+    //     }
+    // }
+    // //api to get follower/following count
+    // public function followcount_get(){
+    //     $username = $this->get('username');
+    //     $result=$this->usersmod->followcount($username);
+    //     $this->response($result); 
+    // }    
     //api to get all notifications of user
     public function notifications_get(){
         if ($this->usersmod->is_logged_in()) {

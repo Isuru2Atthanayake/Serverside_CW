@@ -27,11 +27,21 @@ body {
     overflow: auto;
     margin-left: 4%;
 }
-.postimagediv{
-    width: 30%;
-    aspect-ratio : 1 / 1;
-    float: left;
-    margin: 2% 2% 2% 1%;
+.questdiv{
+    /*width: 30%;*/
+    /*aspect-ratio : 1 / 1;*/
+    /*float: left;*/
+    /*margin: 2% 2% 2% 1%;*/
+
+    border-bottom: 1px solid #eee;
+    padding: 20px;
+    margin-bottom: 20px;
+    /* background-color: #bed0e4; */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    /*background-color: #60a3f0;*/
+    /*background-color: #efc109;*/
+    background-color: #ffffff;
+    border-radius: 20px;
 }
 .postimage{
     width: 96%;
@@ -103,22 +113,51 @@ body {
 a{
     text-decoration: none;
 }
-#followbutton{
+/*#followbutton{*/
+/*    padding: 10px;*/
+/*    background-color: #90CDD6;*/
+/*    width: 40%;*/
+/*    letter-spacing: 1px;*/
+/*    margin: auto;*/
+/*    font-weight: 500;*/
+/*    font-size: 18px;*/
+/*    text-align: center;*/
+/*    color: #ffffff;*/
+/*    border-radius: 20px;*/
+/*    transition: transform .4s;*/
+/*}*/
+
+/* Styling for each question box */
+/*.question-box {*/
+/*    border-bottom: 1px solid #eee;*/
+/*    padding: 20px;*/
+/*    margin-bottom: 20px;*/
+/*    !* background-color: #bed0e4; *!*/
+/*    box-shadow: 0 0 10px rgba(0,0,0,0.1);*/
+/*    !*background-color: #60a3f0;*!*/
+/*    background-color: #efc109;*/
+/*    border-radius: 20px;*/
+/*}*/
+.question-content a{
+    color: #666666;
+    text-decoration: none;
+    transition: color .4s;
+    font-family: "DM Sans", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.comments-section {
+    margin-top: 20px;
+    background-color: #f9f9f9;
     padding: 10px;
-    background-color: #90CDD6;
-    width: 40%;
-    letter-spacing: 1px;
-    margin: auto;
-    font-weight: 500;
-    font-size: 18px;
-    text-align: center;
-    color: #ffffff;
-    border-radius: 20px;
-    transition: transform .4s;
+    border-radius: 5px;
 }
-#followbutton:hover{
-    transform: scale(1.05);
-}
+
+/*#followbutton:hover{*/
+/*    transform: scale(1.05);*/
+/*}*/
 .logoutlink, .editprlink{
     font-size: 16px;
     font-weight: 550;

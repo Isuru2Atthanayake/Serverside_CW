@@ -3,7 +3,7 @@
 <!-- user view "Search,notify" -->
 <html lang="en">
 <head>
-    <title>HolidayGram</title>
+    <title>QuestEdu</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/navigation.css">
 </head>
@@ -13,22 +13,22 @@
                <a href="<?php echo base_url()?>index.php/home">
                <img class="logoimage" src="<?php echo base_url() ?>images/logo.png" alt="Logo" /></a>
           </div>
-          <div class="searchdiv"> 
-               <input type="text" class="search" id="search" placeholder="Search for user..." onkeyup='searchusers()'/>
-          </div>
-          <div class="linkdiv">
-               <div class="linkelement">
-                    <a href="<?php echo base_url()?>index.php/posts">
-                    <img class="linkimage" src="<?php echo base_url() ?>images/add.png"/></a>
-               </div>
-               <div class="linkelement">
-                    <a href="<?php echo base_url()?>index.php/home">
-                    <img class="linkimage" src="<?php echo base_url() ?>images/home.png"/></a>
-               </div>
-               <div class="linkelement">
-                    <img style="cursor:pointer" onclick='notifications();' class="linkimage" src="<?php echo base_url() ?>images/bell.png"/>
-               </div>
-          </div>
+<!--          <div class="searchdiv">-->
+<!--               <input type="text" class="search" id="search" placeholder="Search for Questions..." onkeyup='searchusers()'/>-->
+<!--          </div>-->
+<!--          <div class="linkdiv">-->
+<!--               <div class="linkelement">-->
+<!--                    <a href="--><?php //echo base_url()?><!--index.php/posts">-->
+<!--                    <img class="linkimage" src="--><?php //echo base_url() ?><!--images/add.png"/></a>-->
+<!--               </div>-->
+<!--               <div class="linkelement">-->
+<!--                    <a href="--><?php //echo base_url()?><!--index.php/home">-->
+<!--                    <img class="linkimage" src="--><?php //echo base_url() ?><!--images/home.png"/></a>-->
+<!--               </div>-->
+<!--               <div class="linkelement">-->
+<!--                    <img style="cursor:pointer" onclick='notifications();' class="linkimage" src="--><?php //echo base_url() ?><!--images/bell.png"/>-->
+<!--               </div>-->
+<!--          </div>-->
           <div class="profilediv">
                <div class="userlink">
                <a href="<?php echo base_url()?>index.php/myprofile" class="profilelink"><span><?php echo $username ?></span></a></div>

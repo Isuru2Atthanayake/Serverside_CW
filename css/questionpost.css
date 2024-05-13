@@ -1,0 +1,291 @@
+.postcontainer {
+    width: 800px; /* Adjust the width as needed */
+    margin: 20px auto; /* Center the container and provide some margin around it */
+    background-color: #f6f4ea; /* Background color for the box */
+    border-radius: 10px;
+    border: 1px solid #ccc; /* Border to distinguish the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for better depth */
+    padding: 20px; /* Padding inside the box */
+    box-sizing: border-box; /* Include padding and border in the width and height */
+    overflow: hidden; /* Ensures no overflow of content outside the box */
+    display: flex; /* Using flexbox to align child divs side by side */
+    flex-wrap: wrap; /* Allow children to wrap as needed */
+}
+
+/*.postcontainer {*/
+/*    width: 40%; !* Reduce the width for a more compact look *!*/
+/*    margin: 50px auto; !* Center the container vertically and horizontally *!*/
+/*    background-color: #ffffff; !* Light background color *!*/
+/*    border: 1px solid #cccccc; !* Subtle border *!*/
+/*    box-shadow: 0 2px 5px rgba(0,0,0,0.2); !* Soft shadow for depth *!*/
+/*    padding: 20px; !* Internal spacing *!*/
+/*    border-radius: 8px; !* Rounded corners for modern appearance *!*/
+/*}*/
+
+/*.postcontainer{*/
+/*    width: 100%;*/
+/*    display: block;*/
+/*    overflow: auto;*/
+/*}*/
+.leftdiv{
+    margin-top: 10px;
+    width: 55%;
+    max-width: 55%;
+    float: left;
+    position: fixed;
+}
+.rightdiv{
+    width: 45%;
+    float: right;
+    max-width: 45%;
+    display: block;
+    /*overflow: auto;*/
+}
+/*.postimagediv, .locationlikediv{*/
+/*    margin: auto;*/
+/*    display: block;*/
+/*    overflow: auto;*/
+/*}*/
+/*.postimagediv{*/
+/*    width: 60%;*/
+/*}*/
+.locationlikediv{
+    width: 58%;
+}
+/*.postimage{*/
+/*    width: 100%;*/
+/*    aspect-ratio : 1 / 1;*/
+/*    border-radius: 10px;*/
+/*    object-fit: cover;*/
+/*}*/
+.locationdiv{
+    width: 60%;
+    /*float: right;*/
+    box-sizing: border-box;
+    text-align: right;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding-top: 4px;
+}
+.likediv{
+    width: fit-content;
+    float: left;
+    font-size: 30px;
+}
+.likecount{
+    width: 20%;
+    float: left;
+    font-size: 17px;
+    font-weight: 550;
+    margin: 8px 0 0 10px;
+    color: #666666;
+
+}
+.fa-cube{
+    margin-right: 3%;
+}
+.locationdiv a{
+    color: #666666;
+    text-decoration: none;
+    transition: color .4s;
+}
+.locationdiv a:hover{
+    color: #52B2CF;
+    text-decoration: none;
+}
+.fa-star{
+    padding: 0;
+    cursor: pointer;
+    transition: transform .4s;
+}
+.fa-star:hover{
+    transform: scale(1.03);
+    float: right;
+}
+
+.usernameimgdiv{
+    width: 100%;
+    display: block;
+    overflow: auto;
+}
+.userimagediv{
+    width: 12%;
+    aspect-ratio : 1 / 1;
+    float: left;
+}
+.userimage{
+    width: 100%;
+    aspect-ratio : 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.usernamediv{
+    width: 50%;
+    float: left;
+    padding-left: 3%;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+    margin-top: 1%;
+}
+.usernamediv a{
+    color: #52B2CF;
+    text-decoration: none;
+    transition: color .4s;
+}
+.usernamediv a:hover{
+    color: #32AFD5;
+    text-decoration: none;
+}
+/*applies for tag, profile and like*/
+.captiondiv {
+    width: 90%;
+    font-size: 20px;
+    color: #0ee65a;
+}
+/* the question*/
+.question-content{
+    color: #666666;
+    text-decoration: none;
+    transition: color .4s;
+    font-family: "DM Sans", sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+/*caption of the question*/
+.questcaptiondiv {
+    width: 90%;
+    font-size: 20px;
+    color: #666666;
+}
+.commentareadiv{
+    margin: 15px 0;
+    width: 95%;
+    display: block;
+    overflow: auto;
+}
+.commentsdiv{
+    width: 90%;
+    font-size: 15px;
+    color: #666666;
+}
+.commentsdiv a{
+    color: #9A618E;
+    text-decoration: none;
+    padding-right: 2%;
+}
+.commentsdiv a:hover{
+    color: #9A618E;
+    text-decoration: underline;
+}
+.comments{
+    padding: 15px 0 12px 0;
+    border-bottom: 1px solid #52B2CF;
+}
+textarea{
+    width: 60%;
+    height: 50px;
+    padding: 8px;
+    border: 2px solid #cccccc;
+    border-radius: 8px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: normal;
+    color: #666666;
+    resize: none;
+    float: left;
+    outline: none;
+    font-family: "DM Sans", sans-serif;
+}
+textarea:focus{
+    border: 2px solid #8FD6C2;
+}
+button{
+    height: 40px;
+    float: left;
+    width: 25%;
+    border-radius: 20px;
+    margin-left: 2%;
+    margin-top: 15px;
+    border: none;
+    font-size: 16px;
+    transition: background-color .4s;
+    cursor: pointer;
+}
+button:disabled{
+	background-color: #cccccc;
+    color: #7C7D7C;
+}
+button:enabled{
+	background-color: #52B2CF;
+    color: white;
+}
+
+/*edited here ----start --*/
+/**/
+/*.postcontainer {*/
+/*    width: 50%; !* Adjust the width as needed *!*/
+/*    margin: 20px auto; !* Center the container and provide some margin around it *!*/
+/*    background-color: #c40707; !* Background color for the box *!*/
+/*    border: 1px solid #ccc; !* Border to distinguish the box *!*/
+/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); !* Optional: Adds shadow for better depth *!*/
+/*    padding: 20px; !* Padding inside the box *!*/
+/*    box-sizing: border-box; !* Include padding and border in the width and height *!*/
+/*    overflow: hidden; !* Ensures no overflow of content outside the box *!*/
+/*    display: flex; !* Using flexbox to align child divs side by side *!*/
+/*    flex-wrap: wrap; !* Allow children to wrap as needed *!*/
+/*}*/
+
+/*.leftdiv, .rightdiv {*/
+/*    width: 50%; !* Assign half of the container's width to each child *!*/
+/*    padding: 10px; !* Padding inside each child div *!*/
+/*    box-sizing: border-box; !* Include padding in the width calculation *!*/
+/*}*/
+
+/*.postimagediv {*/
+/*    width: 100%; !* Full width of its parent container *!*/
+/*    height: 300px; !* Fixed height for the image container *!*/
+/*    background-color: #170f0f; !* Light background color if the image is not loaded *!*/
+/*    margin-bottom: 10px; !* Margin below the image container *!*/
+/*}*/
+
+/*.postimage {*/
+/*    width: 100%; !* Full width of its container *!*/
+/*    height: 100%; !* Full height of its container *!*/
+/*    object-fit: cover; !* Ensures the image covers the div without distorting aspect ratio *!*/
+/*}*/
+
+/*.locationdiv, .likecount {*/
+/*    font-size: 16px; !* Increased font size for visibility *!*/
+/*    padding: 8px 0; !* Padding above and below the text *!*/
+/*    border-top: 1px solid #eee; !* Border top for separating sections *!*/
+/*}*/
+
+/*.captiondiv {*/
+/*    font-size: 16px; !* Font size for caption *!*/
+/*    color: #333; !* Darker color for text *!*/
+/*    line-height: 1.4; !* Line height for better readability *!*/
+/*    margin-top: 10px; !* Margin top to separate from above elements *!*/
+/*}*/
+
+/*.commentareadiv {*/
+/*    display: flex; !* Display flex to align textarea and button *!*/
+/*    align-items: center; !* Center align the items vertically *!*/
+/*    margin-top: 20px; !* Margin top for spacing *!*/
+/*}*/
+
+/*textarea {*/
+/*    flex-grow: 1; !* Allows textarea to grow and fill available space *!*/
+/*    margin-right: 10px; !* Margin right for spacing between textarea and button *!*/
+/*}*/
+
+/*.commentsdiv {*/
+/*    margin-top: 20px; !* Margin top for comments section *!*/
+/*}*/
+
+/*.comments {*/
+/*    padding: 10px 0; !* Padding for each comment *!*/
+/*    border-bottom: 1px solid #eee; !* Bottom border for each comment *!*/
+/*}*/
+
+/* edited here ----end --*/

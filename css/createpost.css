@@ -1,16 +1,38 @@
+/*.uppostcontainer{*/
+/*    width: 100%;*/
+/*    display: block;*/
+/*    overflow: auto;*/
+/*}*/
+
 .uppostcontainer{
-    width: 100%;
-    display: block;
-    overflow: auto;
+    width: 50%; /* Reduced width for better focus */
+    margin: 50px auto; /* Centering the box vertically and horizontally */
+    padding: 20px; /* Padding inside the container for spacing */
+    background-color: #ffffff; /* Light background to enhance readability */
+    border: 1px solid #ccc; /* Subtle border for definition */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Soft shadow for depth */
+    border-radius: 10px; /* Rounded corners for modern appearance */
+    display: flex; /* Flex display to better organize the internal layout */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Centers the flex items horizontally */
+    text-align: center; /* Aligns text inside the container to center */
 }
 .filediv {
     width: 55%;
     float: left;
     position: relative;
   }
+/*.captiondiv{*/
+/*    width: 45%;*/
+/*    float: right; */
+/*}*/
+
 .captiondiv{
-    width: 45%;
-    float: right; 
+    width: 100%; /* Ensuring these divs take full width of the container */
+    clear: both; /* Clearing floats if any */
+    margin-top: 20px; /* Adding top margin for spacing */
+    align-items: center; /* Center-align the child elements */
+    /*background-color: #0ee65a;*/
 }
 input[type=file] {
     position: absolute;
@@ -27,7 +49,7 @@ input[type=file] {
     text-align: center;
     border-radius: 15px;
     height: 45px;
- 
+
   }
 .dummy p{
     color: #F9F5F5;
@@ -113,3 +135,5 @@ select{
 select:focus{
     border: 2px solid #8FD6C2;
 }
+
+

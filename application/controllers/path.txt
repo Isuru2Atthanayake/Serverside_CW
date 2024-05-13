@@ -1,1 +1,2 @@
-http://localhost/holidaygram/index.php/users
+http://localhost/questedu_project/index.php/users
+http://localhost/questedu_project/index.php/myprofile

@@ -6,19 +6,60 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/b9008b61cc.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/home.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/home1.css">
 </head>
 
 <body>
+<!--The code of Sidebar navigation start here-->
+<div class="sidebar">
+<!--    <div class="searchdiv">-->
+<!--        <input type="text" class="search1" id="search" placeholder="fa-star" onkeyup='searchusers()'/>-->
+<!--    </div>-->
+
+<!--  444  the search bar inside the side bar start here-->
+    <div>
+        <input type="text"  class="searchdiv" id="search" placeholder="Search..." onkeyup='searchusers()'/>
+        <div class="searchresults" id="searchresults"></div>
+    </div>
+
+    <!--These are the  Navigation Links -->
+    <ul>
+        <li><a id="home-link" >Home</a></li>
+        <li><a id="tags-link" >Tags</a></li>
+        <li><a id="Profile-link" >Profile</a></li>
+        <!-- <li><a href="#contact">Contact</a></li> -->
+<!--        <a class="logoutlink" href="--><?php //echo base_url()?><!--index.php/users/logout">LOGOUT</a>-->
+    </ul>
+
+    <!-- Logout Link -->
+    <div class="logout-section">
+        <a class="logoutlink" href="<?php echo base_url()?>index.php/users/logout">LOGOUT</a>
+    </div>
+
+    <!--   444 the search bar inside the side bar end here-->
+
+    <!-- Icon Links -->
+    <div class="link-div">
+        <a href="<?php echo base_url()?>index.php/posts">
+            <img class="link-image" src="<?php echo base_url() ?>images/add.png" alt="Add Post"/>
+        </a>
+        <a href="<?php echo base_url()?>index.php/home">
+            <img class="link-image" src="<?php echo base_url() ?>images/home.png" alt="Home"/>
+        </a>
+        <img style="cursor:pointer" onclick='notifications();' class="link-image" src="<?php echo base_url() ?>images/bell.png" alt="Notifications"/>
+    </div>
+</div>
+<!--The code of Sidebar navigation end here -->
 <div class="feedcontainer">
     <div class='notfollowing'>
-        <div class='heading'>Follow users to see posts in the timeline</div>
+        <div class='heading'>This is the home page </div>
         <div class='userlisting'></div>
     </div>
 <div>
 
 <script type="text/javascript" lang="javascript">
     var username="<?php echo $username ?>";
+
     // code to get follow count and suggest users to follow if follow count is 0 start------
 
     // $(document).ready(function () {
@@ -37,11 +78,11 @@
     //                      +data[i].Username+"'><div class='users'><div class= 'profilepicdiv'><img class='profilepic' src='<?php echo base_url() ?>images/profilepics/"
     //                      +data[i].UserImage+"'/></div>"+data[i].Username+"</br>"+data[i].Name+"</div></a>";
     //                     $('.userlisting').append(div);
-    //                 } 
+    //                 }
     //             });
     //         }
     //         else{
-    //             $('.notfollowing').remove(); 
+    //             $('.notfollowing').remove();
     //         }
     //     });
     //     postCollection.fetch();//fetch backbone collection on start
@@ -50,31 +91,19 @@
 
     $(document).ready(function () {
         postCollection.fetch(); // Always fetch posts on start
+    
+      // Set the Tags link dynamically to navigate using the side bar start
+      $('#tags-link').attr('href', '<?php echo base_url() ?>index.php/posts/locations');
+      $('#Profile-link').attr('href', '<?php echo base_url() ?>index.php/myprofile');
+      $('#home-link').attr('href', '<?php echo base_url() ?>index.php/home');
+     // Set the Tags link dynamically to navigate using the side bar end
+    
     });
 
     var PostCollection = Backbone.Collection.extend({
         url: "<?php echo base_url() ?>index.php/home/followingposts?username="+username,
     });
     var html = "";
-
-    //code to display data with postimages --- start---
-    // var PostDisplay = Backbone.View.extend({
-    //     el: ".feedcontainer",
-    //     initialize: function () {
-    //         this.listenTo(this.model, "add", this.showResults);
-    //     },
-    //     showResults: function (m) {//display all posts in backbone view
-    //         html = html + "<div class='postdiv'><div class='locationdiv'><a href='<?php echo base_url() ?>index.php/posts/locations?locationid="
-    //         + m.get('LocationId') +"'><span><i class='fa-solid fa-location-dot'></i>"
-    //         + m.get('LocationName') +"</span></a></div><a href='<?php echo base_url() ?>index.php/posts/post?postid="
-    //         + m.get('PostId') +"'><img class='postimage' src='<?php echo base_url() ?>images/userposts/"
-    //         + m.get('PostImage') + "'/></a><div class='userlikediv'><div class='usernamediv'><a href='<?php echo base_url() ?>index.php/users/userprofile/?username="
-    //         + m.get('Username') +"'><span>"+ m.get('Username') +"</span></a></div><div class='likediv' id='likediv"
-    //         + m.get('PostId') +"'><i onclick='like("+m.get('PostId')+");' class='fa-solid fa-heart'></i></div></div><div class='captiondiv'>"
-    //         + m.get('Caption')+"</div><div class='commentsdiv' id='commentsdiv"
-    //         + m.get('PostId') +"'></div></div>";
-    //         this.$el.html(html);
-    // code to display data with postimages --- end---
     
     //code to display data with the questions and the other details  --- start---
     var PostDisplay = Backbone.View.extend({
@@ -83,24 +112,20 @@
         this.listenTo(this.model, "add", this.showResults);
     },
     showResults: function (m) {//display all the details of the relavent questions in backbone view
-        html = html + "<div class='postdiv'>" +
-            "<div class='locationdiv'>" +
+        html = html + "<div class='question-box'>" +
+            "<div class='question-content'>" +
             "<a href='<?php echo base_url() ?>index.php/posts/locations?locationid=" + m.get('LocationId') + "'>" +
             "<span><i class='fa-solid fa-cube'></i>" + m.get('LocationName') + "</span></a></div>" +
-            // "<a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'>" +
-            // "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></a></div>" +
-            // <i class="fa-light fa-star"></i>
-            // "<div class='questiondiv'><p>" + m.get('Question') + "</p></div>" + // Display the question
             "<div class='userlikediv'>" +
             "<div class='usernamediv'><a href='<?php echo base_url() ?>index.php/users/userprofile/?username=" + m.get('Username') + "'>" +
             "<span>" + m.get('Username') + "</span></a></div>" +
-            "<div class='likediv' id='likediv" + m.get('PostId') + "'>" +
+            "<div class='likes-count' id='likediv" + m.get('PostId') + "'>" +
             "<i onclick='like(" + m.get('PostId') + ");' class='fa-solid fa-star '></i></div></div>" +
-            "<div class='captiondiv'>" + m.get('Caption') + 
+            "<div class='captiondiv'>" + m.get('Caption') +
             
             "<a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'></br>" +
             "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></a></div>" +
-            "<div class='commentsdiv' id='commentsdiv" + m.get('PostId') + "'></div></div>" ;//to display the comments 
+            "<div class='comments-section' id='commentsdiv" + m.get('PostId') + "'></div></div>" ;//to display the comments
             // "<div class='commentsdiv'><span>Tags: " + m.get('QuestionTags') + "</span></div>"  // Display the tags
             
            
@@ -168,3 +193,5 @@
 </script>
 </body>
 </html>
+
+

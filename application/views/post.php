@@ -4,28 +4,54 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/b9008b61cc.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/post.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/questionpost.css">
 </head>
 <body>
-   <div class='postcontainer'>
-        <div class='leftdiv'>            
-            <div class='postimagediv'></div>
-            <div class='locationlikediv'>
-                <div class='likediv' id='likediv'></div>
-                <div class='likecount'></div>
-                <div class='locationdiv'></div>
-            </div>
-        </div>
-        <div class='rightdiv'>
-            <div class='usernameimgdiv'></div>
-            <div class='captiondiv'></div>
-            <div class='commentareadiv'>
-                <textarea onkeyup='checkinputs();' name="comment" id="comment" maxlength="50"></textarea>
-                <button onclick='postcomment();' id='commentbtn' disabled="disabled">Comment</button>
-            </div>
-            <div class='commentsdiv'></div>
-        </div>
-   </div>
+<!--   <div class='postcontainer'>-->
+<!--        <div class='leftdiv'>-->
+<!--            <div class='postimagediv'></div>-->
+<!--            <div class='locationlikediv'>-->
+<!--             <div class='likediv' id='likediv'></div>-->
+<!--                <div class='likecount'></div>-->
+<!--                <div class='locationdiv'></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class='rightdiv'>-->
+<!--            <div class='usernameimgdiv'></div>-->
+<!--            <div class='captiondiv'></div>-->
+<!--            <div class='commentareadiv'>-->
+<!--                <textarea onkeyup='checkinputs();' name="comment" id="comment" maxlength="50"></textarea>-->
+<!--                <button onclick='postcomment();' id='commentbtn' disabled="disabled">Comment</button>-->
+<!--            </div>-->
+<!--            <div class='commentsdiv'></div>-->
+<!--        </div>-->
+<!--   </div>-->
+<div class='postcontainer'>
+    <div class='usernameimgdiv'>
+        <!-- Placeholder for user image and username -->
+    </div>
+    <div class='captiondiv'>
+        <!-- Placeholder for post caption -->
+        <div class='likediv' id='likediv'></div>
+        <div class='likecount'></div>
+        <div class='locationdiv'></div>
+
+
+    </div>
+    <div class='questdiv'>
+        <div class='questcaptiondiv'></div>
+        <div class='question-content'></div>
+    </div>
+
+
+    <div class='commentareadiv'>
+        <textarea onkeyup='checkinputs();' name="comment" id="comment" maxlength="50"></textarea>
+        <button onclick='postcomment();' id='commentbtn' disabled="disabled">Comment</button>
+    </div>
+    <div class='commentsdiv'>
+        <!-- Placeholder for comments -->
+    </div>
+</div>
 
 <script type="text/javascript" lang="javascript">
     var username="<?php echo $username ?>";
@@ -38,20 +64,51 @@
         $.ajax({//get post details
             url: "<?php echo base_url() ?>index.php/posts/post/action/view?postid="+postid,
             method: "GET"
-            }).done(function (data) {//display post details
+            }).done(function (data) {//display the details of the questions which are poested
                 // var div ="<img class='postimage' src='<?php echo base_url() ?>images/userposts/"+data.PostImage+"' alt='picture'/>";
                 // $('.postimagediv').append(div);
-                var div2 ="<a href='<?php echo base_url() ?>index.php/posts/locations?locationid="
-                + data.LocationId +"'><span><i class='fa-solid fa-location-dot'></i>"+ data.LocationName +"</span></a>";
-                $('.locationdiv').append(div2);
-                var div3 ="<div class= 'userimagediv'><img class='userimage' src='<?php echo base_url() ?>images/profilepics/"
-                         +data.UserImage+"'/></div><div class='usernamediv'><a href='<?php echo base_url() ?>index.php/users/userprofile/?username="
-                         +data.Username +"'><span>"+ data.Username +"</span></a></div>";
-                $('.usernameimgdiv').append(div3);
-                var div4 ="<i onclick='like();' class='fa-solid fa-heart'></i>";
-                $('.likediv').append(div4);
-                var div5 =data.Caption ;
-                $('.captiondiv').append(div5);
+                //var div2 ="<a href='<?php //echo base_url() ?>//index.php/posts/locations?locationid="
+                //+ data.LocationId +"'><span><i class='fa-solid fa-cube'></i>"+ data.LocationName +"</span></a>";
+                //$('.locationdiv').append(div2);
+                //var div3 ="<div class= 'userimagediv'><img class='userimage' src='<?php //echo base_url() ?>//images/profilepics/"
+                //         +data.UserImage+"'/></div><div class='usernamediv'><a href='<?php //echo base_url() ?>//index.php/users/userprofile/?username="
+                //         +data.Username +"'><span>"+ data.Username +"</span></a></div>";
+                //$('.usernameimgdiv').append(div3);
+                //var div4 ="<i onclick='like();' class='fa-solid fa-star'></i>";
+                //$('.likediv').append(div4);
+                //var div5 =data.Caption ;
+                //$('.captiondiv').append(div5);
+                //var div6 =data.Question ;
+                //$('.captiondiv').append(div6);
+
+                    // Initializes the display of post details.
+
+
+        // Append a link to the tag details including tag name and icon.
+                    var div2 = "<a href='<?php echo base_url() ?>index.php/posts/locations?locationid=" +
+                        data.LocationId + "'><span><i class='fa-solid fa-cube'></i>" +
+                        data.LocationName + "</span></a>";
+                    $('.locationdiv').append(div2);
+
+        // Create and append a user image and name block linking to the user's profile.
+                    var div3 = "<div class='userimagediv'><img class='userimage' src='<?php echo base_url() ?>images/profilepics/" +
+                        data.UserImage + "'/></div><div class='usernamediv'><a href='<?php echo base_url() ?>index.php/users/userprofile/?username=" +
+                        data.Username + "'><span>" + data.Username + "</span></a></div>";
+                    $('.usernameimgdiv').append(div3);
+
+        // Add a 'like' icon with an event handler for liking the post.
+                    var div4 = "<i onclick='like();' class='fa-solid fa-star'></i>"+"<br/>";
+                    $('.likediv').append(div4);
+            // Append the caption data and add a line break for better layout.
+        // Encapsulate the caption in a div for better styling control.
+            var div5 = "<div class='questcaptiondiv'>" + data.Caption + "<br/></div>";
+            $('.questcaptiondiv').append(div5);
+
+        // Append the question text if available, it appears below the caption in the layout.
+        // Encapsulate the question in a div to maintain consistent styling and separation.
+            var div6 = "<div class='question-content'>" + data.Question + "</div>";
+            $('.question-content').append(div6);
+
             });
             $.ajax({//check if user has already liked the post
                 url: "<?php echo base_url() ?>index.php/home/checklikes?username="+username+"&postid="+postid,
@@ -140,10 +197,10 @@
         }).done(function (res) {
             $('.likecount span').remove();       
             if(res==1){
-                var div ="<span>"+res+" like</span>";
+                var div ="<span>"+res+" Rating</span>";
             }
             else{
-                var div ="<span>"+res+" likes</span>";
+                var div ="<span>"+res+" Ratings</span>";
             }
             $('.likecount').append(div);
         });

@@ -1,0 +1,338 @@
+/* This is the Basic styling for the entire page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    /* padding: 20px; */
+    color: #333;
+    /* display: flex; */
+}
+/*used for location page start */
+.locationlistdiv{
+    width: 20%;
+    float: left;
+    position: fixed;
+    display: flex;
+    flex-flow: column;
+}
+.commentsdiv{
+    margin:  0 5%;
+    font-size: 13px;
+    font-weight: 600;
+    color: #666666;
+}
+.postlocadiv{
+    box-shadow: 0px 0px 10px 0px  rgba(152, 162, 203, 0.25) ;
+    width: 80%;
+    float: right;
+}
+#locationname{
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 20px 0 0 10%;
+    color: #52B2CF;
+}
+
+.imagelocdiv{
+    width: 28%;
+    aspect-ratio : 1 / 1;
+    margin-left: 4%;
+    float: left;
+}
+#locationname{
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 20px 0 0 10%;
+    color: #52B2CF;
+}
+#locationlist{
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin: 20px 0 0 10%;
+}
+/*used for location page end */
+
+/* Styling for sidebar navigation old start here  */
+.sidebar {
+    margin-top: 85px;
+    /*width: 200px; !* Adjust width as needed *!*/
+    width: 221px; /* Adjust width as needed */
+    /*background-color: #f0f0f0; !* Light grey background *!*/
+    height: 100vh; /* Full-height */
+    overflow-y: auto; /* Enable scrolling if necessary */
+    position: fixed; /* Fixed position */
+    left: 0; /* Align to the left */
+    top: 0; /* Align to the top */
+    padding: 20px; /* Padding around content */
+    background-color: #2C3E50; /* Dark background for better contrast */
+    color: #FFFFFF; /* White text color */
+    /*padding: 20px; !* Padding inside the sidebar *!*/
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Shadow to elevate sidebar from the content */
+}
+
+/*.sidebar ul {*/
+/*    list-style-type: none; !* Remove bullets *!*/
+/*    padding: 0; !* Remove padding *!*/
+/*}*/
+
+/*.sidebar ul li a {*/
+/*    display: block;*/
+/*    text-decoration: none;*/
+/*    color: black;*/
+/*    padding: 10px; !* Padding for links *!*/
+/*    border-bottom: 1px solid #ddd; !* Separator between links *!*/
+/*}*/
+
+/*.sidebar ul li a:hover {*/
+/*    background-color: #ccc; !* Color change on hover *!*/
+/*}*/
+/*.feedcontainer {*/
+/*    !* margin: 0 auto; *!*/
+/*    margin-left: 220px; !* Make space for the sidebar *!*/
+/*    margin-left: auto;*/
+/*    width: 80%;*/
+/*    !* background: rgb(226, 222, 222); *!*/
+/*    padding: 20px;*/
+/*    box-shadow: 0 0 10px rgba(0,0,0,0.1);*/
+/*    !* margin-bottom: 100px; *!*/
+/*}*/
+/* Styling for sidebar navigation old end here  */
+
+/*new sidebar styling start here----------- */
+
+/*.sidebar {*/
+/*    width: 200px; !* Fixed width for the sidebar *!*/
+/*    height: 100vh; !* Full height to cover the entire viewport height *!*/
+/*    background-color: #2C3E50; !* Dark background for better contrast *!*/
+/*    color: #FFFFFF; !* White text color *!*/
+/*    padding: 20px; !* Padding inside the sidebar *!*/
+/*    box-shadow: 2px 0 5px rgba(0,0,0,0.1); !* Shadow to elevate sidebar from the content *!*/
+/*}*/
+
+.sidebar ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margins */
+}
+
+.sidebar ul li {
+    padding: 10px 0; /* Padding for each list item */
+    border-bottom: 1px solid #34495E; /* Subtle separator for each item */
+}
+
+.sidebar ul li a {
+    text-decoration: none; /* Remove underline from links */
+    color: #ECF0F1; /* Light grey text color for readability */
+    display: block; /* Make the links fill the container */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+}
+
+.sidebar ul li a:hover {
+    background-color: #34495E; /* Darker background on hover */
+    color: #1ABC9C; /* Change text color on hover for better visibility */
+}
+
+.logoutlink {
+    display: inline-block; /* Align properly within the list */
+    width: 100%; /* Full width to align with other links */
+    padding: 10px 0; /* Padding to make it look like a button */
+    background-color: #5a5959; /* Red background for logout to indicate action */
+    color: #FFFFFF; /* White text for contrast */
+    text-align: center; /* Center text */
+    margin-top: 250px; /* Space it out from other links */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s; /* Smooth transition for background */
+}
+
+.logoutlink:hover {
+    background-color: #453a39; /* Darker shade on hover */
+}
+
+/* Additional styling for the container */
+.feedcontainer {
+    margin-left: 260px; /* Offset to the right to make space for the sidebar */
+    padding: 20px; /* Padding around the content */
+}
+
+/* Styling for titles and user listing */
+.notfollowing .heading {
+    font-size: 24px; /* Larger text for headings */
+    color: #333; /* Dark color for text */
+    padding: 10px 0; /* Padding around the heading */
+}
+
+.userlisting {
+    /* Style as needed */
+}
+/*new sidebar styling end here --------*/
+
+/* Adjust main content area */
+/*.feedcontainer {*/
+/*    margin-left: 220px; !* Make space for the sidebar *!*/
+/*    !*width: calc(100% - 220px); !* Adjust width *!*!*/
+/*    !*padding: 20px;*!*/
+/*    !*box-shadow: none;*!*/
+/*}*/
+/* Styling for sidebarsidebar ends here */
+
+/* Styling for the feed container */
+/* .feedcontainer {
+    margin: 0 auto;
+    width: 80%;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+} */
+
+.question-content a{
+    color: #666666;
+    text-decoration: none;
+    transition: color .4s;
+    font-family: "DM Sans", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+/*the styles for text of the question */
+.captiondiv a{
+    color: #666666;
+    text-decoration: none;
+    transition: color .4s;
+    font-family: "DM Sans", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+/*.feedcontainer {*/
+/*    !* margin: 0 auto; *!*/
+/*    margin-left: 220px; !* Make space for the sidebar *!*/
+/*    margin-left: auto;*/
+/*    width: 80%;*/
+/*    !* background: rgb(226, 222, 222); *!*/
+/*    padding: 20px;*/
+/*    box-shadow: 0 0 10px rgba(0,0,0,0.1);*/
+/*    !* margin-bottom: 100px; *!*/
+/*}*/
+
+/* .userlikediv{
+    width: 100%;
+    margin:  0 5%;
+    height: 30px;
+} */
+/*this is the search bar*/
+
+/*.searchdiv{*/
+/*    !*float: left;*!*/
+/*    border-radius: 5%;*/
+/*    width: 100%;*/
+/*    height: 40%;*/
+/*    position:relative;*/
+/*    margin-bottom: 20px;*/
+/*    !*margin: 0 0 0 23%;*!*/
+/*}*/
+
+
+/*the search bar start here */
+.searchdiv{
+    width: 70%;
+    height: 2%;
+    position: relative;
+    margin-top: 10px;
+    top: 1%;
+    transform: translateY(-50%);
+    padding: 3% 0 3% 3%;
+    border-radius: 50px;
+    font-size: 1rem;
+    border: 2px solid #666666;
+    color: #666666;
+    right: 2%;
+}
+
+.searchresults, .notifications{
+    position: fixed;
+    display: none;
+    height: fit-content;
+    top: 70px;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    box-shadow: 0 0 10px 4px rgba(126, 196, 207, 0.25);
+    z-index: 2;
+    border-radius: 10px;
+}
+.searchresults{
+    width: 30%;
+    max-width: 30%;
+    max-height: 400px;
+    left: 40%;
+}
+/* the search bar end here */
+
+
+/* Styling for each question box */
+.question-box {
+    border-bottom: 1px solid #eee;
+    padding: 20px;
+    margin-bottom: 20px;
+    /* background-color: #bed0e4; */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    /*background-color: #60a3f0;*/
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+/*commented here for testing start */
+.question-content h4 {
+    color: #2a2a2a;
+}
+
+
+.question-content p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+    /*color: #c40707;*/
+}
+/*commented here for testing end */
+
+/* Styling for interaction buttons like 'Like' */
+.question-interactions button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.question-interactions button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for the likes count */
+.likes-count {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Comment section styling */
+.comments-section {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.comment {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
+
+.comment p {
+    margin: 5px 0;
+    font-size: 14px;
+}

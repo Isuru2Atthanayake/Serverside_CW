@@ -28,6 +28,7 @@ body {
     top: 50%;
     transform: translateY(-50%)
 }
+/*this is the search bar*/
 .searchdiv{
     float: left;
     width: 25%;

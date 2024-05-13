@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>HolidayGram</title>
+    <title>QuestEdu</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="../../css/verify.css">
 

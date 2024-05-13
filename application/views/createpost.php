@@ -7,30 +7,21 @@
 </head>
 <body>
     <div class="uppostcontainer">
-    <!-- <div class="filediv"> -->
-    <div class="captiondiv"> 
-        <div class="errormsg" id="errormsg"></div>
-        <!-- <div class="postpicdiv">
-             <img id='postpicid' src='<?php echo base_url() ?>images/userposts/default.jpg' alt='picture'/>
-        </div> -->
-        <!-- <input type="file" id="image" name="image" required="required" onchange="readURL(this);"/>
-        <input type="file" id="image" name="image" required="required" onchange="readURL(this);"/>   -->
-        <div class="caplabel"> <label for="caption">Enter the Question Below</label></div>
-        <div><textarea name="question" id="question" maxlength="255"></textarea></div>
-        <!-- <div class="dummy"><p>Select Picture</p></div> -->
-    <!-- </div> -->
+        <!-- <div class="filediv"> -->
+        <div class="captiondiv">
+            <div class="errormsg" id="errormsg"></div>
+            <div class="caplabel"> <label for="caption">Enter the Question Below</label></div>
+            <div><textarea name="question" id="question" maxlength="255"></textarea></div>
+            <div class="caplabel"> <label for="caption">Caption</label></div>
+            <div><textarea name="caption" id="caption"  maxlength="100"></textarea></div>
 
-   <!-- <div class="captiondiv">    -->
-        <div class="caplabel"> <label for="caption">Caption</label></div>
-        <div><textarea name="caption" id="caption"  maxlength="100"></textarea></div>
-        
-        <div class="loclabel"><label for="locations">Location</label></div>
-        <div>
-            <select onchange='getlocation();' id="locations">
-                <option id ='locationName' value=""></option>
-            </select>
-        </div>
-        <div class="postsubmitdiv"><div id="uploadpost" >Post Question</div></div>
+            <div class="loclabel"><label for="locations">Location</label></div>
+            <div>
+                <select onchange='getlocation();' id="locations">
+                    <option id ='locationName' value=""></option>
+                </select>
+            </div>
+            <div class="postsubmitdiv"><div id="uploadpost" >Post Question</div></div>
         </div>
     </div>
         <script type="text/javascript" lang="javascript">
