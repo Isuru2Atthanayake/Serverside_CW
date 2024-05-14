@@ -84,10 +84,10 @@ input[type=file]:valid + .dummy {
 }
 #uploadpost{
     width: 25%;
-    background-color: #8FD6C2;
+    background-color: #003049;
 	font-size: 1.3rem;
 	padding: 0.8rem 0.5rem;
-	border-radius: 25px;
+	border-radius: 5px;
 	color: #fff;
     text-align: center;
     margin: auto;
@@ -95,14 +95,14 @@ input[type=file]:valid + .dummy {
 	transition: background-color .4s;
 }
 #uploadpost:hover{
-    background-color: #7EC4CF
+    background-color: #669bbc
 }
 .caplabel, .loclabel{
     margin-top: 20px;
     font-weight: 600;
     font-size: 20px;
     letter-spacing: 1px;
-    color: #8EA0E3;
+    color: #003049;
 }
 textarea{
     width: 60%;

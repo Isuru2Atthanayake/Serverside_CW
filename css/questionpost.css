@@ -1,7 +1,7 @@
 .postcontainer {
     width: 800px; /* Adjust the width as needed */
     margin: 20px auto; /* Center the container and provide some margin around it */
-    background-color: #f6f4ea; /* Background color for the box */
+    background-color: #ffffff; /* Background color for the box */
     border-radius: 10px;
     border: 1px solid #ccc; /* Border to distinguish the box */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for better depth */
@@ -204,7 +204,7 @@ button{
     height: 40px;
     float: left;
     width: 25%;
-    border-radius: 20px;
+    border-radius: 5px;
     margin-left: 2%;
     margin-top: 15px;
     border: none;
@@ -217,7 +217,7 @@ button:disabled{
     color: #7C7D7C;
 }
 button:enabled{
-	background-color: #52B2CF;
+	background-color: #003049;
     color: white;
 }
 
