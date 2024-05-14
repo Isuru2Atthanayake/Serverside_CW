@@ -46,7 +46,7 @@
 
     <div class='commentareadiv'>
         <textarea onkeyup='checkinputs();' name="comment" id="comment" maxlength="50"></textarea>
-        <button onclick='postcomment();' id='commentbtn' disabled="disabled">Comment</button>
+        <button onclick='postcomment();' id='commentbtn' disabled="disabled">Reply</button>
     </div>
     <div class='commentsdiv'>
         <!-- Placeholder for comments -->

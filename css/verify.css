@@ -74,7 +74,7 @@ input:-webkit-autofill:active{
 	border-bottom: 2px solid #B6E3EC;
 }
 .loginfield{
-	border-bottom: 2px solid #B6EDDA;
+	border-bottom: 2px solid #669BBC;
 }
 .signfield:focus, .signfield:valid, .signfield:hover {
 	outline: 0;
@@ -105,28 +105,41 @@ input:-webkit-autofill:active{
 	padding: 0.5rem;
 	width: 100%;
 	font-weight: 500;
-	border-radius: 25px;
+	border-radius: 5px;
 	color: #fff;
 	border: 0;
 	transition: transform .4s;
+
+	  /*height: 20px;*/
+	  /*display: inline-block;*/
+	  /*background-color: #34495E; !* Dark background for contrast *!*/
+	  /*color: #FFFFFF; !* White text for visibility *!*/
+	  /*text-decoration: none; !* Remove underline from links *!*/
+	  /*padding: 10px; !* Padding for spacing *!*/
+	  /*border-radius: 5px; !* Rounded corners *!*/
+	  /*transition: background-color 0.3s; !* Smooth transition for hover effect *!*/
+	  /*align-items: center;*/
+	  /*justify-content: center;*/
+	  /*flex-direction: column;*/
+	  /*display: flex;*/
   }
   .signupbtn:enabled:hover, .loginbtn:enabled:hover{
 	transform: scale(1.05);
   }
   .signupbtn:disabled{
 	opacity: 0.4;
-	background-color: #ECB6D5;
+	background-color: #669BBC;
   }
   .loginbtn:disabled{
 	opacity: 0.4;
-	background-color: #C7B6ED;
+	background-color: #669BBC;
   }
 
   .signupbtn:enabled{
-	background-color: #ECB6D5;
+	background-color: #003049;
   }
   .loginbtn:enabled {
-	background-color: #C7B6ED;
+	background-color: #003049;
   }
  
   .signspandiv, .loginspandiv {
@@ -144,18 +157,18 @@ input:-webkit-autofill:active{
 	text-decoration:underline;
   }
   .loginspandiv a {
-	color: #7EC4CF;
+	color: #669BBC;
 	text-decoration: none;
   }
   .loginspandiv a:hover {
-	color: #7EC4CF;
+	color: #003049;
 	text-decoration:underline;
   }
   .logheading, .pwresetheading{
 	font-size: 2.5rem;
     font-weight: 550;
     letter-spacing: 1px;
-    color: #C7B6ED;
+    color: #003049;
 	text-align: center;
   }
   .errormsg{

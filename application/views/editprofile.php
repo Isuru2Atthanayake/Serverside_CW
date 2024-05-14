@@ -7,22 +7,79 @@
 </head>
 
 <body>
+<!--<div class="editprofcontainer">-->
+<!--    <div class="texteditdiv">-->
+<!--        <div class="errormsg" id="errormsg2"></div>-->
+<!--        <div class="namechangediv"></div>-->
+<!--        <div class="emailchangediv"></div>-->
+<!--        <div class="biochangediv"></div>-->
+<!--        <div class="changepwdiv"><a href="--><?php //echo base_url()?><!--index.php/users/passwordreset">Change Password</a></div>-->
+<!--    </div>-->
+<!--    <div class="piceditdiv">-->
+<!--        <div class="errormsg" id="errormsg"></div>-->
+<!--        <div class="profimagediv"></div>-->
+<!--        <input type="file" id="image" name="image" onchange="readURL(this);" />-->
+<!--        <div class="dummy">Select Profile Picture</div>-->
+<!--    </div>-->
+<!--    <div class="editprofdiv"><div id="editprofile" >SAVE CHANGES</div></div>-->
+<!--</div>-->
+
 <div class="editprofcontainer">
-    <div class="texteditdiv">
-        <div class="errormsg" id="errormsg2"></div>
-        <div class="namechangediv"></div>
-        <div class="emailchangediv"></div>
-        <div class="biochangediv"></div>
-        <div class="changepwdiv"><a href="<?php echo base_url()?>index.php/users/passwordreset">Change Password</a></div>
+    <div class="editprofile-box">
+        <div class="piceditdiv">
+            <div class="errormsg" id="errormsg"></div>
+            <div class="profimagediv"></div>
+            <input type="file" id="image" name="image" onchange="readURL(this);" />
+            <div class="dummy">Select Profile Picture</div>
+        </div>
+        <div class="texteditdiv">
+            <div class="errormsg" id="errormsg2"></div>
+            <div class="namechangediv"></div>
+            <div class="emailchangediv"></div>
+            <div class="changepwdiv">
+                <a class="styled-button changepw-button" href="<?php echo base_url()?>index.php/users/passwordreset">Change Password</a>
+            </div>
+        </div>
+        <div class="editprofdiv">
+            <div id="editprofile" class="styled-button save-changes">SAVE CHANGES</div>
+<!--            <a class="styled-button changepw-button" href="--><?php //echo base_url()?><!--index.php/users/passwordreset">Change Password</a>-->
+        </div>
     </div>
-    <div class="piceditdiv">
-        <div class="errormsg" id="errormsg"></div>
-        <div class="profimagediv"></div>
-        <input type="file" id="image" name="image" onchange="readURL(this);" />
-        <div class="dummy">Select Profile Picture</div> 
-    </div>
-    <div class="editprofdiv"><div id="editprofile" >SAVE CHANGES</div></div>
 </div>
+
+<!--the editprofile container start here-->
+<!--<div class="editprofcontainer">-->
+<!--    <div class="editprofile-box">-->
+<!--        <div class="piceditdiv">-->
+<!--            <div class="profimagediv"></div>-->
+<!--            <input type="file" id="image" name="image" onchange="readURL(this);" />-->
+<!--            <div class="dummy">Select Profile Picture</div>-->
+<!--        </div>-->
+<!--        <div class="texteditdiv">-->
+<!--            <div class="errormsg" id="errormsg2"></div>-->
+<!--            <div class="namechangediv">-->
+<!--                <label for="name">Name</label>-->
+<!--                <input type="text" id="name" name="name" value="a">-->
+<!--            </div>-->
+<!--            <div class="emailchangediv">-->
+<!--                <label for="email">Email</label>-->
+<!--                <input type="email" id="email" name="email" value="isuru.atthanayake@gmail.com">-->
+<!--            </div>-->
+<!--            <div class="changepwdiv">-->
+<!--                <a class="styled-button changepw-button" href="--><?php //echo base_url()?><!--index.php/users/passwordreset">Change Password</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--                <div class="texteditdiv">-->
+<!--                    <div class="errormsg" id="errormsg2"></div>-->
+<!--                    <div class="namechangediv"></div>-->
+<!--                    <div class="emailchangediv"></div>-->
+<!--                </div>-->
+<!--        <div class="editprofdiv">-->
+<!--            <div id="editprofile" class="styled-button save-changes">SAVE CHANGES</div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--the editprofile container ends here-->
 
 <script type="text/javascript" lang="javascript">
     var username="<?php echo $username ?>";
@@ -42,14 +99,28 @@
             bio=data.UserBio;
             name=data.Name;
             email=data.Email;
-            var div ="<img id='profpicid' src='<?php echo base_url() ?>images/profilepics/"+data.UserImage+"' alt='picture'/>";
+            //var div ="<img id='profpicid' src='<?php //echo base_url() ?>//images/profilepics/"+data.UserImage+"' alt='picture'/>";
+            //$('.profimagediv').append(div);
+            //var namediv="<div class='labeldiv'>Name</div><div class='inputdiv'><input class='inputedit' onkeyup='getname()' type=text id='name' name='name' value='"+data.Name+"'/></div>";
+            //$('.namechangediv').append(namediv);
+            //var emaildiv="<div class='labeldiv'>Email</div><div class='inputdiv'><input class='inputedit' onkeyup='validateemail()' type=text id='email' name='email' value='"+data.Email+"'/></div>";
+            //$('.emailchangediv').append(emaildiv);
+            //var biodiv="<div class='labeldiv'>Bio</div><div class='inputdiv'><textarea name='bio' id='bio' onkeyup='getbio()' maxlength='120'>"+data.UserBio+"</textarea></div>";
+            //$('.biochangediv').append(biodiv);
+            var div = "<img id='profpicid' class='profile-image' src='<?php echo base_url() ?>images/profilepics/" + data.UserImage + "' alt='picture'/>";
             $('.profimagediv').append(div);
-            var namediv="<div class='labeldiv'>Name</div><div class='inputdiv'><input class='inputedit' onkeyup='getname()' type=text id='name' name='name' value='"+data.Name+"'/></div>";
+
+            var namediv = "<div class='labeldiv'>Name</div>" +
+                "<div class='inputdiv'><input class='inputedit' onkeyup='getname()' type='text' id='name' name='name' value='" + data.Name + "'/></div>";
             $('.namechangediv').append(namediv);
-            var emaildiv="<div class='labeldiv'>Email</div><div class='inputdiv'><input class='inputedit' onkeyup='validateemail()' type=text id='email' name='email' value='"+data.Email+"'/></div>";
+
+            var emaildiv = "<div class='labeldiv'>Email</div>" +
+                "<div class='inputdiv'><input class='inputedit' onkeyup='validateemail()' type='text' id='email' name='email' value='" + data.Email + "'/></div>";
             $('.emailchangediv').append(emaildiv);
-            var biodiv="<div class='labeldiv'>Bio</div><div class='inputdiv'><textarea name='bio' id='bio' onkeyup='getbio()' maxlength='120'>"+data.UserBio+"</textarea></div>";
-            $('.biochangediv').append(biodiv);
+
+            // var biodiv = "<div class='labeldiv'>Bio</div>" +
+            //     "<div class='inputdiv'><textarea class='textareaedit' name='bio' id='bio' onkeyup='getbio()' maxlength='120'>" + data.UserBio + "</textarea></div>";
+            // $('.biochangediv').append(biodiv);
         });
     });
     //validate the edited email

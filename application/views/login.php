@@ -39,7 +39,7 @@
         <a href="<?php echo base_url()?>index.php/users/passwordreset">Forgot Password?</a><br>
         <span>Don't have an account? <a href="<?php echo base_url()?>index.php/users/signup">Sign Up</a> here </span>
     </div>
-    </div>
+</div>
 
     <script type="text/javascript" lang="javascript">
         //check if all inputs are not empty
