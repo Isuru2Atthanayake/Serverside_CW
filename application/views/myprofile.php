@@ -6,30 +6,57 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/myprofile.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/home1.css">
+    <!--   this is used for the sidebar-->
+<!--    <link rel="stylesheet" type="text/css" href="--><?php //echo base_url()?><!--css/home2_myprofile_sidebar.css">-->
 </head>
 
 <body>
+<!--The code of Sidebar  start here -->
+
+<div class="sidebar">
+    <!--  444  the search bar inside the side bar start here-->
+    <div>
+        <input type="text"  class="searchdiv" id="search" placeholder="Search..." onkeyup='searchusers()'/>
+        <div class="searchresults2" id="searchresults"></div>
+    </div>
+
+    <!--These are the  Navigation Links -->
+    <ul>
+        <li><a id="home-link" >Home</a></li>
+        <li><a id="tags-link" >Tags</a></li>
+        <li><a id="Profile-link" >Profile</a></li>
+    </ul>
+
+    <!-- Logout Link -->
+    <div class="logout-section">
+        <a class="logoutlink" href="<?php echo base_url()?>index.php/users/logout">LOGOUT</a>
+    </div>
+
+    <!--   444 the search bar inside the side bar end here-->
+</div>
+<!--The code of Sidebar  end here -->
+
+<!--The code of profile  start here-->
 <div class="profilecontainer">
     <div class="profiledeetdiv">
         <div class="topdiv">
             <div class="profpicdiv"></div>
-            <!-- <div class="followdiv">
-                <div class="flabel">FOLLOWING</div>
-                <div class="fcount" id="followingc"></div>
-                <div class="flabel">FOLLOWERS</div>
-                <div class="fcount" id="followerc"></div>
-            </div> -->
         </div>
         <div class="usernamediv"><?php echo $username ?></div>
         <div class="namediv"></div>
         <!-- <div class="biodiv"></div> -->
         <div class="profbottomdiv">
             <a class="editprlink" href="<?php echo base_url()?>index.php/myprofile/editprofile">EDIT PROFILE</a>
-            <a class="logoutlink" href="<?php echo base_url()?>index.php/users/logout">LOGOUT</a>
+<!--            <a class="logoutlink1" href="--><?php //echo base_url()?><!--index.php/users/logout">LOGOUT</a>-->
         </div>
     </div>
     <div class="postsdiv" id="postsdiv"></div>
 </div>
+<!--The code of profile  end here-->
+
+
+
 
 <script type="text/javascript" lang="javascript">
     var username="<?php echo $username ?>";
@@ -55,6 +82,12 @@
             document.getElementById("followingc").innerHTML = data.following
             document.getElementById("followerc").innerHTML = data.followers
         });
+
+        // Set the Tags link dynamically to navigate using the side bar start
+        $('#tags-link').attr('href', '<?php echo base_url() ?>index.php/posts/locations');
+        $('#Profile-link').attr('href', '<?php echo base_url() ?>index.php/myprofile');
+        $('#home-link').attr('href', '<?php echo base_url() ?>index.php/home');
+        // Set the Tags link dynamically to navigate using the side bar end
     });
    
     var Post = Backbone.Model.extend({

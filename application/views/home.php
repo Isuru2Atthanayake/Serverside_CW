@@ -39,17 +39,12 @@
     <!--   444 the search bar inside the side bar end here-->
 
     <!-- Icon Links -->
-    <div class="link-div">
-<!--        <a href="--><?php //echo base_url()?><!--index.php/posts">-->
-<!--            <img class="link-image" src="--><?php //echo base_url() ?><!--images/add.png" alt="Add Post"/>-->
-<!--        </a>-->
-<!--        <button><a href="--><?php //echo base_url()?><!--index.php/home">-->
-<!--            <img class="link-image" src="--><?php //echo base_url() ?><!--" alt="Home"/>-->
-<!--        </a></button>-->
-<!--        <img style="cursor:pointer" onclick='notifications();' class="link-image" src="--><?php //echo base_url() ?><!--images/bell.png" alt="Notifications"/>-->
-    </div>
+<!--    <div class="link-div">-->
+<!---->
+<!--    </div>-->
 </div>
 <!--The code of Sidebar navigation end here -->
+
 <div class="feedcontainer">
     <div class='notfollowing'>
         <div class='heading'>This is the home page </div>
@@ -112,6 +107,23 @@
         this.listenTo(this.model, "add", this.showResults);
     },
     showResults: function (m) {//display all the details of the relavent questions in backbone view
+        //html = html + "<div class='question-box'>" +
+        //    "<div class='question-content'>" +
+        //    "<a href='<?php //echo base_url() ?>//index.php/posts/locations?locationid=" + m.get('LocationId') + "'>" +
+        //    "<span><i class='fa-solid fa-cube'></i>" + m.get('LocationName') + "</span></a></div>" +
+        //    "<div class='userlikediv'>" +
+        //    "<div class='usernamediv'><a href='<?php //echo base_url() ?>//index.php/users/userprofile/?username=" + m.get('Username') + "'>" +
+        //    "<span>" + m.get('Username') + "</span></a></div>" +
+        //    "<div class='likes-count' id='likediv" + m.get('PostId') + "'>" +
+        //    "<i onclick='like(" + m.get('PostId') + ");' class='fa-solid fa-star '></i></div></div>" +
+        //    "<div class='captiondiv'>" + m.get('Caption') +
+        //
+        //    "<a href='<?php //echo base_url() ?>//index.php/posts/post?postid=" + m.get('PostId') + "'></br>" +
+        //    "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></a></div>" +
+        //    "<a class='styled-button' href='<?php //echo base_url() ?>//index.php/posts/post?postid=" + m.get('PostId') + "'><br>" +
+        //    "<div class='comments-section' id='commentsdiv" + m.get('PostId') + "'></div></div>";//to display the comments
+        //    // "<div class='commentsdiv'><span>Tags: " + m.get('QuestionTags') + "</span></div>"  // Display the tags
+
         html = html + "<div class='question-box'>" +
             "<div class='question-content'>" +
             "<a href='<?php echo base_url() ?>index.php/posts/locations?locationid=" + m.get('LocationId') + "'>" +
@@ -122,11 +134,32 @@
             "<div class='likes-count' id='likediv" + m.get('PostId') + "'>" +
             "<i onclick='like(" + m.get('PostId') + ");' class='fa-solid fa-star '></i></div></div>" +
             "<div class='captiondiv'>" + m.get('Caption') +
-            
+
             "<a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'></br>" +
             "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></a></div>" +
-            "<div class='comments-section' id='commentsdiv" + m.get('PostId') + "'></div></div>" ;//to display the comments
+            //"<a class='styled-button' href='<?php //echo base_url() ?>//index.php/posts/post?postid=" + m.get('PostId') + "'><br>" +
+            "<div class='comments-section' id='commentsdiv" + m.get('PostId') + "'></div>"+
+            "<a class='styled-button' href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'>View answer</a>" +
+            "<a class='styled-button reply-button' href='<?php echo base_url() ?>index.php/posts/reply?postid=" + m.get('PostId') + "'>Reply</a>" +
+            "</div>"; //to display the comments
             // "<div class='commentsdiv'><span>Tags: " + m.get('QuestionTags') + "</span></div>"  // Display the tags
+
+        //html = html + "<div class='question-box'>" +
+        //    "<div class='question-content'>" +
+        //    "<div class='user-info'>" +
+        //    "<div class='profpicdiv'></div>" +
+        //    "<span>" + m.get('Question') + "</span>" +
+        //    "</div>" +
+        //    "<a class='styled-button' href='<?php //echo base_url() ?>//index.php/posts/post?postid=" + m.get('PostId') + "'>View answer</a>" +
+        //    "</div>" +
+        //    "<div class='userlikediv'>" +
+        //    "<div class='usernamediv'><a href='<?php //echo base_url() ?>//index.php/users/userprofile/?username=" + m.get('Username') + "'>" +
+        //    "<span>" + m.get('Username') + "</span></a></div>" +
+        //    "<div class='likes-count' id='likediv" + m.get('PostId') + "'>" +
+        //    "<i onclick='like(" + m.get('PostId') + ");' class='fa-solid fa-star '></i></div></div>" +
+        //    "<div class='captiondiv'>" + m.get('Caption') + "</div>" +
+        //    "<div class='comments-section' id='commentsdiv" + m.get('PostId') + "'></div></div>";
+        // "<div class='commentsdiv'><span>Tags: " + m.get('QuestionTags') + "</span></div>";  // Display the tags
             
            
 

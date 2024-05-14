@@ -15,48 +15,6 @@ body {
     display: flex;
     flex-flow: column;
 }
-.styled-button {
-    /*display: inline-block;*/
-    /*padding: 10px 20px;*/
-    /*font-size: 16px;*/
-    /*color: #fff;*/
-    /*background-color: #007bff;*/
-    /*border: none;*/
-    /*border-radius: 5px;*/
-    /*text-align: center;*/
-    /*text-decoration: none;*/
-    /*cursor: pointer;*/
-    /*transition: background-color 0.3s ease;*/
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    /*color: #fff;*/
-    /*background-color: #007bff;*/
-    color: #FDF0D5; /* Light Beige */
-    background-color: #003049; /* Dark Blue */
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-    margin-right: 10px;
-}
-
-.styled-button:hover {
-    background-color: #0056b3;
-}
-
-.reply-button {
-    background-color: #669BBC;
-    /*background-color: #C1121F; !* Red *!*/
-}
-
-.reply-button:hover {
-    /*background-color: #218838;*/
-    background-color: #780000; /* Dark Red */
-}
 .commentsdiv{
     margin:  0 5%;
     font-size: 13px;
@@ -113,6 +71,45 @@ body {
     /*padding: 20px; !* Padding inside the sidebar *!*/
     box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Shadow to elevate sidebar from the content */
 }
+
+/*.sidebar ul {*/
+/*    list-style-type: none; !* Remove bullets *!*/
+/*    padding: 0; !* Remove padding *!*/
+/*}*/
+
+/*.sidebar ul li a {*/
+/*    display: block;*/
+/*    text-decoration: none;*/
+/*    color: black;*/
+/*    padding: 10px; !* Padding for links *!*/
+/*    border-bottom: 1px solid #ddd; !* Separator between links *!*/
+/*}*/
+
+/*.sidebar ul li a:hover {*/
+/*    background-color: #ccc; !* Color change on hover *!*/
+/*}*/
+/*.feedcontainer {*/
+/*    !* margin: 0 auto; *!*/
+/*    margin-left: 220px; !* Make space for the sidebar *!*/
+/*    margin-left: auto;*/
+/*    width: 80%;*/
+/*    !* background: rgb(226, 222, 222); *!*/
+/*    padding: 20px;*/
+/*    box-shadow: 0 0 10px rgba(0,0,0,0.1);*/
+/*    !* margin-bottom: 100px; *!*/
+/*}*/
+/* Styling for sidebar navigation old end here  */
+
+/*new sidebar styling start here----------- */
+
+/*.sidebar {*/
+/*    width: 200px; !* Fixed width for the sidebar *!*/
+/*    height: 100vh; !* Full height to cover the entire viewport height *!*/
+/*    background-color: #2C3E50; !* Dark background for better contrast *!*/
+/*    color: #FFFFFF; !* White text color *!*/
+/*    padding: 20px; !* Padding inside the sidebar *!*/
+/*    box-shadow: 2px 0 5px rgba(0,0,0,0.1); !* Shadow to elevate sidebar from the content *!*/
+/*}*/
 
 .sidebar ul {
     list-style: none; /* Remove default list styling */
@@ -282,14 +279,6 @@ body {
     /*background-color: #60a3f0;*/
     background-color: #ffffff;
     border-radius: 20px;
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*padding: 20px;*/
-    /*margin-bottom: 10px;*/
-    /*background-color: #ffffff; !* Light Beige *!*/
-    /*border-radius: 10px;*/
-    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
-    /*border: 1px solid #5a5959; !* Light Blue *!*/
 }
 /*commented here for testing start */
 .question-content h4 {
@@ -298,15 +287,10 @@ body {
 
 
 .question-content p {
-    /*font-size: 16px;*/
-    /*line-height: 1.5;*/
-    /*color: #666;*/
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
     /*color: #c40707;*/
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #003049; /* Dark Blue */
-    margin-bottom: 15px;
 }
 /*commented here for testing end */
 
