@@ -18,8 +18,6 @@
 <!--          </div>-->
           <div class="linkdiv">
                <div class="linkelement">
-<!--                    <a href="--><?php //echo base_url()?><!--index.php/posts">-->
-<!--                    <img class="linkimage" src="--><?php //echo base_url() ?><!--images/add.png"/></a>-->
                         <a href="<?php echo base_url()?>index.php/posts" class="icon-button">
                             <img class="linkimage" src="<?php echo base_url() ?>" alt="Add Post"/>
                             <span>Ask a Question</span>
@@ -41,12 +39,6 @@
                       <span><?php echo $username ?></span>
                   </a>
               </div>
-<!--              <div class=" profilediv">-->
-<!--                  <a href="--><?php //echo base_url()?><!--index.php/myprofile" class="profilelink">-->
-<!--                      <img src="--><?php //echo base_url() ?><!--images/user_icon.png" alt="Profile Icon" class="profile-icon"/>-->
-<!--                      <span>--><?php //echo $username ?><!--</span>-->
-<!--                  </a>-->
-<!--              </div>-->
           </div>
 
      </div>
@@ -56,38 +48,7 @@
 
      <script type="text/javascript" lang="javascript">
      var username="<?php echo $username ?>";
-     // function searchusers() {
-     //      if($('#search').val().length==0){
-     //           document.getElementById("searchresults").style.display = "none";
-     //      }
-     //      else{//overlay only displayed when something is typed
-     //           document.getElementById("searchresults").style.display = "block";
-     //      }
-     //      var userdata = {
-     //            username: "@" + $('#search').val().toLowerCase()
-     //      };
-     //      $.ajax({//get users from the search string
-     //            url: "<?php echo base_url() ?>index.php/users/user/action/searchuser",
-     //            data: JSON.stringify(userdata),
-     //            contentType: "application/json",
-     //            method: "POST"
-     //        }).done(function (data) {
-     //           $('#searchresults div').remove(); 
-     //           $('#searchresults a').remove(); 
-     //           if(data.length==0){//display no results if array length is 0
-     //                var div ="<div class ='user noresult'>No Results</div>";
-     //                $('#searchresults').append(div);
-     //           }
-     //           else{
-     //                for (i = 0; i < data.length; i++) {
-     //                     var div ="<a class='userlinks' href='<?php echo base_url() ?>index.php/users/userprofile/?username="
-     //                     +data[i].Username+"'><div class ='user'><div class= 'seauserimagediv'><img class='seauserimage' src='<?php echo base_url() ?>images/profilepics/"
-     //                     +data[i].UserImage+"'/></div><div class='searuserdeet'>"+data[i].Username+"<br>"+data[i].Name+"</div></div></a>";
-     //                     $('#searchresults').append(div);
-	// 	          } 
-     //           }
-     //      });
-     // }
+     //search function WHEN USER TYPES IN SEARCH BAR
      function searchusers() {
           if($('#search').val().length==0){
                document.getElementById("searchresults").style.display = "none";

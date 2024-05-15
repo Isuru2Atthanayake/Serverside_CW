@@ -95,34 +95,58 @@ class Posts extends \Restserver\Libraries\REST_Controller {
     }
 
     // to get tags parametered
-    public function location_get() {
-        //action all gets all locations
+//    public function location_get() {
+//        //action all gets all tags
+//        if($this->get('action') == 'all') {
+//            $questtags = $this->postmod->getLocations();
+//            if ($questtags) {
+//                $this->response($questtags);
+//            } else {
+//                $this->response(NULL);
+//            }
+//        }
+//        //action id get the post by its id
+//        if($this->get('action') == 'id') {
+//            $questtagid = $this->get('questtagid');
+//            $questtags = $this->postmod->getLocationbyId($questtagid);
+//            $this->response($questtags);
+//        }
+//    }
+
+    // to get tags parametered
+//display the dropdown of the ask question form,tags page sidebar
+    public function questtag_get() {
+        //action all gets all questtags
         if($this->get('action') == 'all') {
-            $questtags = $this->postmod->getLocations();
+            $questtags = $this->postmod->getQuesttag();
             if ($questtags) {
                 $this->response($questtags);
             } else {
                 $this->response(NULL);
-            } 
+            }
         }
         //action id get the post by its id
         if($this->get('action') == 'id') {
             $questtagid = $this->get('questtagid');
-            $questtags = $this->postmod->getLocationbyId($questtagid);
+            $questtags = $this->postmod->getQuesttagbyId($questtagid);
             $this->response($questtags);
         }
     }
+
+
     //to get tags notparametered
-     public function locations_get() {
+//    used in homeview,questtags view,post view,profile view
+//if not given the redrects to the creatpost view
+     public function questtags_get() {
         if ($this->usersmod->is_logged_in()) {
             $questtagid = $this->get('questtagid');
             $this->load->view('navigation',array('username' => $this->session->username));
             //load the questiontag view with the questiontag id----------
-            $this->load->view('locations',array('questtagid' => $questtagid));
+            $this->load->view('questiontags',array('questtagid' => $questtagid));
         }
         else {
             $this->load->view('login');
-        } 
+        }
     }
     public function post_get() {
         if ($this->usersmod->is_logged_in()) {
@@ -143,10 +167,11 @@ class Posts extends \Restserver\Libraries\REST_Controller {
         } 
     }
     //api to get posts tagposts to take tags
-    public function locationposts_get(){
+    //used in questtags view,post view
+    public function questtagposts_get(){
         if ($this->usersmod->is_logged_in()) {
             $questtagid = $this->get('questtagid');
-            $result = $this->postmod->postsFromLocation($questtagid);
+            $result = $this->postmod->postsFromQuesttag($questtagid);
             $this->response($result);
         }
         else {

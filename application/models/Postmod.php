@@ -33,8 +33,8 @@ class Postmod extends CI_Model
         $query=$this->db->query( "SELECT * FROM posts WHERE UserId=".$userId." ORDER BY Timestamp DESC");
         return $query->result();
     }
-    //get all locations from db
-    function getLocations(){
+    //get all tags from db
+    function getQuesttag(){
         $query = $this->db->get('questtag');
         if ($query) {
             return $query->result();
@@ -101,14 +101,21 @@ class Postmod extends CI_Model
             return "added";
         }
     }
-    //query post table to get posts from location
+    //query post table to get posts from tags
     // get by the tag name
-    public function postsFromLocation($questtagid){
+//    public function postsFromLocation($questtagid){
+//        $res = $this->db->get_where('posts', array('QuesttagId' => $questtagid));
+//        return $res->result();
+//    }
+//
+
+//used in posts.php controller
+    public function postsFromQuesttag($questtagid){
         $res = $this->db->get_where('posts', array('QuesttagId' => $questtagid));
         return $res->result();
     }
-    //query locations by location Id
-    public function getLocationbyId($questtagid){
+    //query tags by tag Id
+    public function getQuesttagbyId($questtagid){
         $res = $this->db->get_where('questtag', array('QuesttagId' => $questtagid));
         return $res->row();
     }

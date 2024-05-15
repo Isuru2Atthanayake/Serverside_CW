@@ -13,7 +13,6 @@
 
 <body>
 <!--The code of Sidebar  start here -->
-
 <div class="sidebar">
     <!--  444  the search bar inside the side bar start here-->
     <div>
@@ -84,7 +83,8 @@
         });
 
         // Set the Tags link dynamically to navigate using the side bar start
-        $('#tags-link').attr('href', '<?php echo base_url() ?>index.php/posts/locations');
+        // notparametered funton of Posts.php controller
+        $('#tags-link').attr('href', '<?php echo base_url() ?>index.php/posts/questtags');
         $('#Profile-link').attr('href', '<?php echo base_url() ?>index.php/myprofile');
         $('#home-link').attr('href', '<?php echo base_url() ?>index.php/home');
         // Set the Tags link dynamically to navigate using the side bar end
@@ -111,26 +111,11 @@
         showResults: function () {
             var html = "";
             this.model.each(function (m) {
-                // html = html + "<div class='postimagediv'><a href='<?php echo base_url() ?>index.php/posts/post?postid="
-                // + m.get('PostId') +"'><img class='postimage' src='<?php echo base_url() ?>images/userposts/"
-                // + m.get('PostImage') + "'/></a></div>";
-
-                // html = html + "<div class='postimagediv'><a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'>" +
-                // "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></a></div>" +
-                // "<div class='commentsdiv' id='commentsdiv" + m.get('PostId') + "'></div>";
 
                 html = html + "<div class='questdiv'><a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'>" +
                 "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></a></div>" +
                 "<div class='commentsdiv' id='commentsdiv" + m.get('PostId') + "'></div>";
 
-                //html = html + "<div class='question-box'>" +
-                //    "<div class='question-content'>" +
-                //    //"<a href='<?php ////echo base_url() ?>////index.php/posts/post?postid="+
-                //    "<a href='<?php //echo base_url() ?>//index.php/posts/post?postid=" + m.get('PostId') + "'></br>" +
-                //    "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></div>" +
-                //    "<div class='comments-section' id='commentsdiv" + m.get('PostId') + "'></div></div>" ;//to display the comments on the post;
-
-                // this.$el.html(html);
             });
 
             this.$el.html(html);

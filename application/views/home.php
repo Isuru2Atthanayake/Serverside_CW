@@ -88,7 +88,7 @@
         postCollection.fetch(); // Always fetch posts on start
     
       // Set the Tags link dynamically to navigate using the side bar start
-      $('#tags-link').attr('href', '<?php echo base_url() ?>index.php/posts/locations');
+      $('#tags-link').attr('href', '<?php echo base_url() ?>index.php/posts/questtags');
       $('#Profile-link').attr('href', '<?php echo base_url() ?>index.php/myprofile');
       $('#home-link').attr('href', '<?php echo base_url() ?>index.php/home');
      // Set the Tags link dynamically to navigate using the side bar end
@@ -132,7 +132,7 @@
         html = html + "<div class='question-box'>" +
             "<div class='question-content'>" +
             //"<a href='<?php //echo base_url() ?>//index.php/posts/notparametered?key=" + m.get('dbcolumnname') + "'>" +
-            "<a href='<?php echo base_url() ?>index.php/posts/locations?questtagid=" + m.get('QuesttagId') + "'>" +
+            "<a href='<?php echo base_url() ?>index.php/posts/questtags?questtagid=" + m.get('QuesttagId') + "'>" +
             "<span><i class='fa-solid fa-cube'></i>" + m.get('QuesttagName') + "</span></a></div>" +
             "<div class='userlikediv'>" +
             "<div class='usernamediv'><a href='<?php echo base_url() ?>index.php/users/userprofile/?username=" + m.get('Username') + "'>" +

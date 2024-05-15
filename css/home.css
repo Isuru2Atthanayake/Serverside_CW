@@ -128,7 +128,7 @@
 /*.fa-star:hover{*/
 /*    transform: scale(1.05);*/
 /*}*/
-.locationcontainer{
+.questtagcontainer{
     width: 100%;
     display: block;
     overflow: auto;
@@ -138,7 +138,7 @@
     /*min-height: 100vh; !* Full viewport height *!*/
     /*background-color: #f4f4f4; !* Light grey background for overall container *!*/
 }
-.locationlistdiv{
+.questtaglistdiv{
     width: 20%;
     float: left;
     position: fixed;
@@ -176,7 +176,7 @@
 /*.locpostimage:hover{*/
 /*	transform: scale(1.03);*/
 /*}*/
-#locationname{
+#questtagname{
     font-size: 24px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -190,7 +190,7 @@
     border-bottom: 1px solid #34495E; /* Subtle line for separation */
 
 }
-#locationlist{
+#questtaglist{
     font-size: 16px;
     letter-spacing: 1px;
     margin: 20px 0 0 10%;
@@ -199,7 +199,7 @@
     border-bottom: 1px solid #34495E; /* Lines between items */
 }
 
-#locationlist div:last-child {
+#questtaglist div:last-child {
     border-bottom: none; /* No border for the last item */
 }
 
@@ -210,11 +210,11 @@
     overflow-y: auto; /* Enable scrolling if content is long */
 }
 
-#locationlist a{
+#questtaglist a{
     color: #666666;
     text-decoration: none;
 }
-#locationlist a:hover{
+#questtaglist a:hover{
     color: #52B2CF;
     text-decoration: none;
 }

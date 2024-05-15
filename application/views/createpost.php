@@ -15,10 +15,10 @@
             <div class="caplabel"> <label for="caption">Caption</label></div>
             <div><textarea name="caption" id="caption"  maxlength="100"></textarea></div>
 
-            <div class="loclabel"><label for="locations">Tags</label></div>
+            <div class="loclabel"><label for="questtags">Tags</label></div>
             <div>
-                <select onchange='getlocation();' id="locations">
-                    <option id ='locationName' value=""></option>
+                <select onchange='getquesttag();' id="questtags">
+                    <option id ='questtagName' value=""></option>
                 </select>
             </div>
             <div class="postsubmitdiv"><div id="uploadpost" >Post Question</div></div>
@@ -28,19 +28,19 @@
         var $questtagid = "1";
         //load tag posts at start and display in drop down
         $.ajax({
-            //to get tags parametered from Posts.php
-            url: "<?php echo base_url() ?>index.php/posts/location/action/all",
+            //to get tags parametered from Posts.php controller,and it is used to display the dropdown of the ask question form
+            url: "<?php echo base_url() ?>index.php/posts/questtag/action/all",
             method: "GET"
         }).done(function (data) {
-	        $('#locations option').remove(); 
+	        $('#questtags option').remove();
 			for (i = 0; i < data.length; i++) {
-		    	var option ="<option id ='locationName' value="+data[i].QuesttagId+">"+data[i].QuesttagName+"</option>";
-			    $('#locations').append(option);
+		    	var option ="<option id ='questtagName' value="+data[i].QuesttagId+">"+data[i].QuesttagName+"</option>";
+			    $('#questtags').append(option);
 		    }                     
         });
 
-        function getlocation() {
-            $questtagid = document.getElementById("locations").value;
+        function getquesttag() {
+            $questtagid = document.getElementById("questtags").value;
         }
 
         $("#uploadpost").click(function(event) {

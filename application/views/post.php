@@ -16,7 +16,7 @@
         <!-- Placeholder for post caption -->
         <div class='likediv' id='likediv'></div>
         <div class='likecount'></div>
-        <div class='locationdiv'></div>
+        <div class='questtagdiv'></div>
 
 
     </div>
@@ -55,10 +55,10 @@
 
         // This is used to Append a link to the tag details including tag name and icon.
                     //to get tags notparametered
-                    var div2 = "<a href='<?php echo base_url() ?>index.php/posts/locations?questtagid=" +
+                    var div2 = "<a href='<?php echo base_url() ?>index.php/posts/questtags?questtagid=" +
                         data.QuesttagId + "'><span><i class='fa-solid fa-cube'></i>" +
                         data.QuesttagName + "</span></a>";
-                    $('.locationdiv').append(div2);
+                    $('.questtagdiv').append(div2);
 
         // Create and append a user image and name block linking to the user's profile.
                     var div3 = "<div class='userimagediv'><img class='userimage' src='<?php echo base_url() ?>images/profilepics/" +

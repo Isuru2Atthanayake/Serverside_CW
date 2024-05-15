@@ -72,7 +72,8 @@
             $('.biodiv').append(bio);
         });
         // Set the Tags link dynamically to navigate using the side bar start
-        $('#tags-link').attr('href', '<?php echo base_url() ?>index.php/posts/locations');
+        //get the tags notparametered
+        $('#tags-link').attr('href', '<?php echo base_url() ?>index.php/posts/questtags');
         $('#Profile-link').attr('href', '<?php echo base_url() ?>index.php/myprofile');
         $('#home-link').attr('href', '<?php echo base_url() ?>index.php/home');
         // Set the Tags link dynamically to navigate using the side bar end
