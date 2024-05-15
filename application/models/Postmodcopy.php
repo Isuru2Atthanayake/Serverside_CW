@@ -42,19 +42,7 @@ class Postmodcopy extends CI_Model
         return NULL;
     }
 
-    //query database to get posts from users
-
-//    function getPostsofFollowing($username){
-//        $users = $this->db->get_where('users', array('Username' => $username));
-//        $userId= $users->row()->UserId;
-//        $query=$this->db->query("SELECT posts.*, users.Username, questtag.QuesttagName
-//        FROM posts
-//        JOIN users ON posts.UserId = users.UserId
-//        JOIN questtag ON posts.QuesttagId = questtag.QuesttagId
-//        ORDER BY posts.Timestamp DESC");
-//        return $query->result();
-//    }
-
+    //get all posted questions from db
         function getPostsofQuestions($username){
         $users = $this->db->get_where('users', array('Username' => $username));
         $userId= $users->row()->UserId;
@@ -65,7 +53,6 @@ class Postmodcopy extends CI_Model
         ORDER BY posts.Timestamp DESC");
         return $query->result();
     }
-
 
     //query table to get the comments per post
     function getComments($postid){
@@ -79,7 +66,7 @@ class Postmodcopy extends CI_Model
         $posts = $this->db->get_where('posts', array('PostId' => $postid));
         $postuser= $posts->row()->UserId;
         $query=$this->db->insert('comments', array('UserId' => $userId,'PostId' => $postid,'CommentBody' => $comment));
-        $this->db->insert('notification', array('FromUser' => $userId,'UserId' => $postuser, 'PostId' => $postid, 'CommentBody' => $comment, 'Notification'=>'Commented on your post!'));
+//        $this->db->insert('notification', array('FromUser' => $userId,'UserId' => $postuser, 'PostId' => $postid, 'CommentBody' => $comment, 'Notification'=>'Commented on your post!'));
         return $query;
     }
     //query like table to check if a user has liked a post
@@ -103,22 +90,15 @@ class Postmodcopy extends CI_Model
         $res = $this->db->get_where('likes', array('UserId' => $userId,'PostId' => $postid));
         if ($res->num_rows() == 1){
             $query=$this->db->delete('likes', array('UserId' => $userId,'PostId' => $postid));
-            $this->db->delete('notification', array('FromUser' => $userId,'UserId' => $postuser, 'PostId' => $postid, 'Notification'=>'Liked your post!'));
+//            $this->db->delete('notification', array('FromUser' => $userId,'UserId' => $postuser, 'PostId' => $postid, 'Notification'=>'Liked your post!'));
             return "deleted";
         }
         else{
             $query=$this->db->insert('likes', array('UserId' => $userId,'PostId' => $postid));
-            $this->db->insert('notification', array('FromUser' => $userId,'UserId' => $postuser, 'PostId' => $postid, 'Notification'=>'Liked your post!'));
+//            $this->db->insert('notification', array('FromUser' => $userId,'UserId' => $postuser, 'PostId' => $postid, 'Notification'=>'Liked your post!'));
             return "added";
         }
     }
-    //query post table to get posts from tags
-    // get by the tag name
-//    public function postsFromLocation($questtagid){
-//        $res = $this->db->get_where('posts', array('QuesttagId' => $questtagid));
-//        return $res->result();
-//    }
-//
 
 //used in posts.php controller
     public function postsFromQuesttag($questtagid){

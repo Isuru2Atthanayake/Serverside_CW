@@ -10,9 +10,9 @@ class Home extends \Restserver\Libraries\REST_Controller {
 		$this->load->model('usersmod');
         $this->load->model('postmod');
 
-        Header('Access-Control-Allow-Origin: *');
-        Header('Access-Control-Allow-Headers: *');
-        Header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE'); 
+//        Header('Access-Control-Allow-Origin: *');
+//        Header('Access-Control-Allow-Headers: *');
+//        Header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
     }
     //home page
     public function index_get()
@@ -25,19 +25,8 @@ class Home extends \Restserver\Libraries\REST_Controller {
             $this->load->view('login');
         }
     }
-    //api to get posts of following users
 
 //    used in home .php ajax call
-//    public function followingposts_get(){
-//        if ($this->usersmod->is_logged_in()) {
-//            $username = $this->get('username');
-//            $result=$this->postmod->getPostsofQuestions($username);
-//            $this->response($result);
-//        }
-//        else {
-//            $this->load->view('login');
-//        }
-//    }
     public function postquestions_get(){
         if ($this->usersmod->is_logged_in()) {
             $username = $this->get('username');
@@ -48,18 +37,6 @@ class Home extends \Restserver\Libraries\REST_Controller {
             $this->load->view('login');
         }
     }
-    
-    //api to get posts of all users start---
-    // public function posts_get() {
-    //     if ($this->usersmod->is_logged_in()) {
-    //         $result = $this->postmod->getAllPosts();
-    //         $this->response($result);
-    //     } else {
-    //         $this->load->view('login');
-    //     }
-    // }
-    //api to get posts of all users end---
-
     //api to get comments of posts
     public function comments_get(){
         if ($this->usersmod->is_logged_in()) {

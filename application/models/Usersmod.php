@@ -144,15 +144,15 @@ class Usersmod extends CI_Model
         return $query;
     }
     //select all notificiations for user
-    public function notifications($username){
-        $users = $this->db->get_where('users', array('Username' => $username));
-        $userId= $users->row()->UserId;
-        $query = $this->db->query("SELECT notification.*, users.Username FROM notification JOIN users ON users.UserId=notification.FromUser WHERE notification.UserId='".$userId."' ORDER BY Timestamp DESC");
-        if ($query) {
-            return $query->result();
-        }
-        return NULL;
-    }
+//    public function notifications($username){
+//        $users = $this->db->get_where('users', array('Username' => $username));
+//        $userId= $users->row()->UserId;
+//        $query = $this->db->query("SELECT notification.*, users.Username FROM notification JOIN users ON users.UserId=notification.FromUser WHERE notification.UserId='".$userId."' ORDER BY Timestamp DESC");
+//        if ($query) {
+//            return $query->result();
+//        }
+//        return NULL;
+//    }
 
     
 }

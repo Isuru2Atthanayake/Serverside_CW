@@ -27,9 +27,9 @@
                     <a href="<?php echo base_url()?>index.php/home">
                     <img class="linkimage" src="<?php echo base_url() ?>images/home.png"/></a>
                </div>
-               <div class="linkelement">
-                    <img style="cursor:pointer" onclick='notifications();' class="linkimage" src="<?php echo base_url() ?>images/bell.png"/>
-               </div>
+<!--               <div class="linkelement">-->
+<!--                    <img style="cursor:pointer" onclick='notifications();' class="linkimage" src="--><?php //echo base_url() ?><!--images/bell.png"/>-->
+<!--               </div>-->
 <!--              <div class="profilediv">-->
 <!--                  <div class="userlink">-->
 <!--                      <a href="--><?php //echo base_url()?><!--index.php/myprofile" class="profilelink"><span>--><?php //echo $username ?><!--</span></a></div>-->
@@ -44,7 +44,7 @@
      </div>
      <!-- search and notification overlays -->
      <div class="searchresults" id="searchresults"></div>
-     <div class="notifications" id="notifications"></div>
+<!--     <div class="notifications" id="notifications"></div>-->
 
      <script type="text/javascript" lang="javascript">
      var username="<?php echo $username ?>";
@@ -85,49 +85,6 @@
 		          }
                }
           });
-     }
-     //when notification button is clicked on
-     function notifications(){//pverlay on displays when its clicked
-          if(document.getElementById("notifications").style.display == "none"){
-               document.getElementById("notifications").style.display = "block";
-               $.ajax({//get notifications for user
-                    url: "<?php echo base_url() ?>index.php/myprofile/notifications",
-                    data: JSON.stringify({username: username}),
-                    contentType: "application/json",
-                    method: "GET"
-               }).done(function (data) {
-                    $('#notifications div').remove(); 
-                    $('#notifications a').remove(); 
-                    if(data.length==0){//no notifications
-                    var div ="<div class =''>No Notifications</div>";
-                    $('#notifications').append(div);
-               }
-               else{
-                    for (i = 0; i < data.length; i++) {
-                         //when there is a comment body, means a comment notification
-                         if (data[i].CommentBody!=null && data[i].PostId!=null){
-                              var div ="<a href='<?php echo base_url() ?>index.php/posts/post?postid="
-                              +data[i].PostId+"'><div>"+data[i].Username+"    "+data[i].Notification+"</br><span class='commentspam'>"
-                              +data[i].CommentBody+"</span></div></a>";
-                              $('#notifications').append(div);
-                         }//when there is a post id but no comment, means its a post like
-                         else if(data[i].CommentBody==null && data[i].PostId!=null){
-                              var div ="<a href='<?php echo base_url() ?>index.php/posts/post?postid="
-                              +data[i].PostId+"'><div>"+data[i].Username+"    "+data[i].Notification+"</div></a>";
-                              $('#notifications').append(div);
-                         }//otherwise its a follow
-                         else if(data[i].CommentBody==null && data[i].PostId==null){
-                              var div ="<a href='<?php echo base_url() ?>index.php/users/userprofile/?username="
-                              +data[i].Username+"'><div>"+data[i].Username+"    "+data[i].Notification+"</div></a>";
-                              $('#notifications').append(div);
-                         }
-		          } 
-               }
-          });
-     }
-     else{
-          document.getElementById("notifications").style.display = "none";
-     }
      }
      </script>
 </body>

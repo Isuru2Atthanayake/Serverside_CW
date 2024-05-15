@@ -79,7 +79,7 @@ class Postmod extends CI_Model
         $posts = $this->db->get_where('posts', array('PostId' => $postid));
         $postuser= $posts->row()->UserId;
         $query=$this->db->insert('comments', array('UserId' => $userId,'PostId' => $postid,'CommentBody' => $comment));
-        $this->db->insert('notification', array('FromUser' => $userId,'UserId' => $postuser, 'PostId' => $postid, 'CommentBody' => $comment, 'Notification'=>'Commented on your post!'));
+//        $this->db->insert('notification', array('FromUser' => $userId,'UserId' => $postuser, 'PostId' => $postid, 'CommentBody' => $comment));
         return $query;
     }
     //query like table to check if a user has liked a post
@@ -103,12 +103,12 @@ class Postmod extends CI_Model
         $res = $this->db->get_where('likes', array('UserId' => $userId,'PostId' => $postid));
         if ($res->num_rows() == 1){
             $query=$this->db->delete('likes', array('UserId' => $userId,'PostId' => $postid));
-            $this->db->delete('notification', array('FromUser' => $userId,'UserId' => $postuser, 'PostId' => $postid, 'Notification'=>'Liked your post!'));
+//            $this->db->delete('notification', array('FromUser' => $userId,'UserId' => $postuser, 'PostId' => $postid, 'Notification'=>'Liked your post!'));
             return "deleted";
         }
         else{
             $query=$this->db->insert('likes', array('UserId' => $userId,'PostId' => $postid));
-            $this->db->insert('notification', array('FromUser' => $userId,'UserId' => $postuser, 'PostId' => $postid, 'Notification'=>'Liked your post!'));
+//            $this->db->insert('notification', array('FromUser' => $userId,'UserId' => $postuser, 'PostId' => $postid, 'Notification'=>'Liked your post!'));
             return "added";
         }
     }
