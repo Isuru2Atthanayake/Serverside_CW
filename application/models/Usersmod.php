@@ -139,8 +139,8 @@ class Usersmod extends CI_Model
         return $res->num_rows();
     }
     //update rows in user 
-    public function editprofile($username, $bio, $name, $email, $userimage){
-        $query=$this->db->query("UPDATE users SET Name='".$name."',Email='".$email."',UserBio='".$bio."',UserImage='".$userimage."' WHERE Username='".$username."'");
+    public function editprofile($username, $name, $email, $userimage){
+        $query=$this->db->query("UPDATE users SET Name='".$name."',Email='".$email."',UserImage='".$userimage."' WHERE Username='".$username."'");
         return $query;
     }
     //select all notificiations for user

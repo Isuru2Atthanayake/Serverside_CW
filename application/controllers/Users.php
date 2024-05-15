@@ -106,17 +106,6 @@ class Users extends \Restserver\Libraries\REST_Controller {
                 $this->response(array('result' => 'failed'));
             }            
         }
-        //if action is searchuser, get user details
-        // else if($this->get('action') == 'searchuser') {
-        //     if ($this->usersmod->is_logged_in()) {
-        //         $username = $this->post('username');
-        //         $result=$this->usersmod->searchUser($username);
-        //         $this->response($result); 
-        //     }
-        //     else {
-        //         $this->load->view('login');
-        //     }      
-        // } 
          //if action is searchuser, get user details
          else if($this->get('action') == 'searchuser') {
             if ($this->usersmod->is_logged_in()) {
@@ -152,11 +141,10 @@ class Users extends \Restserver\Libraries\REST_Controller {
     public function editprofile_put(){
         if ($this->usersmod->is_logged_in()) {
             $username = $this->put('username');
-            $bio = $this->put('bio');
             $name = $this->put('name');
             $email = $this->put('email');
             $userimage = $this->put('userimage');
-            $result=$this->usersmod->editprofile($username, $bio, $name, $email, $userimage);
+            $result=$this->usersmod->editprofile($username, $name, $email, $userimage);
             if ($result) {
                 $this->response(array('result' => 'done'));
             }

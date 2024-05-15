@@ -95,6 +95,7 @@
     
     });
 
+    // The username is being appended to the url as a query parameter.
     var PostCollection = Backbone.Collection.extend({
         url: "<?php echo base_url() ?>index.php/home/postquestions?username="+username,
     });
@@ -106,9 +107,9 @@
     initialize: function () {//initialize the function of the view
         this.listenTo(this.model, "add", this.showResults);
     },
-    showResults: function (m) {//display all the details of the relavent questions in backbone view
-
-
+    showResults: function (m) {
+        // m gets its data from the server response to the fetch request made by the PostCollection.
+        //display all the details of the relavent questions in backbone view
         html = html + "<div class='question-box'>" +
             "<div class='question-content'>" +
             //"<a href='<?php //echo base_url() ?>//index.php/posts/notparametered?key=" + m.get('dbcolumnname') + "'>" +

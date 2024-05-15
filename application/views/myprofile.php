@@ -42,12 +42,12 @@
         <div class="topdiv">
             <div class="profpicdiv"></div>
         </div>
+<!--        this code is used to display the user details-->
         <div class="usernamediv"><?php echo $username ?></div>
         <div class="namediv"></div>
-        <!-- <div class="biodiv"></div> -->
+<!--        this is used to edit the profile of the user-->
         <div class="profbottomdiv">
             <a class="editprlink" href="<?php echo base_url()?>index.php/myprofile/editprofile">EDIT PROFILE</a>
-<!--            <a class="logoutlink1" href="--><?php //echo base_url()?><!--index.php/users/logout">LOGOUT</a>-->
         </div>
     </div>
     <div class="postsdiv" id="postsdiv"></div>
@@ -71,17 +71,7 @@
             $('.profpicdiv').append(div);
             var name ="<span>"+data.Name+"</span>";
             $('.namediv').append(name);
-            var bio ="<span>"+data.UserBio+"</span>";
-            $('.biodiv').append(bio);
         });
-        //$.ajax({//get follower/following counts
-        //    url: "<?php //echo base_url() ?>//index.php/myprofile/followcount?username="+username,
-        //    method: "GET"
-        //}).done(function (data) {
-        //    document.getElementById("followingc").innerHTML = data.following
-        //    document.getElementById("followerc").innerHTML = data.followers
-        //});
-
         // Set the Tags link dynamically to navigate using the side bar start
         // notparametered funton of Posts.php controller
         $('#tags-link').attr('href', '<?php echo base_url() ?>index.php/posts/questtags');
@@ -119,32 +109,7 @@
             });
 
             this.$el.html(html);
-                //get comments for each post and display them
-                // $.ajax({
-                //     url: "<?php //echo base_url() ?>//index.php/home/comments?postid="+m.get('PostId'),
-                //     method: "GET"
-                // }).done(function (res) {
-                //     if(res.length!=0){
-                //         for (i = 0; i < res.length; i++) {
-                //             if(i<2){
-                //                 var div ="<span><a class='commuserlink' href='<?php //echo base_url() ?>//index.php/users/userprofile/?username="+res[i].Username+"'>"+res[i].Username+"</a>"
-                //                 +res[i].CommentBody+"</span></br>";
-                //                 $('#commentsdiv'+m.get('PostId')).append(div);
-                //             }
-                //     }
-                //     }
-                // });
-                //$.ajax({//check if the user has already liked them or not and change color accordingly
-                //    url: "<?php //echo base_url() ?>//index.php/home/checklikes?username="+username+"&postid="+m.get('PostId'),
-                //    method: "GET"
-                //}).done(function (res) {
-                //    if(res){
-                //        document.getElementById("likediv"+m.get('PostId')).style.color = "#FC6464";
-                //    }
-                //    else{
-                //        document.getElementById("likediv"+m.get('PostId')).style.color = "#666666";
-                //    }
-                //});
+
         }
     });
     var postCollection = new PostCollection();

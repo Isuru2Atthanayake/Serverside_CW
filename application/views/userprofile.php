@@ -45,11 +45,6 @@
         </div>
         <div class="usernamediv"><?php echo $username ?></div>
         <div class="namediv"></div>
-        <!-- <div class="biodiv"></div> -->
-<!--        <div class="profbottomdiv">-->
-<!--            <a class="editprlink" href="--><?php //echo base_url()?><!--index.php/myprofile/editprofile">EDIT PROFILE</a>-->
-<!--            -->
-<!--        </div>-->
     </div>
     <div class="postsdiv" id="postsdiv"></div>
 </div>
@@ -68,8 +63,6 @@
             $('.profpicdiv').append(div);
             var name ="<span>"+data.Name+"</span>";
             $('.namediv').append(name);
-            var bio ="<span>"+data.UserBio+"</span>";
-            $('.biodiv').append(bio);
         });
         // Set the Tags link dynamically to navigate using the side bar start
         //get the tags notparametered
