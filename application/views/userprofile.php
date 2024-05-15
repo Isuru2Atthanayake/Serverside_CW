@@ -35,22 +35,9 @@
 
     <!--   444 the search bar inside the side bar end here-->
 </div>
-<!--The code of Sidebar  end here -->
 
-<!--<div class="profilecontainer">-->
-<!--    <div class="profiledeetdiv">-->
-<!--        <div class="topdiv">-->
-<!--            <div class="profpicdiv"></div>-->
-<!--        </div>-->
-<!--        <div class="usernamediv">--><?php //echo $username ?><!--</div>-->
-<!--            <div class="namediv"></div>-->
-<!--        <div class="biodiv"></div>-->
-<!--    </div>-->
-<!--        <div class="postsdiv" id="postsdiv">-->
-<!--    </div>-->
-<!--</div>-->
 
-<!--The code of profile  start here-->
+<!--The code of profile Sidebar  start here-->
 <div class="profilecontainer">
     <div class="profiledeetdiv">
         <div class="topdiv">
@@ -59,21 +46,20 @@
         <div class="usernamediv"><?php echo $username ?></div>
         <div class="namediv"></div>
         <!-- <div class="biodiv"></div> -->
-        <div class="profbottomdiv">
-            <a class="editprlink" href="<?php echo base_url()?>index.php/myprofile/editprofile">EDIT PROFILE</a>
-            <!--            <a class="logoutlink1" href="--><?php //echo base_url()?><!--index.php/users/logout">LOGOUT</a>-->
-        </div>
+<!--        <div class="profbottomdiv">-->
+<!--            <a class="editprlink" href="--><?php //echo base_url()?><!--index.php/myprofile/editprofile">EDIT PROFILE</a>-->
+<!--            -->
+<!--        </div>-->
     </div>
     <div class="postsdiv" id="postsdiv"></div>
 </div>
-<!--The code of profile  end here-->
+<!--The code of profile Sidebar end here-->
 
 <script type="text/javascript" lang="javascript">
     var username="<?php echo $username ?>";
     $(document).ready(function () {
         event.preventDefault();
         postCollection.fetch();//fetch the posts from collection on start
-        //checkfollow();//check if the current user follows this user
         $.ajax({//get user details and display
             url: "<?php echo base_url() ?>index.php/users/userdetails?username="+username,
             method: "GET"
@@ -110,22 +96,10 @@
         showResults: function () {
             var html = "";
             this.model.each(function (m) {
-                // html = html + "<div class='postimagediv'><a href='<?php echo base_url() ?>index.php/posts/post?postid="
-                // + m.get('PostId') +"'><img class='postimage' src='<?php echo base_url() ?>images/userposts/"
-                // + m.get('PostImage') + "'/></a></div>";
-
-
                 html = html + "<div class='questdiv'><a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'>" +
                 "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></a></div>" +
                 "<div class='commentsdiv' id='commentsdiv" + m.get('PostId') + "'></div>";
 
-                //this is used to display the content to the user , the poted questions
-                //html = html + "<div class='question-box'>" +
-                //    "<div class='question-content'>" +
-                //    //"<a href='<?php ////echo base_url() ?>////index.php/posts/post?postid="+
-                //    "<a href='<?php //echo base_url() ?>//index.php/posts/post?postid=" + m.get('PostId') + "'></br>" +
-                //    "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></div>" +
-                //    "<div class='comments-section' id='commentsdiv" + m.get('PostId') + "'></div></div>" ;//to display the comments on the post;
             });
             this.$el.html(html);
         }
@@ -134,41 +108,6 @@
     var postCollection = new PostCollection();
     var postDisplay = new PostDisplay({model: postCollection})
 
-    //to follow the user start
-    // function followcount(){
-    //     $.ajax({//get follower/following count and display
-    //         url: "<?php echo base_url() ?>index.php/myprofile/followcount?username="+username,
-    //         method: "GET"
-    //     }).done(function (data) {
-    //         document.getElementById("followingc").innerHTML = data.following
-    //         document.getElementById("followerc").innerHTML = data.followers
-    //     });
-    // }
-    // function follow(){//when follow button is clicked on
-    //     $.ajax({
-    //         url: "<?php echo base_url() ?>index.php/myprofile/follow",
-    //         data: JSON.stringify({isfollowing: username}),
-    //         contentType: "application/json",
-    //         method: "POST"
-    //     }).done(function () {
-    //         checkfollow();
-    //         followcount();
-    //     });
-    // }
-    // function checkfollow(){//check if the user is already followed and change the button accordingly
-    //     $.ajax({
-    //         url: "<?php echo base_url() ?>index.php/myprofile"+username,
-    //         method: "GET"
-    //     }).done(function (data) {
-    //         //to remove the following button
-    //         // if (data) {
-    //         //      document.getElementById("followbutton").innerHTML = "UNFOLLOW"
-    //         // }
-    //         // else {
-    //         //     document.getElementById("followbutton").innerHTML = "FOLLOW"
-    //         // }
-    //     });
-    // } 
     function user_profileimage(){
         //user profile image loader
         $.ajax({

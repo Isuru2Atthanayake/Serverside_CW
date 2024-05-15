@@ -19,25 +19,27 @@
     </div>
 
 <script type="text/javascript" lang="javascript">
-    var locationid="<?php echo $locationid ?>";    
+    var questtagid ="<?php echo $questtagid ?>";
     $(document).ready(function () {
         event.preventDefault();
-        $.ajax({//get all posts from the given location id at start and display the posts
-            url: "<?php echo base_url() ?>index.php/posts/location/action/id?locationid="+locationid,
+        $.ajax({//get all posts from the given tag id at start and display the posts
+            //"<a href='<?php //echo base_url() ?>//index.php/posts/parametered/action?key="
+            url: "<?php echo base_url() ?>index.php/posts/location/action/id?questtagid="+questtagid,
             method: "GET"
             }).done(function (data) { 
                 // document.getElementById("locationname").innerHTML = "<i class='fa-solid fa-cube'></i>"+data.LocationName;
-                document.getElementById("locationname").innerHTML = "<i class='fa-solid fa-cube '></i>"+data.LocationName;
+                document.getElementById("locationname").innerHTML = "<i class='fa-solid fa-cube '></i>"+data.QuesttagName;
             });
         $.ajax({
             url: "<?php echo base_url() ?>index.php/posts/location/action/all",
             method: "GET"
         })
         .done(function (data) {
-            for (i = (locationid-8); i < (+locationid+8); i++) {
-                if(data[i]!=null){//display few other locations in the list for easier browsing
-                    var span ="<a href='<?php echo base_url() ?>index.php/posts/locations?locationid="
-                    +data[i].LocationId+"'><span>"+data[i].LocationName+"</span></a></br>";
+            for (i = (questtagid-8); i < (+questtagid+8); i++) {
+                if(data[i]!=null){//display few other tags in the list for easier browsing
+                    //"<a href='<?php //echo base_url() ?>//index.php/posts/notparametered
+                    var span ="<a href='<?php echo base_url() ?>index.php/posts/locations?questtagid="
+                    +data[i].QuesttagId+"'><span>"+data[i].QuesttagName+"</span></a></br>";
 			        $('#locationlist').append(span);
                 }
 		    }  
@@ -45,7 +47,8 @@
         postCollection.fetch();//backbone fetch to get the posts
     });    
     var PostCollection = Backbone.Collection.extend({
-        url: "<?php echo base_url() ?>index.php/posts/locationposts?locationid="+locationid,
+        //the location posts in posts.php controller
+        url: "<?php echo base_url() ?>index.php/posts/locationposts?questtagid="+questtagid,
     });
 
     var html = "";

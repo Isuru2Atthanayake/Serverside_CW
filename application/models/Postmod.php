@@ -10,55 +10,20 @@ class Postmod extends CI_Model
         $this->load->database();
     }
     //insert rows to post table trhis creates a post for a user
-    // function createPost($username, $locationid, $postImage, $caption)
-    // {
-    //     $users = $this->db->get_where('users', array('Username' => $username));
-    //     $userId= $users->row()->UserId;
-    //     $data = array('UserId' => $userId, 'LocationId' => $locationid, 'PostImage' => $postImage, 'Caption' => $caption);
-    //     if ($this->db->insert('posts', $data)) {
-    //         return True;
-    //     } else {
-    //         return False;
-    //     }
-    // }
+
 
     // create post function with question
-    function createPost($username, $locationid, $caption, $question)
+    function createPost($username, $questtagid, $caption, $question)
     {
         $users = $this->db->get_where('users', array('Username' => $username));
         $userId= $users->row()->UserId;
-        $data = array('UserId' => $userId, 'LocationId' => $locationid, 'Question' => $question,'Caption' => $caption);
+        $data = array('UserId' => $userId, 'QuesttagId' => $questtagid, 'Question' => $question,'Caption' => $caption);
         if ($this->db->insert('posts', $data)) {
             return True;
         } else {
             return False;
         }
     }
-
-    // function createPost($username, $locationid, $caption, $question, $questiontags)
-    // {
-    //     $users = $this->db->get_where('users', array('Username' => $username));
-    //     $userId= $users->row()->UserId;
-    //     $data = array('UserId' => $userId, 'LocationId' => $locationid, 'Question' => $question,'Caption' => $caption,'QuestionTags' => $questiontags );
-    //     if ($this->db->insert('posts', $data)) {
-    //         return True;
-    //     } else {
-    //         return False;
-    //     }
-    // }
-
-    // with caption
-    // function createPost($username, $locationid, $caption)
-    // {
-    //     $users = $this->db->get_where('users', array('Username' => $username));
-    //     $userId= $users->row()->UserId;
-    //     $data = array('UserId' => $userId, 'LocationId' => $locationid, 'Caption' => $caption, );
-    //     if ($this->db->insert('posts', $data)) {
-    //         return True;
-    //     } else {
-    //         return False;
-    //     }
-    // }
 
     //query post table to get posts from a user
     function getPostsfromUsername($username)
@@ -70,44 +35,25 @@ class Postmod extends CI_Model
     }
     //get all locations from db
     function getLocations(){
-        $query = $this->db->get('location');
+        $query = $this->db->get('questtag');
         if ($query) {
             return $query->result();
         }
         return NULL;
     }
-    
+
     //query database to get posts from users following
-    // remove this 
-    // function getPostsofFollowing($username){
-    //     $users = $this->db->get_where('users', array('Username' => $username));
-    //     $userId= $users->row()->UserId;
-    //     $query=$this->db->query("SELECT posts.*, users.Username, location.LocationName FROM posts JOIN users ON users.UserId=posts.UserId JOIN location ON location.LocationId=posts.LocationId WHERE posts.userid IN 
-    //     (SELECT IsFollowing FROM following WHERE following.UserId=".$userId.") ORDER BY Timestamp DESC");
-    //     return $query->result();
-    // }
 
     function getPostsofFollowing($username){
         $users = $this->db->get_where('users', array('Username' => $username));
         $userId= $users->row()->UserId;
-        $query=$this->db->query("SELECT posts.*, users.Username, location.LocationName 
+        $query=$this->db->query("SELECT posts.*, users.Username, questtag.QuesttagName 
         FROM posts 
         JOIN users ON posts.UserId = users.UserId 
-        JOIN location ON posts.LocationId = location.LocationId 
+        JOIN questtag ON posts.QuesttagId = questtag.QuesttagId 
         ORDER BY posts.Timestamp DESC");
         return $query->result();
     }
-
-    // function getAllPosts() {
-    //     // This query fetches all posts from the posts table and joins the users and location tables
-    //     // to include the username of the poster and the location name associated with each post.
-    //     $query = $this->db->query("SELECT posts.*, users.Username, location.LocationName 
-    //                                FROM posts 
-    //                                JOIN users ON posts.UserId = users.UserId 
-    //                                JOIN location ON posts.LocationId = location.LocationId 
-    //                                ORDER BY posts.Timestamp DESC");
-    //     return $query->result();
-    // }
 
 
     //query table to get the comments per post
@@ -157,19 +103,19 @@ class Postmod extends CI_Model
     }
     //query post table to get posts from location
     // get by the tag name
-    public function postsFromLocation($locationid){
-        $res = $this->db->get_where('posts', array('LocationId' => $locationid));
+    public function postsFromLocation($questtagid){
+        $res = $this->db->get_where('posts', array('QuesttagId' => $questtagid));
         return $res->result();
     }
     //query locations by location Id
-    public function getLocationbyId($locationid){
-        $res = $this->db->get_where('location', array('LocationId' => $locationid));
+    public function getLocationbyId($questtagid){
+        $res = $this->db->get_where('questtag', array('QuesttagId' => $questtagid));
         return $res->row();
     }
     //query posts by post id
     // get by the tag name , remove image
     public function postfromid($postid){
-        $res = $this->db->query( "SELECT posts.*, users.Username, users.UserImage, location.LocationName FROM posts JOIN users ON users.UserId=posts.UserId JOIN location ON location.LocationId=posts.LocationId WHERE posts.PostId =".$postid);
+        $res = $this->db->query( "SELECT posts.*, users.Username, users.UserImage, questtag.QuesttagName FROM posts JOIN users ON users.UserId=posts.UserId JOIN questtag ON questtag.QuesttagId=posts.QuesttagId WHERE posts.PostId =".$postid);
         return $res->row();
     }
     //get number of rows from likes table according to post id

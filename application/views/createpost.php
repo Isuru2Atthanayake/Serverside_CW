@@ -15,7 +15,7 @@
             <div class="caplabel"> <label for="caption">Caption</label></div>
             <div><textarea name="caption" id="caption"  maxlength="100"></textarea></div>
 
-            <div class="loclabel"><label for="locations">Location</label></div>
+            <div class="loclabel"><label for="locations">Tags</label></div>
             <div>
                 <select onchange='getlocation();' id="locations">
                     <option id ='locationName' value=""></option>
@@ -25,21 +25,22 @@
         </div>
     </div>
         <script type="text/javascript" lang="javascript">
-        var $locationid = "1";
-        //load location posts at start and display in drop down
+        var $questtagid = "1";
+        //load tag posts at start and display in drop down
         $.ajax({
+            //to get tags parametered from Posts.php
             url: "<?php echo base_url() ?>index.php/posts/location/action/all",
             method: "GET"
         }).done(function (data) {
 	        $('#locations option').remove(); 
 			for (i = 0; i < data.length; i++) {
-		    	var option ="<option id ='locationName' value="+data[i].LocationId+">"+data[i].LocationName+"</option>";
+		    	var option ="<option id ='locationName' value="+data[i].QuesttagId+">"+data[i].QuesttagName+"</option>";
 			    $('#locations').append(option);
 		    }                     
         });
 
         function getlocation() {
-            $locationid = document.getElementById("locations").value;
+            $questtagid = document.getElementById("locations").value;
         }
 
         $("#uploadpost").click(function(event) {
@@ -49,7 +50,7 @@
             // var questiontags = $('#questiontags').val();//This is used to send the tags from the form
 
             var postdata = {
-                locationid: $locationid,
+                questtagid: $questtagid,
                 caption: caption,
                 question: question,
                 // questiontags:questiontags

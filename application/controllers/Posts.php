@@ -64,14 +64,16 @@ class Posts extends \Restserver\Libraries\REST_Controller {
     //post request to create a post with question
     public function create_post() {
         if ($this->usersmod->is_logged_in()) {
+            //getting the user name from session
             $username = $this->session->username;
-            $locationid = $this->post('locationid');
-            // $postImage = $this->post('postImage');
+            //getting the question tag id
+            $questtagid = $this->post('questtagid');
+            //getting the caption
             $caption = $this->post('caption');
+            //getting the question
             $question = $this->post('question');
-            // $questiontags = $this->post('questiontags');
-            // $result = $this->postmod->createPost($username, $locationid, $caption,$question,$questiontags);
-            $result = $this->postmod->createPost($username, $locationid, $caption,$question);
+            //calling the create post function
+            $result = $this->postmod->createPost($username, $questtagid, $caption,$question);
 
             $this->response($result); 
             if ($result) {
@@ -84,28 +86,6 @@ class Posts extends \Restserver\Libraries\REST_Controller {
             $this->load->view('login');
         }
     }
-    
-    //withought question 
-    // public function create_post() {
-    //     if ($this->usersmod->is_logged_in()) {
-    //         $username = $this->session->username;
-    //         $locationid = $this->post('locationid');
-    //         // $postImage = $this->post('postImage');
-    //         $caption = $this->post('caption');
-    //         // $question = $this->post('question');
-    //         $result = $this->postmod->createPost($username, $locationid, $caption);
-
-    //         $this->response($result); 
-    //         if ($result) {
-    //             $this->response(array('result' => 'done'));
-    //         } else {
-    //             $this->response(array('result' => 'failed'));
-    //         }
-    //     }
-    //     else {
-    //         $this->load->view('login');
-    //     }
-    // }
 
     //api to get all posts from a user
     public function userposts_get(){
@@ -113,29 +93,32 @@ class Posts extends \Restserver\Libraries\REST_Controller {
         $result = $this->postmod->getPostsfromUsername($username);
         $this->response($result);
     }
+
+    // to get tags parametered
     public function location_get() {
         //action all gets all locations
         if($this->get('action') == 'all') {
-            $locations = $this->postmod->getLocations();
-            if ($locations) {
-                $this->response($locations);
+            $questtags = $this->postmod->getLocations();
+            if ($questtags) {
+                $this->response($questtags);
             } else {
                 $this->response(NULL);
             } 
         }
         //action id get the post by its id
         if($this->get('action') == 'id') {
-            $locationid = $this->get('locationid');
-            $locations = $this->postmod->getLocationbyId($locationid);
-            $this->response($locations);
+            $questtagid = $this->get('questtagid');
+            $questtags = $this->postmod->getLocationbyId($questtagid);
+            $this->response($questtags);
         }
     }
-    //get the location view
+    //to get tags notparametered
      public function locations_get() {
         if ($this->usersmod->is_logged_in()) {
-            $locationid = $this->get('locationid');
+            $questtagid = $this->get('questtagid');
             $this->load->view('navigation',array('username' => $this->session->username));
-            $this->load->view('locations',array('locationid' => $locationid));
+            //load the questiontag view with the questiontag id----------
+            $this->load->view('locations',array('questtagid' => $questtagid));
         }
         else {
             $this->load->view('login');
@@ -159,11 +142,11 @@ class Posts extends \Restserver\Libraries\REST_Controller {
             $this->load->view('login');
         } 
     }
-    //api to get posts from given location
+    //api to get posts tagposts to take tags
     public function locationposts_get(){
         if ($this->usersmod->is_logged_in()) {
-            $locationid = $this->get('locationid');
-            $result = $this->postmod->postsFromLocation($locationid);
+            $questtagid = $this->get('questtagid');
+            $result = $this->postmod->postsFromLocation($questtagid);
             $this->response($result);
         }
         else {

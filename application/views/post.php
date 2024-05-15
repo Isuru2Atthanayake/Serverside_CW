@@ -7,25 +7,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/questionpost.css">
 </head>
 <body>
-<!--   <div class='postcontainer'>-->
-<!--        <div class='leftdiv'>-->
-<!--            <div class='postimagediv'></div>-->
-<!--            <div class='locationlikediv'>-->
-<!--             <div class='likediv' id='likediv'></div>-->
-<!--                <div class='likecount'></div>-->
-<!--                <div class='locationdiv'></div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class='rightdiv'>-->
-<!--            <div class='usernameimgdiv'></div>-->
-<!--            <div class='captiondiv'></div>-->
-<!--            <div class='commentareadiv'>-->
-<!--                <textarea onkeyup='checkinputs();' name="comment" id="comment" maxlength="50"></textarea>-->
-<!--                <button onclick='postcomment();' id='commentbtn' disabled="disabled">Comment</button>-->
-<!--            </div>-->
-<!--            <div class='commentsdiv'></div>-->
-<!--        </div>-->
-<!--   </div>-->
+<!--//the container  of the posted questions start here-->
 <div class='postcontainer'>
     <div class='usernameimgdiv'>
         <!-- Placeholder for user image and username -->
@@ -52,6 +34,7 @@
         <!-- Placeholder for comments -->
     </div>
 </div>
+<!--//the container  of the posted questions end here-->
 
 <script type="text/javascript" lang="javascript">
     var username="<?php echo $username ?>";
@@ -65,29 +48,16 @@
             url: "<?php echo base_url() ?>index.php/posts/post/action/view?postid="+postid,
             method: "GET"
             }).done(function (data) {//display the details of the questions which are poested
-                // var div ="<img class='postimage' src='<?php echo base_url() ?>images/userposts/"+data.PostImage+"' alt='picture'/>";
-                // $('.postimagediv').append(div);
-                //var div2 ="<a href='<?php //echo base_url() ?>//index.php/posts/locations?locationid="
-                //+ data.LocationId +"'><span><i class='fa-solid fa-cube'></i>"+ data.LocationName +"</span></a>";
-                //$('.locationdiv').append(div2);
-                //var div3 ="<div class= 'userimagediv'><img class='userimage' src='<?php //echo base_url() ?>//images/profilepics/"
-                //         +data.UserImage+"'/></div><div class='usernamediv'><a href='<?php //echo base_url() ?>//index.php/users/userprofile/?username="
-                //         +data.Username +"'><span>"+ data.Username +"</span></a></div>";
-                //$('.usernameimgdiv').append(div3);
-                //var div4 ="<i onclick='like();' class='fa-solid fa-star'></i>";
-                //$('.likediv').append(div4);
-                //var div5 =data.Caption ;
-                //$('.captiondiv').append(div5);
-                //var div6 =data.Question ;
-                //$('.captiondiv').append(div6);
-
-                    // Initializes the display of post details.
 
 
-        // Append a link to the tag details including tag name and icon.
-                    var div2 = "<a href='<?php echo base_url() ?>index.php/posts/locations?locationid=" +
-                        data.LocationId + "'><span><i class='fa-solid fa-cube'></i>" +
-                        data.LocationName + "</span></a>";
+                    // Thi s is used to Initializthe display of post details.
+
+
+        // This is used to Append a link to the tag details including tag name and icon.
+                    //to get tags notparametered
+                    var div2 = "<a href='<?php echo base_url() ?>index.php/posts/locations?questtagid=" +
+                        data.QuesttagId + "'><span><i class='fa-solid fa-cube'></i>" +
+                        data.QuesttagName + "</span></a>";
                     $('.locationdiv').append(div2);
 
         // Create and append a user image and name block linking to the user's profile.
