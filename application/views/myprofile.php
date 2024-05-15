@@ -74,13 +74,13 @@
             var bio ="<span>"+data.UserBio+"</span>";
             $('.biodiv').append(bio);
         });
-        $.ajax({//get follower/following counts
-            url: "<?php echo base_url() ?>index.php/myprofile/followcount?username="+username,
-            method: "GET"
-        }).done(function (data) {
-            document.getElementById("followingc").innerHTML = data.following
-            document.getElementById("followerc").innerHTML = data.followers
-        });
+        //$.ajax({//get follower/following counts
+        //    url: "<?php //echo base_url() ?>//index.php/myprofile/followcount?username="+username,
+        //    method: "GET"
+        //}).done(function (data) {
+        //    document.getElementById("followingc").innerHTML = data.following
+        //    document.getElementById("followerc").innerHTML = data.followers
+        //});
 
         // Set the Tags link dynamically to navigate using the side bar start
         // notparametered funton of Posts.php controller

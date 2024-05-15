@@ -42,9 +42,20 @@ class Postmod extends CI_Model
         return NULL;
     }
 
-    //query database to get posts from users following
+    //query database to get posts from users
 
-    function getPostsofFollowing($username){
+//    function getPostsofFollowing($username){
+//        $users = $this->db->get_where('users', array('Username' => $username));
+//        $userId= $users->row()->UserId;
+//        $query=$this->db->query("SELECT posts.*, users.Username, questtag.QuesttagName
+//        FROM posts
+//        JOIN users ON posts.UserId = users.UserId
+//        JOIN questtag ON posts.QuesttagId = questtag.QuesttagId
+//        ORDER BY posts.Timestamp DESC");
+//        return $query->result();
+//    }
+
+        function getPostsofQuestions($username){
         $users = $this->db->get_where('users', array('Username' => $username));
         $userId= $users->row()->UserId;
         $query=$this->db->query("SELECT posts.*, users.Username, questtag.QuesttagName 

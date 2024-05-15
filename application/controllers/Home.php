@@ -26,11 +26,23 @@ class Home extends \Restserver\Libraries\REST_Controller {
         }
     }
     //api to get posts of following users
-    public function followingposts_get(){
+
+//    used in home .php ajax call
+//    public function followingposts_get(){
+//        if ($this->usersmod->is_logged_in()) {
+//            $username = $this->get('username');
+//            $result=$this->postmod->getPostsofQuestions($username);
+//            $this->response($result);
+//        }
+//        else {
+//            $this->load->view('login');
+//        }
+//    }
+    public function postquestions_get(){
         if ($this->usersmod->is_logged_in()) {
             $username = $this->get('username');
-            $result=$this->postmod->getPostsofFollowing($username);
-            $this->response($result); 
+            $result=$this->postmod->getPostsofQuestions($username);
+            $this->response($result);
         }
         else {
             $this->load->view('login');

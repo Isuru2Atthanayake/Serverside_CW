@@ -96,7 +96,7 @@
     });
 
     var PostCollection = Backbone.Collection.extend({
-        url: "<?php echo base_url() ?>index.php/home/followingposts?username="+username,
+        url: "<?php echo base_url() ?>index.php/home/postquestions?username="+username,
     });
     var html = "";
     
@@ -107,26 +107,6 @@
         this.listenTo(this.model, "add", this.showResults);
     },
     showResults: function (m) {//display all the details of the relavent questions in backbone view
-
-        //html = html + "<div class='question-box'>" +
-        //    "<div class='question-content'>" +
-        //    "<a href='<?php //echo base_url() ?>//index.php/posts/locations?locationid=" + m.get('LocationId') + "'>" +
-        //    "<span><i class='fa-solid fa-cube'></i>" + m.get('LocationName') + "</span></a></div>" +
-        //    "<div class='userlikediv'>" +
-        //    "<div class='usernamediv'><a href='<?php //echo base_url() ?>//index.php/users/userprofile/?username=" + m.get('Username') + "'>" +
-        //    "<span>" + m.get('Username') + "</span></a></div>" +
-        //    "<div class='likes-count' id='likediv" + m.get('PostId') + "'>" +
-        //    "<i onclick='like(" + m.get('PostId') + ");' class='fa-solid fa-star '></i></div></div>" +
-        //    "<div class='captiondiv'>" + m.get('Caption') +
-        //
-        //    "<a href='<?php //echo base_url() ?>//index.php/posts/post?postid=" + m.get('PostId') + "'></br>" +
-        //    "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></a></div>" +
-        //    //"<a class='styled-button' href='<?php ////echo base_url() ?>////index.php/posts/post?postid=" + m.get('PostId') + "'><br>" +
-        //    "<div class='comments-section' id='commentsdiv" + m.get('PostId') + "'></div>"+
-        //    "<a class='styled-button' href='<?php //echo base_url() ?>//index.php/posts/post?postid=" + m.get('PostId') + "'>View Question</a>" +
-        //    "<a class='styled-button reply-button' href='<?php //echo base_url() ?>//index.php/posts/post?postid=" + m.get('PostId') + "'>Reply</a>" +
-        //    "</div>"; //to display the comments
-        //    // "<div class='commentsdiv'><span>Tags: " + m.get('QuestionTags') + "</span></div>"  // Display the tags
 
 
         html = html + "<div class='question-box'>" +
