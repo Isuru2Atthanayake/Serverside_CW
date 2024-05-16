@@ -1,0 +1,185 @@
+.postcontainer {
+    width: 800px; /* Adjust the width as needed */
+    margin: 20px auto; /* Center the container and provide some margin around it */
+    background-color: #ffffff; /* Background color for the box */
+    border-radius: 10px;
+    border: 1px solid #ccc; /* Border to distinguish the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for better depth */
+    padding: 20px; /* Padding inside the box */
+    box-sizing: border-box; /* Include padding and border in the width and height */
+    overflow: hidden; /* Ensures no overflow of content outside the box */
+    display: flex; /* Using flexbox to align child divs side by side */
+    flex-wrap: wrap; /* Allow children to wrap as needed */
+}
+.leftdiv{
+    margin-top: 10px;
+    width: 55%;
+    max-width: 55%;
+    float: left;
+    position: fixed;
+}
+.rightdiv{
+    width: 45%;
+    float: right;
+    max-width: 45%;
+    display: block;
+    /*overflow: auto;*/
+}
+.questtagdiv{
+    width: 60%;
+    /*float: right;*/
+    box-sizing: border-box;
+    text-align: right;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding-top: 4px;
+}
+.ratediv{
+    width: fit-content;
+    float: left;
+    font-size: 30px;
+}
+.ratecount{
+    width: 20%;
+    float: left;
+    font-size: 17px;
+    font-weight: 550;
+    margin: 8px 0 0 10px;
+    color: #666666;
+
+}
+.fa-cube{
+    margin-right: 3%;
+}
+.questtagdiv a{
+    color: #666666;
+    text-decoration: none;
+    transition: color .4s;
+}
+.questtagdiv a:hover{
+    color: #52B2CF;
+    text-decoration: none;
+}
+.fa-star{
+    padding: 0;
+    cursor: pointer;
+    transition: transform .4s;
+}
+.usernameimgdiv{
+    width: 100%;
+    display: block;
+    overflow: auto;
+}
+.userimagediv{
+    width: 12%;
+    aspect-ratio : 1 / 1;
+    float: left;
+}
+.userimage{
+    width: 100%;
+    aspect-ratio : 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.usernamediv{
+    width: 50%;
+    float: left;
+    padding-left: 3%;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+    margin-top: 1%;
+}
+.usernamediv a{
+    color: #52B2CF;
+    text-decoration: none;
+    transition: color .4s;
+}
+.usernamediv a:hover{
+    color: #32AFD5;
+    text-decoration: none;
+}
+/*applies for tag, profile and rate*/
+.questtitlediv {
+    width: 90%;
+    font-size: 20px;
+    color: #0ee65a;
+}
+/* the question*/
+.question-content{
+    color: #666666;
+    text-decoration: none;
+    transition: color .4s;
+    font-family: "DM Sans", sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+/*questtitle of the question*/
+.questtitlediv {
+    width: 90%;
+    font-size: 20px;
+    color: #666666;
+}
+.commentareadiv{
+    margin: 15px 0;
+    width: 95%;
+    display: block;
+    overflow: auto;
+}
+.usercommentsdiv{
+    width: 90%;
+    font-size: 15px;
+    color: #666666;
+}
+.usercommentsdiv a{
+    color: #9A618E;
+    text-decoration: none;
+    padding-right: 2%;
+}
+.usercommentsdiv a:hover{
+    color: #9A618E;
+    text-decoration: underline;
+}
+.comments{
+    padding: 15px 0 12px 0;
+    border-bottom: 1px solid #52B2CF;
+}
+textarea{
+    width: 60%;
+    height: 50px;
+    padding: 8px;
+    border: 2px solid #cccccc;
+    border-radius: 8px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: normal;
+    color: #666666;
+    resize: none;
+    float: left;
+    outline: none;
+    font-family: "DM Sans", sans-serif;
+}
+textarea:focus{
+    border: 2px solid #8FD6C2;
+}
+button{
+    height: 40px;
+    float: left;
+    width: 25%;
+    border-radius: 5px;
+    margin-left: 2%;
+    margin-top: 15px;
+    border: none;
+    font-size: 16px;
+    transition: background-color .4s;
+    cursor: pointer;
+}
+button:disabled{
+	background-color: #cccccc;
+    color: #7C7D7C;
+}
+button:enabled{
+	background-color: #003049;
+    color: white;
+}
+

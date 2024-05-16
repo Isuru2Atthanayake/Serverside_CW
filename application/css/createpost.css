@@ -1,0 +1,129 @@
+.postquestcontainer{
+    width: 50%; /* Reduced width for better focus */
+    margin: 50px auto; /* Centering the box vertically and horizontally */
+    padding: 20px; /* Padding inside the container for spacing */
+    background-color: #ffffff; /* Light background to enhance readability */
+    border: 1px solid #ccc; /* Subtle border for definition */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Soft shadow for depth */
+    border-radius: 10px; /* Rounded corners for modern appearance */
+    display: flex; /* Flex display to better organize the internal layout */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Centers the flex items horizontally */
+    text-align: center; /* Aligns text inside the container to center */
+}
+.questdiv{
+    width: 100%; /* Ensuring these divs take full width of the container */
+    clear: both; /* Clearing floats if any */
+    margin-top: 20px; /* Adding top margin for spacing */
+    align-items: center; /* Center-align the child elements */
+    /*background-color: #0ee65a;*/
+}
+.questerr{
+    margin:20px auto;
+    width: 40%;
+    color: #EB9494;
+    text-align: center;
+}
+.questsubmitdiv{
+    margin-top: 40px;
+    width: 100%;
+    /* color: #EB9494; */
+    float: left;
+}
+.queslabel, .questtag{
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #003049;
+}
+
+/*--------old-----------*/
+
+/*input[type=file] {*/
+/*    position: absolute;*/
+/*    margin: 0 35%;*/
+/*    width: 30%;*/
+/*    height: 40px;*/
+/*    opacity: 0%;*/
+/*    cursor: pointer;*/
+/*  }*/
+/*.dummy {*/
+/*    width: 30%;*/
+/*    margin: 0 35%;*/
+/*    background-color: #EB9494;*/
+/*    text-align: center;*/
+/*    border-radius: 15px;*/
+/*    height: 45px;*/
+
+/*  }*/
+/*.dummy p{*/
+/*    color: #F9F5F5;*/
+/*    font-size: 18px;*/
+/*    letter-spacing: 1px;*/
+/*    margin: 0;*/
+/*    padding-top: 5px;*/
+/*}*/
+/*input[type=file]:valid + .dummy {*/
+/*    background-color: #52B2CF;*/
+/*}*/
+/*.postpicdiv{*/
+/*    width: 40%;*/
+/*    margin: 0 auto 10px auto;*/
+/*}*/
+/*#postpicid{*/
+/*    width: 100%;*/
+/*    aspect-ratio : 1 / 1;*/
+/*    object-fit: cover;*/
+/*}*/
+
+
+#uploadquest{
+    width: 25%;
+    background-color: #003049;
+	font-size: 1.3rem;
+	padding: 0.8rem 0.5rem;
+	border-radius: 5px;
+	color: #fff;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+	transition: background-color .4s;
+}
+#uploadquest:hover{
+    background-color: #669bbc
+}
+
+textarea{
+    width: 60%;
+    height: 100px;
+    padding: 12px 20px;
+    border: 2px solid #cccccc;
+    border-radius: 8px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: normal;
+    color: #666666;
+    resize: none;
+    outline: none;
+    font-family: "DM Sans", sans-serif;
+}
+textarea:focus{
+    border: 2px solid #8FD6C2;
+}
+select{
+    width: 50%;
+    height: 30px;
+    border-radius: 4px;
+    outline: none;
+    border: 2px solid #cccccc;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    line-height: normal;
+    color: #666666;
+}
+select:focus{
+    border: 2px solid #8FD6C2;
+}
+
+
