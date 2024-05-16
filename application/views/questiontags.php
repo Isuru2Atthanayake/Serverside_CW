@@ -85,7 +85,7 @@
                 }
             });
             $.ajax({//check if the user has already liked them or not and change color accordingly
-                url: "<?php echo base_url() ?>index.php/home/checklikes?username="+username+"&postid="+m.get('PostId'),
+                url: "<?php echo base_url() ?>index.php/home/checkratings?username="+username+"&postid="+m.get('PostId'),
                 method: "GET"
             }).done(function (res) {
                 if(res){

@@ -119,7 +119,7 @@
             "<div class='usernamediv'><a href='<?php echo base_url() ?>index.php/users/userprofile/?username=" + m.get('Username') + "'>" +
             "<span>" + m.get('Username') + "</span></a></div>" +
             "<div class='likes-count' id='likediv" + m.get('PostId') + "'>" +
-            "<i onclick='like(" + m.get('PostId') + ");' class='fa-solid fa-star '></i></div></div>" +
+            "<i onclick='rate(" + m.get('PostId') + ");' class='fa-solid fa-star '></i></div></div>" +
             "<div class='captiondiv'>" + m.get('Caption') +
 
             "<a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'></br>" +
@@ -152,7 +152,7 @@
                 }
             });
             $.ajax({//check if the user has already liked them or not and change color accordingly
-                url: "<?php echo base_url() ?>index.php/home/checklikes?username="+username+"&postid="+m.get('PostId'),
+                url: "<?php echo base_url() ?>index.php/home/checkratings?username="+username+"&postid="+m.get('PostId'),
                 method: "GET"
             }).done(function (res) {
                 if(res){
@@ -168,15 +168,15 @@
     var postDisplay = new PostDisplay({model: postCollection})
 
     //clicking on like buttons
-    function like($postid){
+    function rate($postid){
         $.ajax({
-                url: "<?php echo base_url() ?>index.php/home/like",
+                url: "<?php echo base_url() ?>index.php/home/rate",
                 data: JSON.stringify({username: username,postid:$postid}),
                 contentType: "application/json",
                 method: "POST"
         }).done(function (data) {
             $.ajax({
-                url: "<?php echo base_url() ?>index.php/home/checklikes?username="+username+"&postid="+$postid,
+                url: "<?php echo base_url() ?>index.php/home/checkratings?username="+username+"&postid="+$postid,
                 method: "GET"
             })
             .done(function (res) {

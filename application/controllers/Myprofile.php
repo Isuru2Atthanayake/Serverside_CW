@@ -8,7 +8,7 @@ class Myprofile extends \Restserver\Libraries\REST_Controller {
 	public function __construct() {
         parent::__construct();
 		$this->load->model('usersmod');
-        $this->load->model('postmod');
+        $this->load->model('postquestmod');
 
 //        Header('Access-Control-Allow-Origin: *');
 //        Header('Access-Control-Allow-Headers: *');
@@ -37,7 +37,7 @@ class Myprofile extends \Restserver\Libraries\REST_Controller {
     //api to get users post details
     public function myposts_get(){
             $username = $this->session->username;
-            $result = $this->postmod->getPostsfromUsername($username);
+            $result = $this->postquestmod->getPostsfromUsername($username);
             $this->response($result);
     }
 

@@ -43,7 +43,7 @@
         event.preventDefault();
         //get comments and like count on start
         getComments();
-        likecount();
+        ratecount();
         $.ajax({//get post details
             url: "<?php echo base_url() ?>index.php/posts/post/action/view?postid="+postid,
             method: "GET"
@@ -67,8 +67,11 @@
                     $('.usernameimgdiv').append(div3);
 
         // Add a 'like' icon with an event handler for liking the post.
-                    var div4 = "<i onclick='like();' class='fa-solid fa-star'></i>"+"<br/>";
+                    var div4 = "<i onclick='rate();' class='fa-solid fa-star'></i>"+"<br/>";
                     $('.likediv').append(div4);
+
+                    // var div4 = "<i onclick='rate();' class='fa-solid fa-star'></i>"+"<br/>";
+                    // $('.likediv').append(div4);
             // Append the caption data and add a line break for better layout.
         // Encapsulate the caption in a div for better styling control.
             var div5 = "<div class='questcaptiondiv'>" + data.Caption + "<br/></div>";
@@ -81,7 +84,7 @@
 
             });
             $.ajax({//check if user has already liked the post
-                url: "<?php echo base_url() ?>index.php/home/checklikes?username="+username+"&postid="+postid,
+                url: "<?php echo base_url() ?>index.php/home/checkratings?username="+username+"&postid="+postid,
                 method: "GET"
             }).done(function (res) {
                 if(res){
@@ -102,25 +105,25 @@
         }
     }
     //when post is liked, send post request and change color of button
-    function like(){
+    function rate(){
         $.ajax({
-            url: "<?php echo base_url() ?>index.php/home/like",
+            url: "<?php echo base_url() ?>index.php/home/rate",
             data: JSON.stringify({username: username,postid:postid}),
             contentType: "application/json",
             method: "POST"
         }).done(function (data) {
             $.ajax({
-                url: "<?php echo base_url() ?>index.php/home/checklikes?username="+username+"&postid="+postid,
+                url: "<?php echo base_url() ?>index.php/home/checkratings?username="+username+"&postid="+postid,
                 method: "GET"
             })
             .done(function (res) {
                 if(res){
                     document.getElementById("likediv").style.color = "#FC6464";
-                    likecount();
+                    ratecount();
                 }
                 else{
                     document.getElementById("likediv").style.color = "#666666";
-                    likecount();
+                    ratecount();
                 }
             });
         });
@@ -160,12 +163,12 @@
         });
     }
     //get the like count of the post
-    function likecount(){
+    function ratecount(){
         $.ajax({
-                url: "<?php echo base_url() ?>index.php/posts/likecount?postid="+postid,
+                url: "<?php echo base_url() ?>index.php/posts/ratecount?postid="+postid,
                 method: "GET"
         }).done(function (res) {
-            $('.likecount span').remove();       
+            $('.likecount span').remove();
             if(res==1){
                 var div ="<span>"+res+" Rating</span>";
             }

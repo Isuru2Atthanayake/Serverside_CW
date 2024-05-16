@@ -8,7 +8,8 @@ class Home extends \Restserver\Libraries\REST_Controller {
 	public function __construct() {
         parent::__construct();
 		$this->load->model('usersmod');
-        $this->load->model('postmod');
+//        $this->load->model('postmod');
+        $this->load->model('postquestmod');
 
 //        Header('Access-Control-Allow-Origin: *');
 //        Header('Access-Control-Allow-Headers: *');
@@ -30,7 +31,7 @@ class Home extends \Restserver\Libraries\REST_Controller {
     public function postquestions_get(){
         if ($this->usersmod->is_logged_in()) {
             $username = $this->get('username');
-            $result=$this->postmod->getPostsofQuestions($username);
+            $result=$this->postquestmod->getPostsofQuestions($username);
             $this->response($result);
         }
         else {
@@ -41,7 +42,7 @@ class Home extends \Restserver\Libraries\REST_Controller {
     public function comments_get(){
         if ($this->usersmod->is_logged_in()) {
             $postid = $this->get('postid');
-            $result=$this->postmod->getComments($postid);
+            $result=$this->postquestmod->getComments($postid);
             $this->response($result); 
         }
         else {
@@ -54,7 +55,7 @@ class Home extends \Restserver\Libraries\REST_Controller {
             $username = $this->session->username;
             $postid = $this->post('postid');
             $comment = $this->post('comment');
-            $result=$this->postmod->addComments($postid, $comment, $username);
+            $result=$this->postquestmod->addComments($postid, $comment, $username);
             $this->response($result); 
         }
         else {
@@ -62,11 +63,11 @@ class Home extends \Restserver\Libraries\REST_Controller {
         }
     }
     //api to check if user has already liked a post
-    public function checklikes_get(){
+    public function checkratings_get(){
         if ($this->usersmod->is_logged_in()) {
             $username = $this->session->username;
             $postid = $this->get('postid');
-            $result=$this->postmod->checklikes($username, $postid);
+            $result=$this->postquestmod->checkratings($username, $postid);
             $this->response($result); 
         }
         else {
@@ -74,12 +75,12 @@ class Home extends \Restserver\Libraries\REST_Controller {
         }
     }
     //post request to like posts
-    public function like_post(){
+    public function rate_post(){
         if ($this->usersmod->is_logged_in()) {
             $username = $this->session->username;
             $username = $this->post('username');
             $postid = $this->post('postid');
-            $result=$this->postmod->likepost($username, $postid);
+            $result=$this->postquestmod->ratepost($username, $postid);
             $this->response($result); 
         }
         else {

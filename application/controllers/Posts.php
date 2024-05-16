@@ -9,7 +9,7 @@ class Posts extends \Restserver\Libraries\REST_Controller {
 	function __construct() {
         parent::__construct();
 		$this->load->model('usersmod');
-        $this->load->model('postmod');
+        $this->load->model('postquestmod');
 
         Header('Access-Control-Allow-Origin: *');
         Header('Access-Control-Allow-Headers: *');
@@ -73,7 +73,7 @@ class Posts extends \Restserver\Libraries\REST_Controller {
             //getting the question
             $question = $this->post('question');
             //calling the create post function
-            $result = $this->postmod->createPost($username, $questtagid, $caption,$question);
+            $result = $this->postquestmod->createPost($username, $questtagid, $caption,$question);
 
             $this->response($result); 
             if ($result) {
@@ -90,7 +90,7 @@ class Posts extends \Restserver\Libraries\REST_Controller {
     //api to get all posts from a user
     public function userposts_get(){
         $username = $this->get('username');
-        $result = $this->postmod->getPostsfromUsername($username);
+        $result = $this->postquestmod->getPostsfromUsername($username);
         $this->response($result);
     }
 
@@ -118,7 +118,7 @@ class Posts extends \Restserver\Libraries\REST_Controller {
     public function questtag_get() {
         //action all gets all questtags
         if($this->get('action') == 'all') {
-            $questtags = $this->postmod->getQuesttag();
+            $questtags = $this->postquestmod->getQuesttag();
             if ($questtags) {
                 $this->response($questtags);
             } else {
@@ -128,7 +128,7 @@ class Posts extends \Restserver\Libraries\REST_Controller {
         //action id get the post by its id
         if($this->get('action') == 'id') {
             $questtagid = $this->get('questtagid');
-            $questtags = $this->postmod->getQuesttagbyId($questtagid);
+            $questtags = $this->postquestmod->getQuesttagbyId($questtagid);
             $this->response($questtags);
         }
     }
@@ -153,7 +153,7 @@ class Posts extends \Restserver\Libraries\REST_Controller {
             $postid = $this->get('postid');
             //if action is view, get post details from id
             if($this->get('action') == 'view') {
-                $result = $this->postmod->postfromid($postid);
+                $result = $this->postquestmod->postfromid($postid);
                 $this->response($result);
             }
             //else load the post view
@@ -171,7 +171,7 @@ class Posts extends \Restserver\Libraries\REST_Controller {
     public function questtagposts_get(){
         if ($this->usersmod->is_logged_in()) {
             $questtagid = $this->get('questtagid');
-            $result = $this->postmod->postsFromQuesttag($questtagid);
+            $result = $this->postquestmod->postsFromQuesttag($questtagid);
             $this->response($result);
         }
         else {
@@ -179,10 +179,20 @@ class Posts extends \Restserver\Libraries\REST_Controller {
         } 
     }
     //api to get the like count
-    public function likecount_get(){
+//    public function likecount_get(){
+//        if ($this->usersmod->is_logged_in()) {
+//            $postid = $this->get('postid');
+//            $result = $this->postmod->likeCount($postid);
+//            $this->response($result);
+//        }
+//        else {
+//            $this->load->view('login');
+//        }
+//    }
+    public function ratecount_get(){
         if ($this->usersmod->is_logged_in()) {
             $postid = $this->get('postid');
-            $result = $this->postmod->likeCount($postid);
+            $result = $this->postquestmod->ratecount($postid);
             $this->response($result);
         }
         else {
