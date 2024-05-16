@@ -29,7 +29,7 @@
 
     <!-- Logout Link -->
     <div class="logout-section">
-        <a class="logoutlink" href="<?php echo base_url()?>index.php/users/logout">LOGOUT</a>
+        <a class="userlogout" href="<?php echo base_url()?>index.php/users/logout">LOGOUT</a>
     </div>
 
     <!--   444 the search bar inside the side bar end here-->
@@ -37,7 +37,7 @@
 <!--The code of Sidebar  end here -->
 
 <!--The code of profile  start here-->
-<div class="profilecontainer">
+<div class="userprofilecontainer">
     <div class="profiledeetdiv">
         <div class="topdiv">
             <div class="profpicdiv"></div>
@@ -104,7 +104,7 @@
 
                 html = html + "<div class='questdiv'><a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'>" +
                 "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></a></div>" +
-                "<div class='commentsdiv' id='commentsdiv" + m.get('PostId') + "'></div>";
+                "<div class='usercommentsdiv' id='usercommentsdiv" + m.get('PostId') + "'></div>";
 
             });
 

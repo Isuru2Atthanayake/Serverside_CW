@@ -1,11 +1,7 @@
 body {
 	background-color: #ffffff;
 }
-.profilecontainer{
-    /*width: 100%;*/
-    /*display: block;*/
-    /*overflow: auto;*/
-
+.userprofilecontainer{
     width: 60%;
     margin: auto;
     border: 1px solid #ccc;
@@ -181,12 +177,12 @@ a{
 }
 
 
-.comments-section {
-    margin-top: 20px;
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-radius: 5px;
-}
+/*.comments-section {*/
+/*    margin-top: 20px;*/
+/*    background-color: #f9f9f9;*/
+/*    padding: 10px;*/
+/*    border-radius: 5px;*/
+/*}*/
 
 /*#followbutton:hover{*/
 /*    transform: scale(1.05);*/

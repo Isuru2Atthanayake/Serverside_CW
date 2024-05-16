@@ -12,43 +12,33 @@
 <body>
 <!--The code of Sidebar navigation start here-->
 <div class="sidebar">
-<!--    <div class="searchdiv">-->
-<!--        <input type="text" class="search1" id="search" placeholder="fa-star" onkeyup='searchusers()'/>-->
-<!--    </div>-->
-
 <!--  444  the search bar inside the side bar start here-->
     <div>
         <input type="text"  class="searchdiv" id="search" placeholder="Search..." onkeyup='searchusers()'/>
         <div class="searchresults2" id="searchresults"></div>
     </div>
 
-    <!--These are the  Navigation Links -->
+    <!--These are the  Navigation Links which are used to navigate in the page -->
     <ul>
         <li><a id="home-link" >Home</a></li>
         <li><a id="tags-link" >Tags</a></li>
         <li><a id="Profile-link" >Profile</a></li>
-        <!-- <li><a href="#contact">Contact</a></li> -->
-<!--        <a class="logoutlink" href="--><?php //echo base_url()?><!--index.php/users/logout">LOGOUT</a>-->
     </ul>
 
     <!-- Logout Link -->
     <div class="logout-section">
-        <a class="logoutlink" href="<?php echo base_url()?>index.php/users/logout">LOGOUT</a>
+        <a class="userlogout" href="<?php echo base_url()?>index.php/users/logout">LOGOUT</a>
     </div>
 
     <!--   444 the search bar inside the side bar end here-->
 
-    <!-- Icon Links -->
-<!--    <div class="link-div">-->
-<!---->
-<!--    </div>-->
 </div>
 <!--The code of Sidebar navigation end here -->
-
-<div class="feedcontainer">
-    <div class='notfollowing'>
+<!--the code of the homecontainer is used to show the home content-->
+<div class="homecontainer">
+    <div class='heading1'>
         <div class='heading'>This is the home page </div>
-        <div class='userlisting'></div>
+        <div class='homelist'></div>
     </div>
 <div>
 
@@ -59,7 +49,9 @@
         postCollection.fetch(); // Always fetch posts on start
 
       // Set the Tags link dynamically to navigate using the side bar start
+      //navigate to the tags page
       $('#tags-link').attr('href', '<?php echo base_url() ?>index.php/posts/questtags');
+      //navigate to the profilepage
       $('#Profile-link').attr('href', '<?php echo base_url() ?>index.php/myprofile');
       $('#home-link').attr('href', '<?php echo base_url() ?>index.php/home');
      // Set the Tags link dynamically to navigate using the side bar end
@@ -74,7 +66,7 @@
 
     //code to display data with the questions and the other details  --- start---
     var PostDisplay = Backbone.View.extend({
-    el: ".feedcontainer",//el is the element where the view is rendered
+    el: ".homecontainer",//el is the element where the view is rendered
     initialize: function () {//initialize the function of the view
         this.listenTo(this.model, "add", this.showResults);
     },
@@ -86,51 +78,65 @@
             //"<a href='<?php //echo base_url() ?>//index.php/posts/notparametered?key=" + m.get('dbcolumnname') + "'>" +
             "<a href='<?php echo base_url() ?>index.php/posts/questtags?questtagid=" + m.get('QuesttagId') + "'>" +
             "<span><i class='fa-solid fa-cube'></i>" + m.get('QuesttagName') + "</span></a></div>" +
-            "<div class='userlikediv'>" +
+            "<div class='userratediv'>" +
             "<div class='usernamediv'><a href='<?php echo base_url() ?>index.php/users/userprofile/?username=" + m.get('Username') + "'>" +
             "<span>" + m.get('Username') + "</span></a></div>" +
-            "<div class='likes-count' id='likediv" + m.get('PostId') + "'>" +
+            "<div class='rate-count' id='ratediv" + m.get('PostId') + "'>" +
             "<i onclick='rate(" + m.get('PostId') + ");' class='fa-solid fa-star '></i></div></div>" +
-            "<div class='captiondiv'>" + m.get('QuestTitle') +
+            "<div class='questtitlediv'>" + m.get('QuestTitle') +
 
             "<a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'></br>" +
             "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></a></div>" +
             //"<a class='styled-button' href='<?php //echo base_url() ?>//index.php/posts/post?postid=" + m.get('PostId') + "'><br>" +
-            "<div class='comments-section' id='commentsdiv" + m.get('PostId') + "'></div>"+
+            "<div class='usercomments-section' id='usercommentsdiv" + m.get('PostId') + "'></div>"+
             "<a class='styled-button' href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'>View Question</a>" +
             "<a class='styled-button reply-button' href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'>Reply</a>" +
             "</div>"; //to display the comments
-        // "<div class='commentsdiv'><span>Tags: " + m.get('QuestionTags') + "</span></div>"  // Display the tags
-
 
         this.$el.html(html);//this will render the html in the view
 
     //code to display data with questions --- end---
 
-            //get the comments of the each posted questons and then it is used to display the questions accordingly
-            $.ajax({
-                url: "<?php echo base_url() ?>index.php/home/comments?postid="+m.get('PostId'),
-                method: "GET"
-            }).done(function (res) {
-                if(res.length!=0){
-                    for (i = 0; i < res.length; i++) {
-                        if(i<2){
-                            var div ="<span><a class='commuserlink' href='<?php echo base_url() ?>index.php/users/userprofile/?username="+res[i].Username+"'>"+res[i].Username+"</a>"
+            //get the usercomments of the each posted questons and then it is used to display the questions accordingly
+            //$.ajax({
+            //    url: "<?php //echo base_url() ?>//index.php/home/comments?postid="+m.get('PostId'),
+            //    method: "GET"
+            //}).done(function (res) {
+            //    if(res.length!=0){
+            //        for (i = 0; i < res.length; i++) {
+            //            if(i<2){
+            //                var div ="<span><a class='commuserlink' href='<?php //echo base_url() ?>//index.php/users/userprofile/?username="+res[i].Username+"'>"+res[i].Username+"</a>"
+            //                +res[i].CommentBody+"</span></br>";
+            //                $('#commentsdiv'+m.get('PostId')).append(div);
+            //            }
+		    //      }
+            //    }
+            //});
+
+        $.ajax({
+            url: "<?php echo base_url() ?>index.php/home/comments?postid="+m.get('PostId'),
+            method: "GET"
+        }).done(function (res) {
+            if(res.length!=0){
+                for (i = 0; i < res.length; i++) {
+                    if(i<2){
+                        var div ="<span><a class='commuserlink' href='<?php echo base_url() ?>index.php/users/userprofile/?username="+res[i].Username+"'>"+res[i].Username+"</a>"
                             +res[i].CommentBody+"</span></br>";
-                            $('#commentsdiv'+m.get('PostId')).append(div);
-                        }
-		          }
+                        $('#usercommentsdiv'+m.get('PostId')).append(div);
+                    }
                 }
-            });
-            $.ajax({//check if the user has already liked them or not and change color accordingly
+            }
+        });
+
+            $.ajax({//check if the user has already rated them or not and change color accordingly
                 url: "<?php echo base_url() ?>index.php/home/checkratings?username="+username+"&postid="+m.get('PostId'),
                 method: "GET"
-            }).done(function (res) {
+            }).done(function (res) {//change the color of the rate icon if the user has already rated
                 if(res){
-                    document.getElementById("likediv"+m.get('PostId')).style.color = "#FC6464";
+                    document.getElementById("ratediv"+m.get('PostId')).style.color = "#FC6464";
                 }
                 else{
-                    document.getElementById("likediv"+m.get('PostId')).style.color = "#666666";
+                    document.getElementById("ratediv"+m.get('PostId')).style.color = "#666666";
                 }
             });
         }
@@ -138,7 +144,7 @@
     var postCollection = new PostCollection();
     var postDisplay = new PostDisplay({model: postCollection})
 
-    //clicking on like buttons
+    //clicking on rate buttons
     function rate($postid){
         $.ajax({
                 url: "<?php echo base_url() ?>index.php/home/rate",
@@ -152,10 +158,10 @@
             })
             .done(function (res) {
                 if(res){
-                    document.getElementById("likediv"+$postid).style.color = "#FC6464";
+                    document.getElementById("ratediv"+$postid).style.color = "#FC6464";
                 }
                 else{
-                    document.getElementById("likediv"+$postid).style.color = "#666666";
+                    document.getElementById("ratediv"+$postid).style.color = "#666666";
                 }
             });
         });

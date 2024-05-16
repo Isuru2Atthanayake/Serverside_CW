@@ -23,6 +23,7 @@
 
     <!--These are the  Navigation Links -->
     <ul>
+<!--        this is the home link-->
         <li><a id="home-link" >Home</a></li>
         <li><a id="tags-link" >Tags</a></li>
         <li><a id="Profile-link" >Profile</a></li>
@@ -30,7 +31,7 @@
 
     <!-- Logout Link -->
     <div class="logout-section">
-        <a class="logoutlink" href="<?php echo base_url()?>index.php/users/logout">LOGOUT</a>
+        <a class="userlogout" href="<?php echo base_url()?>index.php/users/logout">LOGOUT</a>
     </div>
 
     <!--   444 the search bar inside the side bar end here-->
@@ -38,7 +39,7 @@
 
 
 <!--The code of profile Sidebar  start here-->
-<div class="profilecontainer">
+<div class="userprofilecontainer">
     <div class="profiledeetdiv">
         <div class="topdiv">
             <div class="profpicdiv"></div>
@@ -92,7 +93,7 @@
             this.model.each(function (m) {
                 html = html + "<div class='questdiv'><a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'>" +
                 "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></a></div>" +
-                "<div class='commentsdiv' id='commentsdiv" + m.get('PostId') + "'></div>";
+                "<div class='usercommentsdiv' id='usercommentsdiv" + m.get('PostId') + "'></div>";
 
             });
             this.$el.html(html);
@@ -108,13 +109,7 @@
             url: "<?php echo base_url() ?>index.php/myprofile"+username,
             method: "GET"
         }).done(function (data) {
-            //to remove the following button
-            // if (data) {
-            //      document.getElementById("followbutton").innerHTML = "UNFOLLOW"
-            // }
-            // else {
-            //     document.getElementById("followbutton").innerHTML = "FOLLOW"
-            // }
+
         });
     }        
     //to follow the user end  

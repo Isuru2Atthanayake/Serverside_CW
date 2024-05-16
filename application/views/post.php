@@ -12,23 +12,23 @@
     <div class='usernameimgdiv'>
         <!-- Placeholder for user image and username -->
     </div>
-    <div class='captiondiv'>
-        <!-- Placeholder for post caption -->
-<!--        <div class='likediv' id='likediv'></div>-->
-        <div class='likediv' id='likediv'>
+    <div class='questtitlediv'>
+        <!-- Placeholder for posttedquestions questtitle -->
+<!--        <div class='ratediv' id='ratediv'></div>-->
+        <div class='ratediv' id='ratediv'>
             <i class='fa-solid fa-star' id='star1' onclick='rate(1);'></i>
             <i class='fa-solid fa-star' id='star2' onclick='rate(2);'></i>
             <i class='fa-solid fa-star' id='star3' onclick='rate(3);'></i>
             <i class='fa-solid fa-star' id='star4' onclick='rate(4);'></i>
             <i class='fa-solid fa-star' id='star5' onclick='rate(5);'></i>
         </div>
-        <div class='likecount'></div>
+        <div class='ratecount'></div>
         <div class='questtagdiv'></div>
 
 
     </div>
     <div class='questdiv'>
-        <div class='questcaptiondiv'></div>
+        <div class='questtitlediv1'></div>
         <div class='question-content'></div>
     </div>
 
@@ -37,7 +37,7 @@
         <textarea onkeyup='checkinputs();' name="comment" id="comment" maxlength="50"></textarea>
         <button onclick='postcomment();' id='commentbtn' disabled="disabled">Reply</button>
     </div>
-    <div class='commentsdiv'>
+    <div class='usercommentsdiv'>
         <!-- Placeholder for comments -->
     </div>
 </div>
@@ -48,7 +48,7 @@
     var postid="<?php echo $postid ?>";  
     $(document).ready(function () {
         event.preventDefault();
-        //get comments and like count on start
+        //get comments and rate count on start
         getComments();
         ratecount();
         $.ajax({//get post details
@@ -73,16 +73,16 @@
                         data.Username + "'><span>" + data.Username + "</span></a></div>";
                     $('.usernameimgdiv').append(div3);
 
-        // Add a 'like' icon with an event handler for liking the post.
+        // Add a 'rate' icon with an event handler for liking the post.
         //             var div4 = "<i onclick='rate();' class='fa-solid fa-star'></i>"+"<br/>";
-        //             $('.likediv').append(div4);
+        //             $('.ratediv').append(div4);
 
                     // var div4 = "<i onclick='rate();' class='fa-solid fa-star'></i>"+"<br/>";
-                    // $('.likediv').append(div4);
-            // Append the caption data and add a line break for better layout.
-        // Encapsulate the caption in a div for better styling control.
-            var div5 = "<div class='questcaptiondiv'>" + data.QuestTitle + "<br/></div>";
-            $('.questcaptiondiv').append(div5);
+                    // $('.ratediv').append(div4);
+            // Append the questtitle data and add a line break for better layout.
+        // Encapsulate the questtitle in a div for better styling control.
+            var div5 = "<div class='questtitlediv'>" + data.QuestTitle + "<br/></div>";
+            $('.questtitlediv').append(div5);
 
         // Append the question text if available, it appears below the questtitle in the layout.
         // Encapsulate the question in a div to maintain consistent styling and separation.
@@ -90,18 +90,6 @@
             $('.question-content').append(div6);
 
             });
-        //    $.ajax({//check if user has already liked the post
-        //        url: "<?php //echo base_url() ?>//index.php/home/checkratings?username="+username+"&postid="+postid,
-        //        method: "GET"
-        //    }).done(function (res) {
-        //        if(res){
-        //            document.getElementById("likediv").style.color = "#FC6464";
-        //        }
-        //        else{
-        //            document.getElementById("likediv").style.color = "#666666";
-        //        }
-        //    });
-        //});
         $.ajax({
             url: "<?php echo base_url() ?>index.php/home/checkratings?username=" + username + "&postid=" + postid,
             method: "GET"
@@ -122,7 +110,7 @@
             document.getElementById('commentbtn').disabled = true;
         }
     }
-    //when post is liked, send post request and change color of button
+    //when post is rated, send post request and change color of button
     //function rate(){
     //    $.ajax({
     //        url: "<?php //echo base_url() ?>//index.php/home/rate",
@@ -136,11 +124,11 @@
     //        })
     //        .done(function (res) {
     //            if(res){
-    //                document.getElementById("likediv").style.color = "#FC6464";
+    //                document.getElementById("ratediv").style.color = "#FC6464";
     //                ratecount();
     //            }
     //            else{
-    //                document.getElementById("likediv").style.color = "#666666";
+    //                document.getElementById("ratediv").style.color = "#666666";
     //                ratecount();
     //            }
     //        });
@@ -192,39 +180,25 @@
                 method: "GET"
         }).done(function (res) {
             if(res.length!=0){    
-                $('.commentsdiv div').remove();       
+                $('.usercommentsdiv div').remove();
                 for (i = 0; i < res.length; i++) {
                     var div ="<div class='comments'><a href='<?php echo base_url() ?>index.php/users/userprofile/?username="+res[i].Username+"'>"+res[i].Username+"</a>"
                     +res[i].CommentBody+"</div>";
-                    $('.commentsdiv').append(div);
+                    $('.usercommentsdiv').append(div);
                 } 
             }
         });
     }
-    //get the like count of the post
-    //function ratecount(){
-    //    $.ajax({
-    //            url: "<?php //echo base_url() ?>//index.php/posts/ratecount?postid="+postid,
-    //            method: "GET"
-    //    }).done(function (res) {
-    //        $('.likecount span').remove();
-    //        if(res==1){
-    //            var div ="<span>"+res+" Rating</span>";
-    //        }
-    //        else{
-    //            var div ="<span>"+res+" Ratings</span>";
-    //        }
-    //        $('.likecount').append(div);
-    //    });
-    //}
+     //get the rate count of the posted questions
     function ratecount() {
         $.ajax({
+            //get the rate count of the posted questions using the postid
             url: "<?php echo base_url() ?>index.php/posts/ratecount?postid=" + postid,
             method: "GET"
         }).done(function (res) {
-            $('.likecount span').remove();
+            $('.ratecount span').remove();
             // var div = "<span>" + res + " Ratings</span>";
-            $('.likecount').append(div);
+            $('.ratecount').append(div);
         });
     }
 </script>

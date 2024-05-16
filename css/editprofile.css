@@ -1,6 +1,6 @@
 
 /* edit profile container start */
-.editprofcontainer {
+.editpropiccontainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +8,7 @@
     background-color: #f8f9fa; /* Light Gray */
 }
 
-.editprofile-box {
+.editpro-box {
     width: 35%; /* Smaller width */
     padding: 30px; /* Increased padding */
     background-color: #ffffff; /* White background */
@@ -16,13 +16,11 @@
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Softer shadow */
     text-align: center;
 }
-
-.texteditdiv, .piceditdiv {
+.texteditdiv, .propicdiv {
     width: 100%;
     margin-bottom: 25px; /* Increased margin */
 }
-
-.piceditdiv {
+.propicdiv {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,21 +104,13 @@ input[type=file] {
     font-size: 16px;
 }
 
-.dummy {
-    /*width: 80%;*/
-    /*margin: 15px auto;*/
-    /*background-color: #e9ecef; !* Light background *!*/
-    /*text-align: center;*/
-    /*border-radius: 20px;*/
-    /*height: 40px; !* Adjusted height *!*/
-    /*padding-top: 8px;*/
-    /*box-sizing: border-box;*/
+.selectpictxt {
     font-size: 18px; /* Adjusted font size */
     letter-spacing: 1px;
     color: #495057; /* Darker text color */
 }
 
-.errormsg {
+.errmsg {
     color: #e74c3c; /* Red color */
     width: 100%;
     text-align: center;
@@ -128,7 +118,7 @@ input[type=file] {
     padding-bottom: 10px;
 }
 
-.namechangediv, .emailchangediv {
+.namechngediv, .emailchangediv {
     width: 100%;
     margin-bottom: 20px;
     /*display: block;*/
@@ -193,7 +183,7 @@ textarea:focus {
 /* edit profile container end */
 
 /* edit profile container end */
-/*.changepwdiv{*/
+/*.changepassdiv{*/
 /*    padding-top: 10px;*/
 /*    margin-left: 20%;*/
 /*    font-size: 20px;*/
@@ -201,9 +191,9 @@ textarea:focus {
 /*    line-height: normal;*/
 /*    color: #666666;*/
 /*}*/
-/*.changepwdiv a{*/
+/*.changepassdiv a{*/
 /*    color: #E8A98A;*/
 /*}*/
-/*.changepwdiv a:hover{*/
+/*.changepassdiv a:hover{*/
 /*    color: #DF83A2;*/
 /*}*/

@@ -6,14 +6,14 @@ require APPPATH . '/libraries/REST_Controller.php';
 
 class Posts extends \Restserver\Libraries\REST_Controller {
     //post question controller
-	function __construct() {
+	function __construct() {//constructor to load the models and headers
         parent::__construct();
-		$this->load->model('usersmod');
+		$this->load->model('usersmod');//this loads the usersmod model to access the userstable in the database
         $this->load->model('postquestmod');
 
-        Header('Access-Control-Allow-Origin: *');
-        Header('Access-Control-Allow-Headers: *');
-        Header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE'); 
+//        Header('Access-Control-Allow-Origin: *');
+//        Header('Access-Control-Allow-Headers: *');
+//        Header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
     }
     //index routes to create posted question view
     public function index_get(){
@@ -75,7 +75,8 @@ class Posts extends \Restserver\Libraries\REST_Controller {
             //calling the create post function
             $result = $this->postquestmod->createPost($username, $questtagid, $questtitle,$question);
 
-            $this->response($result); 
+            $this->response($result);
+            //if the post is created successfully, return done else returnfailed
             if ($result) {
                 $this->response(array('result' => 'done'));
             } else {
@@ -90,28 +91,10 @@ class Posts extends \Restserver\Libraries\REST_Controller {
     //api to get all posts from a user
     public function userposts_get(){
         $username = $this->get('username');
+        //get the posts of the user from the database using the getPostsfromUsername function in the postquestmod model
         $result = $this->postquestmod->getPostsfromUsername($username);
         $this->response($result);
     }
-
-    // to get tags parametered
-//    public function location_get() {
-//        //action all gets all tags
-//        if($this->get('action') == 'all') {
-//            $questtags = $this->postmod->getLocations();
-//            if ($questtags) {
-//                $this->response($questtags);
-//            } else {
-//                $this->response(NULL);
-//            }
-//        }
-//        //action id get the post by its id
-//        if($this->get('action') == 'id') {
-//            $questtagid = $this->get('questtagid');
-//            $questtags = $this->postmod->getLocationbyId($questtagid);
-//            $this->response($questtags);
-//        }
-//    }
 
     // to get tags parametered
 //display the dropdown of the ask question form,tags page sidebar
@@ -127,19 +110,23 @@ class Posts extends \Restserver\Libraries\REST_Controller {
         }
         //action id get the post by its id
         if($this->get('action') == 'id') {
+            //get the questtag id of the postedquestions
             $questtagid = $this->get('questtagid');
+            //get the questtags from the database using the getQuesttagbyId function in the postquestmod model
             $questtags = $this->postquestmod->getQuesttagbyId($questtagid);
+            //return the questtags of the postedquestions
             $this->response($questtags);
         }
     }
-
 
     //to get tags notparametered
 //    used in homeview,questtags view,post view,profile view
 //if not given the redrects to the creatpost view
      public function questtags_get() {
         if ($this->usersmod->is_logged_in()) {
+            //get the questtag id of the posted questions
             $questtagid = $this->get('questtagid');
+            //load the navigation bar with the username of the user logged in
             $this->load->view('navigation',array('username' => $this->session->username));
             //load the questiontag view with the questiontag id----------
             $this->load->view('questiontags',array('questtagid' => $questtagid));
@@ -158,6 +145,7 @@ class Posts extends \Restserver\Libraries\REST_Controller {
             }
             //else load the post view
             else{
+                //load the navigation bar and post view with the post id
                 $this->load->view('navigation',array('username' => $this->session->username));
                 $this->load->view('post',array('postid' => $postid,'username' => $this->session->username));
             }
@@ -178,21 +166,13 @@ class Posts extends \Restserver\Libraries\REST_Controller {
             $this->load->view('login');
         } 
     }
-    //api to get the like count
-//    public function likecount_get(){
-//        if ($this->usersmod->is_logged_in()) {
-//            $postid = $this->get('postid');
-//            $result = $this->postmod->likeCount($postid);
-//            $this->response($result);
-//        }
-//        else {
-//            $this->load->view('login');
-//        }
-//    }
-    public function ratecount_get(){
+
+    public function ratecount_get(){//get the count of the ratings of the posted questions
         if ($this->usersmod->is_logged_in()) {
-            $postid = $this->get('postid');
+            $postid = $this->get('postid');//get the post id of the posted questions
+            //get the count of the ratings of the posted questions from the database using the ratecount function in the postquestmod model
             $result = $this->postquestmod->ratecount($postid);
+            //return the result of the count of the ratings of the posted questions
             $this->response($result);
         }
         else {

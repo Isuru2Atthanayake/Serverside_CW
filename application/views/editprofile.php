@@ -9,25 +9,27 @@
 <body>
 
 <!--this is the edit profile page which is used to edit the user profile details-->
-<div class="editprofcontainer">
-    <div class="editprofile-box">
-        <div class="piceditdiv">
-            <div class="errormsg" id="errormsg"></div>
+<!--edit profile container-->
+<div class="editpropiccontainer">
+<!--    edit profile box-->
+    <div class="editpro-box">
+<!--        display the profile picture of the user-->
+        <div class="propicdiv">
+            <div class="errmsg" id="errmsg"></div>
             <div class="profimagediv"></div>
             <input type="file" id="image" name="image" onchange="readURL(this);" />
-            <div class="dummy">Select Profile Picture</div>
+            <div class="selectpictxt">Select Profile Picture</div>
         </div>
         <div class="texteditdiv">
-            <div class="errormsg" id="errormsg2"></div>
-            <div class="namechangediv"></div>
+            <div class="errmsg" id="errmsg2"></div>
+            <div class="namechngediv"></div>
             <div class="emailchangediv"></div>
-            <div class="changepwdiv">
+            <div class="changepassdiv">
                 <a class="styled-button changepw-button" href="<?php echo base_url()?>index.php/users/passwordreset">Change Password</a>
             </div>
         </div>
         <div class="editprofdiv">
             <div id="editprofile" class="styled-button save-changes">SAVE CHANGES</div>
-<!--            <a class="styled-button changepw-button" href="--><?php //echo base_url()?><!--index.php/users/passwordreset">Change Password</a>-->
         </div>
     </div>
 </div>
@@ -46,15 +48,19 @@
             url: "<?php echo base_url() ?>index.php/users/userdetails?username="+username,
             method: "GET"
         }).done(function (data) {
+            //display the user details in the input fields
             userimage=data.UserImage;
+            //get the name of theuser from the datbase and display it
             name=data.Name;
+            //get the email of theuser from the databaseand display it
             email=data.Email;
+            //display the profile picture
             var div = "<img id='profpicid' class='profile-image' src='<?php echo base_url() ?>images/profilepics/" + data.UserImage + "' alt='picture'/>";
             $('.profimagediv').append(div);
 
             var namediv = "<div class='labeldiv'>Name</div>" +
                 "<div class='inputdiv'><input class='inputedit' onkeyup='getname()' type='text' id='name' name='name' value='" + data.Name + "'/></div>";
-            $('.namechangediv').append(namediv);
+            $('.namechngediv').append(namediv);
 
             var emaildiv = "<div class='labeldiv'>Email</div>" +
                 "<div class='inputdiv'><input class='inputedit' onkeyup='validateemail()' type='text' id='email' name='email' value='" + data.Email + "'/></div>";
@@ -62,16 +68,17 @@
 
         });
     });
-    //validate the edited email
+    //validate the edited emailddr
     function validateemail() {
         var x = $("#email").val();
+        //validate the email address entered by theuser
         var atposition = x.indexOf("@");
         var dotposition = x.lastIndexOf(".");
         if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= x.length) {
-            document.getElementById("errormsg2").innerHTML = "Please enter a valid e-mail address";
+            document.getElementById("errmsg2").innerHTML = "Enter a valid e-mail address";
         }
         else {
-            document.getElementById("errormsg2").innerHTML = "";
+            document.getElementById("errmsg2").innerHTML = "";
             email = x;
         }
     }
@@ -87,6 +94,7 @@
             var files = $('#image')[0].files;
             if(files.length > 0 ){
                 formdata.append('image',files[0]);
+                //store the image in folder and get the file name
                 $.ajax({
                     url: "<?php echo base_url() ?>index.php/posts/profpic",//store the image in folder
                     data: formdata,
@@ -101,10 +109,10 @@
                         $('#profpicid').attr('src', e.target.result);
                         };
                         reader.readAsDataURL(input.files[0]);
-                        document.getElementById("errormsg").innerHTML = '';
+                        document.getElementById("errmsg").innerHTML = '';
                     } else {
                         $error=data.error.slice(3,-4);
-                        document.getElementById("errormsg").innerHTML = $error;
+                        document.getElementById("errmsg").innerHTML = $error;
                     }
                 });
             }
@@ -113,6 +121,7 @@
     //when button is clicked to save changes
     $("#editprofile").click(function(event) {
         event.preventDefault();
+        //save the changes made by the user
         var postdata = {
                 userimage: userimage,
                 username:username,
@@ -124,13 +133,15 @@
             data: JSON.stringify(postdata),
             contentType: "application/json",
             method: "PUT"
+            //display success message if successful
             }).done(function (data) {
+            //get the result from the server
                 var result=data.result;
                 if(result=="done"){//redirect to my profile if successful
                     location.href="<?php echo base_url()?>index.php/myprofile";
-                }
+                }//display error message if not successful
                 else{
-                    document.getElementById("errormsg2").innerHTML = "Couldn't save your changes";
+                    document.getElementById("errmsg2").innerHTML = "Couldn't save your changes";
                 }
             });
         });                    

@@ -8,79 +8,85 @@ class Home extends \Restserver\Libraries\REST_Controller {
 	public function __construct() {
         parent::__construct();
 		$this->load->model('usersmod');
-//        $this->load->model('postmod');
         $this->load->model('postquestmod');
 
-//        Header('Access-Control-Allow-Origin: *');
-//        Header('Access-Control-Allow-Headers: *');
-//        Header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
+        Header('Access-Control-Allow-Origin: *');
+        Header('Access-Control-Allow-Headers: *');
+        Header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
     }
     //home page
     public function index_get()
-    {//check if user is logged in, otherwise redirect to login page
+    {//check if user is logged in, or else then redirect to login page
         if ($this->usersmod->is_logged_in()) {
+            //load the navigation bar and home page
             $this->load->view('navigation',array('username' => $this->session->username));
+            //load the home page with the username of the user logged in
             $this->load->view('home',array('username' => $this->session->username));
-        }
+        }//if user is not logged in, then redirect to login page
         else {
+            //load the login page
             $this->load->view('login');
         }
     }
 
 //    used in home .php ajax call
-    public function postquestions_get(){
-        if ($this->usersmod->is_logged_in()) {
+    public function postquestions_get(){//get all the posted questions of the user
+        if ($this->usersmod->is_logged_in()) {//check if user is logged in
+            //get the username of the user
             $username = $this->get('username');
+            //get the posted questions of the user from the database using the getPostsofQuestions function in the postquestmod model
             $result=$this->postquestmod->getPostsofQuestions($username);
-            $this->response($result);
+            $this->response($result);//return the result
         }
-        else {
+        else {//if user is not logged in, then redirect to login page
             $this->load->view('login');
         }
     }
     //api to get comments of posts
     public function comments_get(){
-        if ($this->usersmod->is_logged_in()) {
-            $postid = $this->get('postid');
-            $result=$this->postquestmod->getComments($postid);
+        if ($this->usersmod->is_logged_in()) {//check if user is logged in
+            $postid = $this->get('postid');//get the post id of the posted question
+            $result=$this->postquestmod->getComments($postid);//get the comments of the post from the database using the getComments function in the postquestmod model
             $this->response($result); 
         }
-        else {
+        else {//if user is not logged in, then redirect to login page
             $this->load->view('login');
         }
     }
     //api post request to add comments
-    public function comments_post(){
-        if ($this->usersmod->is_logged_in()) {
-            $username = $this->session->username;
-            $postid = $this->post('postid');
-            $comment = $this->post('comment');
-            $result=$this->postquestmod->addComments($postid, $comment, $username);
-            $this->response($result); 
+    public function comments_post(){//add comments to the posted questions
+        if ($this->usersmod->is_logged_in()) {//check if user is logged in
+            $username = $this->session->username;//get the username of theuser
+            $postid = $this->post('postid');//get the post id of the posted question
+            $comment = $this->post('comment');//get the comment ofthe user
+            $result=$this->postquestmod->addComments($postid, $comment, $username);//add the comments to the databaseusing the addComments function in the postquestmod model
+            $this->response($result); //return the result
         }
-        else {
+        else {//ifuser is not loggedin, then redirect to loginpage
             $this->load->view('login');
         }
     }
-    //api to check if user has already liked a post
-    public function checkratings_get(){
-        if ($this->usersmod->is_logged_in()) {
+    //api to check if user has already RATED a postedquestion
+    public function checkratings_get(){//check if user has already rated a posted question
+        if ($this->usersmod->is_logged_in()) {//check if user is logged in
             $username = $this->session->username;
+            //get the post id of the posted question using get method
             $postid = $this->get('postid');
-            $result=$this->postquestmod->checkratings($username, $postid);
-            $this->response($result); 
+            $result=$this->postquestmod->checkratings($username, $postid);//check if the user has already rated the post using the checkratings function in the postquestmod model
+            $this->response($result); //
         }
         else {
             $this->load->view('login');
         }
     }
     //post request to like posts
-    public function rate_post(){
-        if ($this->usersmod->is_logged_in()) {
+    public function rate_post(){//rate the posted questions
+        if ($this->usersmod->is_logged_in()) {//check if user is logged in
             $username = $this->session->username;
+            //get the username of the user
             $username = $this->post('username');
             $postid = $this->post('postid');
-            $result=$this->postquestmod->ratepost($username, $postid);
+            $result=$this->postquestmod->ratepost($username, $postid);//rate the post using the ratepost function in the postquestmod model
             $this->response($result); 
         }
         else {

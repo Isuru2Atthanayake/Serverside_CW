@@ -65,7 +65,7 @@
                 //"<a href='<?php //echo base_url() ?>//index.php/posts/post?postid="+
                 "<a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'></br>" +
                 "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></div>" +
-                "<div class='comments-section' id='commentsdiv" + m.get('PostId') + "'></div></div>" ;//to display the comments on the post;
+                "<div class='usercomments-section' id='usercommentsdiv" + m.get('PostId') + "'></div></div>" ;//to display the comments on the post;
             this.$el.html(html);
 
 
@@ -79,20 +79,20 @@
                         if(i<2){
                             var div ="<span><a class='commuserlink' href='<?php echo base_url() ?>index.php/users/userprofile/?username="+res[i].Username+"'>"+res[i].Username+"</a>"
                                 +res[i].CommentBody+"</span></br>";
-                            $('#commentsdiv'+m.get('PostId')).append(div);
+                            $('#usercommentsdiv'+m.get('PostId')).append(div);
                         }
                     }
                 }
             });
-            $.ajax({//check if the user has already liked them or not and change color accordingly
+            $.ajax({//check if the user has already rated them or not and change color accordingly
                 url: "<?php echo base_url() ?>index.php/home/checkratings?username="+username+"&postid="+m.get('PostId'),
                 method: "GET"
             }).done(function (res) {
                 if(res){
-                    document.getElementById("likediv"+m.get('PostId')).style.color = "#FC6464";
+                    document.getElementById("ratediv"+m.get('PostId')).style.color = "#FC6464";
                 }
                 else{
-                    document.getElementById("likediv"+m.get('PostId')).style.color = "#666666";
+                    document.getElementById("ratediv"+m.get('PostId')).style.color = "#666666";
                 }
             });
             //get the comments of the each posted questons and then it is used to display the questions accordingly end --------

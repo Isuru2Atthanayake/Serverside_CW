@@ -11,22 +11,6 @@
     display: flex; /* Using flexbox to align child divs side by side */
     flex-wrap: wrap; /* Allow children to wrap as needed */
 }
-
-/*.postcontainer {*/
-/*    width: 40%; !* Reduce the width for a more compact look *!*/
-/*    margin: 50px auto; !* Center the container vertically and horizontally *!*/
-/*    background-color: #ffffff; !* Light background color *!*/
-/*    border: 1px solid #cccccc; !* Subtle border *!*/
-/*    box-shadow: 0 2px 5px rgba(0,0,0,0.2); !* Soft shadow for depth *!*/
-/*    padding: 20px; !* Internal spacing *!*/
-/*    border-radius: 8px; !* Rounded corners for modern appearance *!*/
-/*}*/
-
-/*.postcontainer{*/
-/*    width: 100%;*/
-/*    display: block;*/
-/*    overflow: auto;*/
-/*}*/
 .leftdiv{
     margin-top: 10px;
     width: 55%;
@@ -41,16 +25,6 @@
     display: block;
     /*overflow: auto;*/
 }
-/*applies for tag, profile and ratings*/
-/*.questtaglikediv{*/
-/*    width: 58%;*/
-/*}*/
-/*.postimage{*/
-/*    width: 100%;*/
-/*    aspect-ratio : 1 / 1;*/
-/*    border-radius: 10px;*/
-/*    object-fit: cover;*/
-/*}*/
 .questtagdiv{
     width: 60%;
     /*float: right;*/
@@ -61,12 +35,12 @@
     letter-spacing: 1px;
     padding-top: 4px;
 }
-.likediv{
+.ratediv{
     width: fit-content;
     float: left;
     font-size: 30px;
 }
-.likecount{
+.ratecount{
     width: 20%;
     float: left;
     font-size: 17px;
@@ -92,11 +66,6 @@
     cursor: pointer;
     transition: transform .4s;
 }
-/*.fa-star:hover{*/
-/*    transform: scale(1.03);*/
-/*    float: right;*/
-/*}*/
-
 .usernameimgdiv{
     width: 100%;
     display: block;
@@ -130,8 +99,8 @@
     color: #32AFD5;
     text-decoration: none;
 }
-/*applies for tag, profile and like*/
-.captiondiv {
+/*applies for tag, profile and rate*/
+.questtitlediv {
     width: 90%;
     font-size: 20px;
     color: #0ee65a;
@@ -145,8 +114,8 @@
     font-weight: bold;
     font-size: 30px;
 }
-/*caption of the question*/
-.questcaptiondiv {
+/*questtitle of the question*/
+.questtitlediv {
     width: 90%;
     font-size: 20px;
     color: #666666;
@@ -157,17 +126,17 @@
     display: block;
     overflow: auto;
 }
-.commentsdiv{
+.usercommentsdiv{
     width: 90%;
     font-size: 15px;
     color: #666666;
 }
-.commentsdiv a{
+.usercommentsdiv a{
     color: #9A618E;
     text-decoration: none;
     padding-right: 2%;
 }
-.commentsdiv a:hover{
+.usercommentsdiv a:hover{
     color: #9A618E;
     text-decoration: underline;
 }
