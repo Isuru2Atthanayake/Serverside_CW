@@ -55,44 +55,15 @@
 <script type="text/javascript" lang="javascript">
     var username="<?php echo $username ?>";
 
-    // code to get follow count and suggest users to follow if follow count is 0 start------
-
-    // $(document).ready(function () {
-    //     event.preventDefault();
-    //     $.ajax({//get follow count
-    //         url: "<?php echo base_url() ?>index.php/myprofile/followcount?username="+username,
-    //         method: "GET"
-    //     }).done(function (data) {
-    //         if (data.following==0){//if follow count is 0, display no posts and suggest users to follow
-    //             $.ajax({
-    //                 url: "<?php echo base_url() ?>index.php/users/user",
-    //                 method: "GET"
-    //             }).done(function (data) {
-    //                 for (i = 0; i < 5; i++) {
-    //                     var div ="<a href='<?php echo base_url() ?>index.php/users/userprofile/?username="
-    //                      +data[i].Username+"'><div class='users'><div class= 'profilepicdiv'><img class='profilepic' src='<?php echo base_url() ?>images/profilepics/"
-    //                      +data[i].UserImage+"'/></div>"+data[i].Username+"</br>"+data[i].Name+"</div></a>";
-    //                     $('.userlisting').append(div);
-    //                 }
-    //             });
-    //         }
-    //         else{
-    //             $('.notfollowing').remove();
-    //         }
-    //     });
-    //     postCollection.fetch();//fetch backbone collection on start
-    // });
-    //code to get follow count and suggest users to follow if follow count is 0 end ------
-
     $(document).ready(function () {
         postCollection.fetch(); // Always fetch posts on start
-    
+
       // Set the Tags link dynamically to navigate using the side bar start
       $('#tags-link').attr('href', '<?php echo base_url() ?>index.php/posts/questtags');
       $('#Profile-link').attr('href', '<?php echo base_url() ?>index.php/myprofile');
       $('#home-link').attr('href', '<?php echo base_url() ?>index.php/home');
      // Set the Tags link dynamically to navigate using the side bar end
-    
+
     });
 
     // The username is being appended to the url as a query parameter.
@@ -100,7 +71,7 @@
         url: "<?php echo base_url() ?>index.php/home/postquestions?username="+username,
     });
     var html = "";
-    
+
     //code to display data with the questions and the other details  --- start---
     var PostDisplay = Backbone.View.extend({
     el: ".feedcontainer",//el is the element where the view is rendered
@@ -141,14 +112,14 @@
                 url: "<?php echo base_url() ?>index.php/home/comments?postid="+m.get('PostId'),
                 method: "GET"
             }).done(function (res) {
-                if(res.length!=0){             
+                if(res.length!=0){
                     for (i = 0; i < res.length; i++) {
                         if(i<2){
                             var div ="<span><a class='commuserlink' href='<?php echo base_url() ?>index.php/users/userprofile/?username="+res[i].Username+"'>"+res[i].Username+"</a>"
                             +res[i].CommentBody+"</span></br>";
                             $('#commentsdiv'+m.get('PostId')).append(div);
                         }
-		          } 
+		          }
                 }
             });
             $.ajax({//check if the user has already liked them or not and change color accordingly

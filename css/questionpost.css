@@ -92,10 +92,10 @@
     cursor: pointer;
     transition: transform .4s;
 }
-.fa-star:hover{
-    transform: scale(1.03);
-    float: right;
-}
+/*.fa-star:hover{*/
+/*    transform: scale(1.03);*/
+/*    float: right;*/
+/*}*/
 
 .usernameimgdiv{
     width: 100%;

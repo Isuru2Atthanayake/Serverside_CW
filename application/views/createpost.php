@@ -6,22 +6,22 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/createpost.css">
 </head>
 <body>
-    <div class="uppostcontainer">
-        <!-- <div class="filediv"> -->
-        <div class="captiondiv">
-            <div class="errormsg" id="errormsg"></div>
-            <div class="caplabel"> <label for="caption">Enter the Question Below</label></div>
+<!--this is the interface of creating the question posts and it is used to post the question to the database-->
+    <div class="postquestcontainer">
+        <div class="questdiv">
+            <div class="questerr" id="questerr"></div>
+            <div class="queslabel"> <label for="caption">Enter the Question Below</label></div>
             <div><textarea name="question" id="question" maxlength="255"></textarea></div>
-            <div class="caplabel"> <label for="caption">Caption</label></div>
+            <div class="queslabel"> <label for="caption">About Question</label></div>
             <div><textarea name="caption" id="caption"  maxlength="100"></textarea></div>
 
-            <div class="loclabel"><label for="questtags">Tags</label></div>
+            <div class="questtag"><label for="questtags">Tags</label></div>
             <div>
                 <select onchange='getquesttag();' id="questtags">
                     <option id ='questtagName' value=""></option>
                 </select>
             </div>
-            <div class="postsubmitdiv"><div id="uploadpost" >Post Question</div></div>
+            <div class="questsubmitdiv"><div id="uploadquest" >Post Question</div></div>
         </div>
     </div>
         <script type="text/javascript" lang="javascript">
@@ -43,7 +43,7 @@
             $questtagid = document.getElementById("questtags").value;
         }
 
-        $("#uploadpost").click(function(event) {
+        $("#uploadquest").click(function(event) {
             event.preventDefault();
             var caption = $('#caption').val();
             var question = $('#question').val();
@@ -67,7 +67,7 @@
                     location.href="<?php echo base_url()?>index.php/myprofile";
                 }
                 else {
-                    document.getElementById("errormsg").innerHTML = "Post is not created";
+                    document.getElementById("questerr").innerHTML = "Post is not created";
                 }
             });
         });

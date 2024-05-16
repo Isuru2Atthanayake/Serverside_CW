@@ -1,10 +1,4 @@
-/*.uppostcontainer{*/
-/*    width: 100%;*/
-/*    display: block;*/
-/*    overflow: auto;*/
-/*}*/
-
-.uppostcontainer{
+.postquestcontainer{
     width: 50%; /* Reduced width for better focus */
     margin: 50px auto; /* Centering the box vertically and horizontally */
     padding: 20px; /* Padding inside the container for spacing */
@@ -17,72 +11,84 @@
     align-items: center; /* Centers the flex items horizontally */
     text-align: center; /* Aligns text inside the container to center */
 }
-.filediv {
-    width: 55%;
-    float: left;
-    position: relative;
-  }
-/*.captiondiv{*/
-/*    width: 45%;*/
-/*    float: right; */
-/*}*/
-
-.captiondiv{
+.questdiv{
     width: 100%; /* Ensuring these divs take full width of the container */
     clear: both; /* Clearing floats if any */
     margin-top: 20px; /* Adding top margin for spacing */
     align-items: center; /* Center-align the child elements */
     /*background-color: #0ee65a;*/
 }
-input[type=file] {
-    position: absolute;
-    margin: 0 35%;
-    width: 30%;
-    height: 40px;
-    opacity: 0%;
-    cursor: pointer;
-  }
-.dummy {
-    width: 30%;
-    margin: 0 35%;
-    background-color: #EB9494;
-    text-align: center;
-    border-radius: 15px;
-    height: 45px;
-
-  }
-.dummy p{
-    color: #F9F5F5;
-    font-size: 18px;
-    letter-spacing: 1px;
-    margin: 0;
-    padding-top: 5px;
-}
-input[type=file]:valid + .dummy {
-    background-color: #52B2CF;
-}
-.postpicdiv{
-    width: 40%;
-    margin: 0 auto 10px auto;
-}
-#postpicid{
-    width: 100%;
-    aspect-ratio : 1 / 1;
-    object-fit: cover;
-}
-.errormsg{
+.questerr{
     margin:20px auto;
     width: 40%;
-	color: #EB9494;
+    color: #EB9494;
     text-align: center;
 }
-.postsubmitdiv{
+.questsubmitdiv{
     margin-top: 40px;
     width: 100%;
     /* color: #EB9494; */
     float: left;
 }
-#uploadpost{
+.queslabel, .questtag{
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #003049;
+}
+
+/*--------old-----------*/
+/*.filediv {*/
+/*    width: 55%;*/
+/*    float: left;*/
+/*    position: relative;*/
+/*  }*/
+/*.captiondiv{*/
+/*    width: 45%;*/
+/*    float: right; */
+/*}*/
+
+
+/*input[type=file] {*/
+/*    position: absolute;*/
+/*    margin: 0 35%;*/
+/*    width: 30%;*/
+/*    height: 40px;*/
+/*    opacity: 0%;*/
+/*    cursor: pointer;*/
+/*  }*/
+/*.dummy {*/
+/*    width: 30%;*/
+/*    margin: 0 35%;*/
+/*    background-color: #EB9494;*/
+/*    text-align: center;*/
+/*    border-radius: 15px;*/
+/*    height: 45px;*/
+
+/*  }*/
+/*.dummy p{*/
+/*    color: #F9F5F5;*/
+/*    font-size: 18px;*/
+/*    letter-spacing: 1px;*/
+/*    margin: 0;*/
+/*    padding-top: 5px;*/
+/*}*/
+/*input[type=file]:valid + .dummy {*/
+/*    background-color: #52B2CF;*/
+/*}*/
+/*.postpicdiv{*/
+/*    width: 40%;*/
+/*    margin: 0 auto 10px auto;*/
+/*}*/
+/*#postpicid{*/
+/*    width: 100%;*/
+/*    aspect-ratio : 1 / 1;*/
+/*    object-fit: cover;*/
+/*}*/
+
+
+#uploadquest{
     width: 25%;
     background-color: #003049;
 	font-size: 1.3rem;
@@ -94,16 +100,10 @@ input[type=file]:valid + .dummy {
     cursor: pointer;
 	transition: background-color .4s;
 }
-#uploadpost:hover{
+#uploadquest:hover{
     background-color: #669bbc
 }
-.caplabel, .loclabel{
-    margin-top: 20px;
-    font-weight: 600;
-    font-size: 20px;
-    letter-spacing: 1px;
-    color: #003049;
-}
+
 textarea{
     width: 60%;
     height: 100px;
