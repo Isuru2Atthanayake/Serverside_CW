@@ -80,7 +80,7 @@
 		          // } 
                     for (i = 0; i < data.length; i++) {
                          var div ="<a class='userlinks' href='<?php echo base_url() ?>index.php/posts/post?postid="
-                         +data[i].PostId+"'><div class ='user'><div class='searuserdeet'>"+data[i].Question+"<br>"+data[i].Caption+"</div></div></a>";
+                         +data[i].PostId+"'><div class ='user'><div class='searuserdeet'>"+data[i].Question+"<br>"+data[i].QuestTitle+"</div></div></a>";
                          $('#searchresults').append(div);
 		          }
                }

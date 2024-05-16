@@ -13,11 +13,11 @@ class PostQuestmod extends CI_Model
 
 
     // create post function with question
-    function createPost($username, $questtagid, $caption, $question)
+    function createPost($username, $questtagid, $questtitle, $question)
     {
         $users = $this->db->get_where('users', array('Username' => $username));
         $userId= $users->row()->UserId;
-        $data = array('UserId' => $userId, 'QuesttagId' => $questtagid, 'Question' => $question,'Caption' => $caption);
+        $data = array('UserId' => $userId, 'QuesttagId' => $questtagid, 'Question' => $question,'QuestTitle' => $questtitle);
         if ($this->db->insert('posts', $data)) {
             return True;
         } else {

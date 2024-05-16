@@ -81,10 +81,10 @@
                     // $('.likediv').append(div4);
             // Append the caption data and add a line break for better layout.
         // Encapsulate the caption in a div for better styling control.
-            var div5 = "<div class='questcaptiondiv'>" + data.Caption + "<br/></div>";
+            var div5 = "<div class='questcaptiondiv'>" + data.QuestTitle + "<br/></div>";
             $('.questcaptiondiv').append(div5);
 
-        // Append the question text if available, it appears below the caption in the layout.
+        // Append the question text if available, it appears below the questtitle in the layout.
         // Encapsulate the question in a div to maintain consistent styling and separation.
             var div6 = "<div class='question-content'>" + data.Question + "</div>";
             $('.question-content').append(div6);

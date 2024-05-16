@@ -91,7 +91,7 @@
             "<span>" + m.get('Username') + "</span></a></div>" +
             "<div class='likes-count' id='likediv" + m.get('PostId') + "'>" +
             "<i onclick='rate(" + m.get('PostId') + ");' class='fa-solid fa-star '></i></div></div>" +
-            "<div class='captiondiv'>" + m.get('Caption') +
+            "<div class='captiondiv'>" + m.get('QuestTitle') +
 
             "<a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'></br>" +
             "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></a></div>" +

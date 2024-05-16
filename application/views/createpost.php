@@ -10,10 +10,10 @@
     <div class="postquestcontainer">
         <div class="questdiv">
             <div class="questerr" id="questerr"></div>
-            <div class="queslabel"> <label for="caption">Enter the Question Below</label></div>
+            <div class="queslabel"> <label for="questtitle">Enter the Question Below</label></div>
             <div><textarea name="question" id="question" maxlength="255"></textarea></div>
-            <div class="queslabel"> <label for="caption">About Question</label></div>
-            <div><textarea name="caption" id="caption"  maxlength="100"></textarea></div>
+            <div class="queslabel"> <label for="questtitle">About Question</label></div>
+            <div><textarea name="questtitle" id="questtitle"  maxlength="100"></textarea></div>
 
             <div class="questtag"><label for="questtags">Tags</label></div>
             <div>
@@ -45,13 +45,13 @@
 
         $("#uploadquest").click(function(event) {
             event.preventDefault();
-            var caption = $('#caption').val();
+            var questtitle = $('#questtitle').val();
             var question = $('#question').val();
             // var questiontags = $('#questiontags').val();//This is used to send the tags from the form
 
             var postdata = {
                 questtagid: $questtagid,
-                caption: caption,
+                questtitle: questtitle,
                 question: question,
                 // questiontags:questiontags
             };

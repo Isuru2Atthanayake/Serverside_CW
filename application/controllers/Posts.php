@@ -68,12 +68,12 @@ class Posts extends \Restserver\Libraries\REST_Controller {
             $username = $this->session->username;
             //getting the question tag id
             $questtagid = $this->post('questtagid');
-            //getting the caption
-            $caption = $this->post('caption');
+            //getting the questtitle
+            $questtitle = $this->post('questtitle');
             //getting the question
             $question = $this->post('question');
             //calling the create post function
-            $result = $this->postquestmod->createPost($username, $questtagid, $caption,$question);
+            $result = $this->postquestmod->createPost($username, $questtagid, $questtitle,$question);
 
             $this->response($result); 
             if ($result) {
