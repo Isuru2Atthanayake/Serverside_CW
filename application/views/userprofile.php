@@ -7,8 +7,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/myprofile.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/home1.css">
-<!--   this is used for the sidebar-->
-<!--    <link rel="stylesheet" type="text/css" href="--><?php //echo base_url()?><!--css/home2_userprofile_sidebar.css">-->
+
 </head>
 
 <body>
@@ -21,7 +20,7 @@
         <div class="searchresults2" id="searchresults"></div>
     </div>
 
-    <!--These are the  Navigation Links -->
+    <!--These are the  Navigation Links of the userprofile page-->
     <ul>
 <!--        this is the home link-->
         <li><a id="home-link" >Home</a></li>
@@ -29,7 +28,7 @@
         <li><a id="Profile-link" >Profile</a></li>
     </ul>
 
-    <!-- Logout Link -->
+    <!-- Logout Link of the website -->
     <div class="logout-section">
         <a class="userlogout" href="<?php echo base_url()?>index.php/users/logout">LOGOUT</a>
     </div>
@@ -55,8 +54,8 @@
     var username="<?php echo $username ?>";
     $(document).ready(function () {
         event.preventDefault();
-        postCollection.fetch();//fetch the posts from collection on start
-        $.ajax({//get user details and display
+        postCollection.fetch();//fetch the posted questions from collection on start
+        $.ajax({//this is used to get the details of the users  and display
             url: "<?php echo base_url() ?>index.php/users/userdetails?username="+username,
             method: "GET"
         }).done(function (data) {
@@ -67,16 +66,16 @@
         });
         // Set the Tags link dynamically to navigate using the side bar start
         //get the tags notparametered
-        $('#tags-link').attr('href', '<?php echo base_url() ?>index.php/posts/questtags');
+        $('#tags-link').attr('href', '<?php echo base_url() ?>index.php/postquestctrl/questtags');
         $('#Profile-link').attr('href', '<?php echo base_url() ?>index.php/myprofile');
         $('#home-link').attr('href', '<?php echo base_url() ?>index.php/home');
         // Set the Tags link dynamically to navigate using the side bar end
     });
-    var Post = Backbone.Model.extend({
-        url: "<?php echo base_url() ?>index.php/posts/userposts?username="+username
+    var Post = Backbone.Model.extend({//to get the posted questions from the controller related to the user
+        url: "<?php echo base_url() ?>index.php/postquestctrl/userposts?username="+username
     });
     var PostCollection = Backbone.Collection.extend({
-        url: "<?php echo base_url() ?>index.php/posts/userposts?username="+username,
+        url: "<?php echo base_url() ?>index.php/postquestctrl/userposts?username="+username,
         model: Post,
         parse: function(data) {
             return data;
@@ -87,11 +86,11 @@
         initialize: function () {
             this.listenTo(this.model, "add", this.showResults);
         },
-        //to show the questions in the myprofile page 
+        //this function is used to show the questions in the myprofile page
         showResults: function () {
             var html = "";
             this.model.each(function (m) {
-                html = html + "<div class='questdiv'><a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'>" +
+                html = html + "<div class='questdiv'><a href='<?php echo base_url() ?>index.php/postquestctrl/post?postid=" + m.get('PostId') + "'>" +
                 "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></a></div>" +
                 "<div class='usercommentsdiv' id='usercommentsdiv" + m.get('PostId') + "'></div>";
 
@@ -99,20 +98,19 @@
             this.$el.html(html);
         }
 
-    });
+    });//to display the posted questions in the myprofilepage
     var postCollection = new PostCollection();
     var postDisplay = new PostDisplay({model: postCollection})
 
     function user_profileimage(){
-        //user profile image loader
+        // this is used to get the user profile image
         $.ajax({
             url: "<?php echo base_url() ?>index.php/myprofile"+username,
             method: "GET"
         }).done(function (data) {
 
         });
-    }        
-    //to follow the user end  
+    }
 </script>
 </body>
 </html>

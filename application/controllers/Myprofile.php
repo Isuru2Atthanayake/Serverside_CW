@@ -10,9 +10,6 @@ class Myprofile extends \Restserver\Libraries\REST_Controller {
 		$this->load->model('usersmod');//loads the usersmod model to access the userstable in thedatabase
         $this->load->model('postquestmod');//loads the postquestmod model to access the poststable in thedatabase
 
-//        Header('Access-Control-Allow-Origin: *');
-//        Header('Access-Control-Allow-Headers: *');
-//        Header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
     }
     //index method to view myprofile page
     public function index_get(){//view myprofile page
@@ -28,7 +25,7 @@ class Myprofile extends \Restserver\Libraries\REST_Controller {
     public function editprofile_get(){//view editprofile page
         if ($this->usersmod->is_logged_in()) {//check if user is logged in
             $this->load->view('navigation',array('username' => $this->session->username));//load the navigation bar with the username of the user logged in
-            $this->load->view('editprofile',array('username' => $this->session->username));//load the editprofile page with the username of the user logged in
+            $this->load->view('editProfile',array('username' => $this->session->username));//load the editprofile page with the username of the user logged in
         }
         else {
             $this->load->view('login');

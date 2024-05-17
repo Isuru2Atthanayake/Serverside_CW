@@ -42,7 +42,7 @@
     </div>
 <div>
 
-<script type="text/javascript" lang="javascript">
+<script type="text/javascript" lang="javascript">//this is the javascript code to display the questions in the home page
     var username="<?php echo $username ?>";
 
     $(document).ready(function () {
@@ -50,7 +50,7 @@
 
       // Set the Tags link dynamically to navigate using the side bar start
       //navigate to the tags page
-      $('#tags-link').attr('href', '<?php echo base_url() ?>index.php/posts/questtags');
+      $('#tags-link').attr('href', '<?php echo base_url() ?>index.php/postquestctrl/questtags');
       //navigate to the profilepage
       $('#Profile-link').attr('href', '<?php echo base_url() ?>index.php/myprofile');
       $('#home-link').attr('href', '<?php echo base_url() ?>index.php/home');
@@ -76,7 +76,7 @@
         html = html + "<div class='question-box'>" +
             "<div class='question-content'>" +
             //"<a href='<?php //echo base_url() ?>//index.php/posts/notparametered?key=" + m.get('dbcolumnname') + "'>" +
-            "<a href='<?php echo base_url() ?>index.php/posts/questtags?questtagid=" + m.get('QuesttagId') + "'>" +
+            "<a href='<?php echo base_url() ?>index.php/postquestctrl/questtags?questtagid=" + m.get('QuesttagId') + "'>" +
             "<span><i class='fa-solid fa-cube'></i>" + m.get('QuesttagName') + "</span></a></div>" +
             "<div class='userratediv'>" +
             "<div class='usernamediv'><a href='<?php echo base_url() ?>index.php/users/userprofile/?username=" + m.get('Username') + "'>" +
@@ -85,35 +85,19 @@
             "<i onclick='rate(" + m.get('PostId') + ");' class='fa-solid fa-star '></i></div></div>" +
             "<div class='questtitlediv'>" + m.get('QuestTitle') +
 
-            "<a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'></br>" +
+            "<a href='<?php echo base_url() ?>index.php/postquestctrl/post?postid=" + m.get('PostId') + "'></br>" +
             "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></a></div>" +
             //"<a class='styled-button' href='<?php //echo base_url() ?>//index.php/posts/post?postid=" + m.get('PostId') + "'><br>" +
             "<div class='usercomments-section' id='usercommentsdiv" + m.get('PostId') + "'></div>"+
-            "<a class='styled-button' href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'>View Question</a>" +
-            "<a class='styled-button reply-button' href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'>Reply</a>" +
+            "<a class='styled-button' href='<?php echo base_url() ?>index.php/postquestctrl/post?postid=" + m.get('PostId') + "'>View Question</a>" +
+            "<a class='styled-button reply-button' href='<?php echo base_url() ?>index.php/postquestctrl/post?postid=" + m.get('PostId') + "'>Reply</a>" +
             "</div>"; //to display the comments
 
         this.$el.html(html);//this will render the html in the view
 
     //code to display data with questions --- end---
 
-            //get the usercomments of the each posted questons and then it is used to display the questions accordingly
-            //$.ajax({
-            //    url: "<?php //echo base_url() ?>//index.php/home/comments?postid="+m.get('PostId'),
-            //    method: "GET"
-            //}).done(function (res) {
-            //    if(res.length!=0){
-            //        for (i = 0; i < res.length; i++) {
-            //            if(i<2){
-            //                var div ="<span><a class='commuserlink' href='<?php //echo base_url() ?>//index.php/users/userprofile/?username="+res[i].Username+"'>"+res[i].Username+"</a>"
-            //                +res[i].CommentBody+"</span></br>";
-            //                $('#commentsdiv'+m.get('PostId')).append(div);
-            //            }
-		    //      }
-            //    }
-            //});
-
-        $.ajax({
+        $.ajax({//this is used to check if the user has already rated them or not and change color accordingly
             url: "<?php echo base_url() ?>index.php/home/comments?postid="+m.get('PostId'),
             method: "GET"
         }).done(function (res) {
@@ -132,8 +116,8 @@
                 url: "<?php echo base_url() ?>index.php/home/checkratings?username="+username+"&postid="+m.get('PostId'),
                 method: "GET"
             }).done(function (res) {//change the color of the rate icon if the user has already rated
-                if(res){
-                    document.getElementById("ratediv"+m.get('PostId')).style.color = "#FC6464";
+                if(res){//change the color of the rate icon if the user has already rated
+                    document.getElementById("ratediv"+m.get('PostId')).style.color = "#FC6464";//change the color of the rate icon
                 }
                 else{
                     document.getElementById("ratediv"+m.get('PostId')).style.color = "#666666";
@@ -141,22 +125,22 @@
             });
         }
     });
-    var postCollection = new PostCollection();
+    var postCollection = new PostCollection();//create a new instance of the PostCollection
     var postDisplay = new PostDisplay({model: postCollection})
 
-    //clicking on rate buttons
+    //function to rate the questions and change the color of the rate icon
     function rate($postid){
         $.ajax({
                 url: "<?php echo base_url() ?>index.php/home/rate",
                 data: JSON.stringify({username: username,postid:$postid}),
                 contentType: "application/json",
                 method: "POST"
-        }).done(function (data) {
+        }).done(function (data) {//
             $.ajax({
                 url: "<?php echo base_url() ?>index.php/home/checkratings?username="+username+"&postid="+$postid,
                 method: "GET"
             })
-            .done(function (res) {
+            .done(function (res) {//
                 if(res){
                     document.getElementById("ratediv"+$postid).style.color = "#FC6464";
                 }

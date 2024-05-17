@@ -36,12 +36,12 @@
 
 
 <script type="text/javascript" lang="javascript">
-    var username="<?php echo $username ?>";
+    var username="<?php echo $username ?>";//this is used to get the username of the user
     var userimage="";
     var name="";
     var email="";
 
-    $(document).ready(function () {
+    $(document).ready(function () {//get the user details when the page is loaded
         event.preventDefault();
         //get user details when load and display
         $.ajax({
@@ -63,31 +63,31 @@
             $('.namechngediv').append(namediv);
 
             var emaildiv = "<div class='labeldiv'>Email</div>" +
-                "<div class='inputdiv'><input class='inputedit' onkeyup='validateemail()' type='text' id='email' name='email' value='" + data.Email + "'/></div>";
+                "<div class='inputdiv'><input class='inputedit' onkeyup='valUseremail()' type='text' id='email' name='email' value='" + data.Email + "'/></div>";
             $('.emailchangediv').append(emaildiv);
 
         });
     });
-    //validate the edited emailddr
-    function validateemail() {
+    //this is used validate the edited email of the user ifthe @ sign is not present or the dot is not present then display an error message
+    function valUseremail() {
         var x = $("#email").val();
         //validate the email address entered by theuser
         var atposition = x.indexOf("@");
         var dotposition = x.lastIndexOf(".");
         if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= x.length) {
-            document.getElementById("errmsg2").innerHTML = "Enter a valid e-mail address";
+            document.getElementById("errmsg2").innerHTML = "Please Enter a valid e-mail address";
         }
-        else {
+        else {//if the email is valid then store the email else display the error message
             document.getElementById("errmsg2").innerHTML = "";
             email = x;
         }
     }
-    function getname() {
+    function getname() {//get the name of the user
         name = $("#name").val();
     }
 
     //to display the image as its uploaded
-    function readURL(input) {
+    function readURL(input) {//display the image as its uploaded
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             var formdata = new FormData();
@@ -96,12 +96,12 @@
                 formdata.append('image',files[0]);
                 //store the image in folder and get the file name
                 $.ajax({
-                    url: "<?php echo base_url() ?>index.php/posts/profpic",//store the image in folder
+                    url: "<?php echo base_url() ?>index.php/postquestctrl/profpic",//store the image in folder
                     data: formdata,
                     method: "POST",
                     contentType: false,
                     processData: false
-                }).done(function (data) {
+                }).done(function (data) {//get the result from the server and display the image
                     var result=data.result;
                     if (result=="done") {
                         userimage = data.image_metadata.file_name;//get file name
@@ -122,18 +122,18 @@
     $("#editprofile").click(function(event) {
         event.preventDefault();
         //save the changes made by the user
-        var postdata = {
+        var postdata = {//send the user details to the database to store the changes
                 userimage: userimage,
                 username:username,
                 name:name,
                 email:email
         }
-        $.ajax({
+        $.ajax({//
             url: "<?php echo base_url() ?>index.php/users/editprofile",
             data: JSON.stringify(postdata),
             contentType: "application/json",
             method: "PUT"
-            //display success message if successful
+            //display a success message if its successful
             }).done(function (data) {
             //get the result from the server
                 var result=data.result;
@@ -141,7 +141,7 @@
                     location.href="<?php echo base_url()?>index.php/myprofile";
                 }//display error message if not successful
                 else{
-                    document.getElementById("errmsg2").innerHTML = "Couldn't save your changes";
+                    document.getElementById("errmsg2").innerHTML = "Unable to do your changes";
                 }
             });
         });                    

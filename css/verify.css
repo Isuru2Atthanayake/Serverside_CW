@@ -109,19 +109,6 @@ input:-webkit-autofill:active{
 	color: #fff;
 	border: 0;
 	transition: transform .4s;
-
-	  /*height: 20px;*/
-	  /*display: inline-block;*/
-	  /*background-color: #34495E; !* Dark background for contrast *!*/
-	  /*color: #FFFFFF; !* White text for visibility *!*/
-	  /*text-decoration: none; !* Remove underline from links *!*/
-	  /*padding: 10px; !* Padding for spacing *!*/
-	  /*border-radius: 5px; !* Rounded corners *!*/
-	  /*transition: background-color 0.3s; !* Smooth transition for hover effect *!*/
-	  /*align-items: center;*/
-	  /*justify-content: center;*/
-	  /*flex-direction: column;*/
-	  /*display: flex;*/
   }
   .signupbtn:enabled:hover, .loginbtn:enabled:hover{
 	transform: scale(1.05);

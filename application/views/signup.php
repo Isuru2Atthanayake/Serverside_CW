@@ -16,25 +16,26 @@
 <body>
     <div class="weblogodiv"><img class="logoimage" src="<?php echo base_url() ?>images/logo.png" alt="Logo" /> </div>
 
+<!--    this is the signup form-->
     <div class="signform">
         <form class="authenticateform" name="signupform">
             <div class="errmsg" id="errmsg"></div>
             <div class="input">
                 <input class="signupfield" type=text id="username" name='username'
-                    onkeyup='checkusername(); checkinputs();' required />
+                    onkeyup='usernameCheck(); checkUserinputs();' required />
                 <label class="signuplbl">Username <span style="color:#EB9494">*</span></label>
             </div>
             <div class="input">
-                <input class="signupfield" type=text id="email" name='email' onkeyup='checkinputs(); validateemail()'
+                <input class="signupfield" type=text id="email" name='email' onkeyup='checkUserinputs(); validateUseremail()'
                     required />
                 <label class="signuplbl">Email <span style="color:#EB9494">*</span></label>
             </div>
             <div class="input">
-                <input class="signupfield" type=text id="name" name='name' onkeyup='checkinputs();' required />
+                <input class="signupfield" type=text id="name" name='name' onkeyup='checkUserinputs();' required />
                 <label class="signuplbl">Name</label>
             </div>
             <div class="input">
-                <input class="signupfield" type=password id="password" name='password' onkeyup='checkinputs();'
+                <input class="signupfield" type=password id="password" name='password' onkeyup='checkUserinputs();'
                     required />
                 <label class="signuplbl">Password <span style="color:#EB9494">*</span></label>
             </div>
@@ -48,8 +49,8 @@
     </div>
 
     <script type="text/javascript" lang="javascript">
-    //check if required inputs are empty
-    function checkinputs() {
+    //this is used to check if required inputs are empty
+    function checkUserinputs() {
         if (document.forms["signupform"]["username"].value != "" && document.forms["signupform"]["email"].value != "" &&
             document.forms["signupform"]["password"].value != "" && document.getElementById("errmsg").innerHTML == "") {
             document.getElementById('createUser').disabled = false;
@@ -58,7 +59,7 @@
             document.getElementById('createUser').disabled = true;
         }
     }
-    function validateemail() {//valid email before sending through api
+    function validateUseremail() {//valid email before sending through api
         var x = document.forms["signupform"]["email"].value;
         var atposition = x.indexOf("@");
         var dotposition = x.lastIndexOf(".");
@@ -67,26 +68,26 @@
         }
         else {
             document.getElementById("errmsg").innerHTML = "";
-            checkinputs();
+            checkUserinputs();
         }
     }
-    function checkusername() {//check if the username is taken or not
+    function usernameCheck() {//used to check if the username is taken or not
         $.ajax({
             url: "<?php echo base_url() ?>index.php/users/user/action/checkuser",
             data: { 'username': "@" + $('#username').val().toLowerCase() },
             method: "POST"
-        }).done(function (data) {
+        }).done(function (data) {//if the username is taken, display error message
             if (data == 0) {
                 document.getElementById("errmsg").innerHTML = "";
-                checkinputs();
+                checkUserinputs();
             }
             else {
-                document.getElementById("errmsg").innerHTML = "Username Already Exists!"
+                document.getElementById("errmsg").innerHTML = "This Username Already Exists!"
             }
         });
     }
-    $(document).ready(function () {
-        $('#createUser').click(function (event) {//call function when button is clicked
+    $(document).ready(function () {//this is used to call the userSignup function when the signup button is clicked
+        $('#createUser').click(function (event) {
             event.preventDefault();
             userSignup();
         });
@@ -98,7 +99,7 @@
         model: User
     });
     var usersCollection = new UserCollection();
-    function userSignup() {
+    function userSignup() {//this is used to signup the user
         var newUser = new User();
         newUser.set('username', "@" + $("#username").val().toLowerCase());
         newUser.set('email', $("#email").val());

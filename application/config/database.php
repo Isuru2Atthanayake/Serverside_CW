@@ -10,7 +10,6 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
-//	'database' => 'holiday',
     'database' => 'question_and_answer',
 	'port'=>3306,
 	'dbdriver' => 'mysqli',

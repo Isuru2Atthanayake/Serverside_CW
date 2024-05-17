@@ -8,17 +8,18 @@
 
 </head>
 <body>
+
 <div class="pwform">
-<!--    this does the passwordreset using the username and newpassword -->
+    <!--    this does the passwordreset using the username and newpassword -->
     <div class="pwdresetheading"><span>RESET PASSWORD</span></div>
     <div class="errmsg" id="errmsg"></div>
     <form class="authenticateform" name="loginform">
         <div class="input">
-            <input class="logfield" type=text id="username" name='username' onkeyup='checkinputs();' required/>
+            <input class="logfield" type=text id="username" name='username' onkeyup='checkuserinputs();' required/>
             <label class="loginlbl">Username<span style="color:#EB9494">*</label>
         </div>
         <div class="input">
-            <input class="logfield" type=password id="password" name='password' onkeyup='checkinputs();' required/>
+            <input class="logfield" type=password id="password" name='password' onkeyup='checkuserinputs();' required/>
             <label class="loginlbl">New Password<span style="color:#EB9494">*</label>
         </div>
         <div class="action">
@@ -32,8 +33,8 @@
 </div>
 
 <script type="text/javascript" lang="javascript">
-//check inputs to see if theyre are empty
-function checkinputs() {
+//check inputs to see if theyre are empty if the inputs are not empty, the button is enabled
+function checkuserinputs() {
     if (document.forms["loginform"]["username"].value != "" && document.forms["loginform"]["password"].value != "") {
         document.getElementById('changepw').disabled = false;
     }
@@ -41,19 +42,21 @@ function checkinputs() {
         document.getElementById('changepw').disabled = true;
     }
 }
-//when button is clicked to change password
+
+
+//this is used to reset the password when the reset button is clicked
 $("#changepw").click(function(event) {
     event.preventDefault();
     var pwdata = {
         username: "@" + $('#username').val().toLowerCase(),
         password: $('#password').val()
     };
-    $.ajax({
+    $.ajax({//this is used to send the data to the database to reset the password
         url: "<?php echo base_url() ?>index.php/users/user/action/passwordreset",
         data: JSON.stringify(pwdata),
         contentType: "application/json",
         method: "POST"
-    }).done(function (data) {
+    }).done(function (data) {//this is used to display the error message if the username is not valid
         var result = data.result;
         if (result == "success") {
             location.href = "<?php echo base_url() ?>index.php/users/login";

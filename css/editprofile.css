@@ -65,22 +65,6 @@
     background-color: #669BBC; /* Darker green on hover */
 }
 
-/*#editprofile {*/
-/*    padding: 12px 24px; !* Larger padding *!*/
-/*    font-size: 16px;*/
-/*    color: #ffffff; !* White text *!*/
-/*    !*background-color: #007bff; !* Bootstrap primary color *!*!*/
-/*    border: none;*/
-/*    border-radius: 8px; !* More rounded corners *!*/
-/*    cursor: pointer;*/
-/*    transition: background-color 0.3s ease;*/
-/*    margin-top: 15px; !* Increased margin *!*/
-/*}*/
-
-/*#editprofile:hover {*/
-/*    background-color: #218838;*/
-/*}*/
-
 .profimagediv {
     width: 100%;
 }
@@ -180,20 +164,3 @@ textarea:focus {
     border-color: #80bdff; /* Blue border on focus */
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Light shadow on focus */
 }
-/* edit profile container end */
-
-/* edit profile container end */
-/*.changepassdiv{*/
-/*    padding-top: 10px;*/
-/*    margin-left: 20%;*/
-/*    font-size: 20px;*/
-/*    letter-spacing: 0.5px;*/
-/*    line-height: normal;*/
-/*    color: #666666;*/
-/*}*/
-/*.changepassdiv a{*/
-/*    color: #E8A98A;*/
-/*}*/
-/*.changepassdiv a:hover{*/
-/*    color: #DF83A2;*/
-/*}*/

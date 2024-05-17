@@ -15,31 +15,30 @@
             <span id='questtagname'></span>
             <div id="questtaglist"> </div>
         </div>
-<!--        <div class="postlocadiv"></div>-->
             <div class="postquestdiv"></div>
     </div>
 
 <script type="text/javascript" lang="javascript">
-    var questtagid ="<?php echo $questtagid ?>";
+    var questtagid ="<?php echo $questtagid ?>";//get the questtag id from the controller
     $(document).ready(function () {
         event.preventDefault();
         $.ajax({//get all posts from the given tag id at start and display the posts
             //"<a href='<?php //echo base_url() ?>//index.php/posts/parametered/action?key="
-            url: "<?php echo base_url() ?>index.php/posts/questtag/action/id?questtagid="+questtagid,
+            url: "<?php echo base_url() ?>index.php/postquestctrl/questtag/action/id?questtagid="+questtagid,
             method: "GET"
             }).done(function (data) { 
                //used to display the questtag name along with the icon in the page
                 document.getElementById("questtagname").innerHTML = "<i class='fa-solid fa-cube '></i>"+data.QuesttagName;
             });
         $.ajax({
-            url: "<?php echo base_url() ?>index.php/posts/questtag/action/all",
+            url: "<?php echo base_url() ?>index.php/postquestctrl/questtag/action/all",
             method: "GET"
         })
-        .done(function (data) {
+        .done(function (data) {//display the tags in the list
             for (i = (questtagid-8); i < (+questtagid+8); i++) {
                 if(data[i]!=null){//display few other tags in the list for easier browsing
                     //"<a href='<?php //echo base_url() ?>//index.php/posts/notparametered
-                    var span ="<a href='<?php echo base_url() ?>index.php/posts/questtags?questtagid="
+                    var span ="<a href='<?php echo base_url() ?>index.php/postquestctrl/questtags?questtagid="
                     +data[i].QuesttagId+"'><span>"+data[i].QuesttagName+"</span></a></br>";
 			        $('#questtaglist').append(span);
                 }
@@ -49,7 +48,7 @@
     });    
     var PostCollection = Backbone.Collection.extend({
         //the questtag posts in posts.php controller
-        url: "<?php echo base_url() ?>index.php/posts/questtagposts?questtagid="+questtagid,
+        url: "<?php echo base_url() ?>index.php/postquestctrl/questtagposts?questtagid="+questtagid,
     });
 
     var html = "";
@@ -63,8 +62,8 @@
             html = html + "<div class='question-box'>" +
                 "<div class='question-content'>" +
                 //used to display the posted question
-                //"<a href='<?php //echo base_url() ?>//index.php/posts/post?postid="+
-                "<a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'></br>" +
+                //"<a href='<?php //echo base_url() ?>//index.php/posts/postcontroller?postid="+
+                "<a href='<?php echo base_url() ?>index.php/postquestctrl/post?postid=" + m.get('PostId') + "'></br>" +
                 "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></div>" +
                 "<div class='usercomments-section' id='usercommentsdiv" + m.get('PostId') + "'></div></div>" ;//to display the comments on the post;
             this.$el.html(html);
@@ -100,7 +99,7 @@
         }
     });
 
-    var postCollection = new PostCollection();
+    var postCollection = new PostCollection();//backbone collection to get the posted questions
     var postDisplay = new PostDisplay({model: postCollection})
 
 </script>

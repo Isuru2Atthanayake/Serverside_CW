@@ -5,14 +5,10 @@ require APPPATH . '/libraries/REST_Controller.php';
 
 class Home extends \Restserver\Libraries\REST_Controller {
 	
-	public function __construct() {
+	public function __construct() {//constructor to load the related models.
         parent::__construct();
-		$this->load->model('usersmod');
-        $this->load->model('postquestmod');
-
-        Header('Access-Control-Allow-Origin: *');
-        Header('Access-Control-Allow-Headers: *');
-        Header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
+		$this->load->model('usersmod');//this is used to load the usersmod model to access the userstable in the database
+        $this->load->model('postquestmod');//this is used to load the postquestion model
     }
     //home page
     public function index_get()
@@ -28,7 +24,6 @@ class Home extends \Restserver\Libraries\REST_Controller {
             $this->load->view('login');
         }
     }
-
 //    used in home .php ajax call
     public function postquestions_get(){//get all the posted questions of the user
         if ($this->usersmod->is_logged_in()) {//check if user is logged in
@@ -73,7 +68,7 @@ class Home extends \Restserver\Libraries\REST_Controller {
             //get the post id of the posted question using get method
             $postid = $this->get('postid');
             $result=$this->postquestmod->checkratings($username, $postid);//check if the user has already rated the post using the checkratings function in the postquestmod model
-            $this->response($result); //
+            $this->response($result);
         }
         else {
             $this->load->view('login');

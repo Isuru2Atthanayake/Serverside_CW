@@ -12,6 +12,7 @@
 <body>
 <div class="weblogodiv"><img class="logoimage" src="<?php echo base_url()?>images/logo.png" alt="Logo"/> </div>
 
+<!--//this is the login form-->
 <div class="loginform">
     <div class="loginheading"><span>LOGIN</span></div>
     <!-- error message if necessary -->
@@ -19,14 +20,14 @@
     <div class="errmsg">
         <?php echo $login_error_msg ?> 
     </div> <?php } ?>
-
+<!--this is the form used to authenticate -->
     <form class="authenticateform" name="loginform">
         <div class="input">
-            <input class="logfield" type=text id="username" name='username' onkeyup='checkinputs();' required/>
+            <input class="logfield" type=text id="username" name='username' onkeyup='checkUserinputs();' required/>
             <label class="loginlbl">Username<span style="color:#EB9494">*</span></label>
         </div>
         <div class="input">
-            <input class="logfield" type=password id="password" name='password' onkeyup='checkinputs();' required/>
+            <input class="logfield" type=password id="password" name='password' onkeyup='checkUserinputs();' required/>
             <label class="loginlbl">Password<span style="color:#EB9494">*</span></label>
         </div>
 
@@ -43,7 +44,7 @@
 
     <script type="text/javascript" lang="javascript">
         //check if all inputs are not empty
-        function checkinputs() {
+        function checkUserinputs() {
             if (document.forms["loginform"]["username"].value != "" && document.forms["loginform"]["password"].value != "") {
                 document.getElementById('login').disabled = false;
             }
@@ -51,21 +52,22 @@
                 document.getElementById('login').disabled = true;
             }
         }
-        $(document).ready(function () {
+        $(document).ready(function () {//when login is clicked
             //when login is clicked
             $('#login').click(function (event) {
                 event.preventDefault();
                 userLogin();
             });
         });
+        //this is the backbone model and collection for login
         var Login = Backbone.Model.extend({
             url:"<?php echo base_url()?>index.php/users/user/action/login"
         });
         var LoginCollection = Backbone.Collection.extend({
             model: Login,
         });
-        var loginCollection = new LoginCollection();
-        function userLogin() {
+        var loginCollection = new LoginCollection();//create a new login collection
+        function userLogin() {//this is used to authenticate the user
             var newLogin = new Login();
             newLogin.set('username', "@"+$("#username").val().toLowerCase());//username is converted to lowercase
             newLogin.set('password', $("#password").val());

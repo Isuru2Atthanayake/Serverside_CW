@@ -22,9 +22,9 @@
             <i class='fa-solid fa-star' id='star4' onclick='rate(4);'></i>
             <i class='fa-solid fa-star' id='star5' onclick='rate(5);'></i>
         </div>
+<!-- rate the post-->
         <div class='ratecount'></div>
         <div class='questtagdiv'></div>
-
 
     </div>
     <div class='questdiv'>
@@ -41,7 +41,7 @@
         <!-- Placeholder for comments -->
     </div>
 </div>
-<!--//the container  of the posted questions end here-->
+<!--the container  of the posted questions end here-->
 
 <script type="text/javascript" lang="javascript">
     var username="<?php echo $username ?>";
@@ -52,17 +52,15 @@
         getComments();
         ratecount();
         $.ajax({//get post details
-            url: "<?php echo base_url() ?>index.php/posts/post/action/view?postid="+postid,
+            url: "<?php echo base_url() ?>index.php/postquestctrl/post/action/view?postid="+postid,
             method: "GET"
             }).done(function (data) {//display the details of the questions which are poested
 
-
                     // Thi s is used to Initializthe display of post details.
-
 
         // This is used to Append a link to the tag details including tag name and icon.
                     //to get tags notparametered
-                    var div2 = "<a href='<?php echo base_url() ?>index.php/posts/questtags?questtagid=" +
+                    var div2 = "<a href='<?php echo base_url() ?>index.php/postquestctrl/questtags?questtagid=" +
                         data.QuesttagId + "'><span><i class='fa-solid fa-cube'></i>" +
                         data.QuesttagName + "</span></a>";
                     $('.questtagdiv').append(div2);
@@ -73,12 +71,7 @@
                         data.Username + "'><span>" + data.Username + "</span></a></div>";
                     $('.usernameimgdiv').append(div3);
 
-        // Add a 'rate' icon with an event handler for liking the post.
-        //             var div4 = "<i onclick='rate();' class='fa-solid fa-star'></i>"+"<br/>";
-        //             $('.ratediv').append(div4);
-
-                    // var div4 = "<i onclick='rate();' class='fa-solid fa-star'></i>"+"<br/>";
-                    // $('.ratediv').append(div4);
+        // Add a 'rate' icon with an event handler for rating the post.
             // Append the questtitle data and add a line break for better layout.
         // Encapsulate the questtitle in a div for better styling control.
             var div5 = "<div class='questtitlediv'>" + data.QuestTitle + "<br/></div>";
@@ -111,29 +104,6 @@
         }
     }
     //when post is rated, send post request and change color of button
-    //function rate(){
-    //    $.ajax({
-    //        url: "<?php //echo base_url() ?>//index.php/home/rate",
-    //        data: JSON.stringify({username: username,postid:postid}),
-    //        contentType: "application/json",
-    //        method: "POST"
-    //    }).done(function (data) {
-    //        $.ajax({
-    //            url: "<?php //echo base_url() ?>//index.php/home/checkratings?username="+username+"&postid="+postid,
-    //            method: "GET"
-    //        })
-    //        .done(function (res) {
-    //            if(res){
-    //                document.getElementById("ratediv").style.color = "#FC6464";
-    //                ratecount();
-    //            }
-    //            else{
-    //                document.getElementById("ratediv").style.color = "#666666";
-    //                ratecount();
-    //            }
-    //        });
-    //    });
-    //}
     function rate(rating) {
         $.ajax({
             url: "<?php echo base_url() ?>index.php/home/rate",
@@ -146,7 +116,7 @@
         });
     }
 
-    function highlightStars(rating) {
+    function highlightStars(rating) {//this is used to highlight the stars when the user rates the post
         for (var i = 1; i <= 5; i++) {
             if (i <= rating) {
                 $('#star' + i).css('color', '#FC6464');
@@ -194,7 +164,7 @@
     function ratecount() {
         $.ajax({
             //get the rate count of the posted questions using the postid
-            url: "<?php echo base_url() ?>index.php/posts/ratecount?postid=" + postid,
+            url: "<?php echo base_url() ?>index.php/postquestctrl/ratecount?postid=" + postid,
             method: "GET"
         }).done(function (res) {
             $('.ratecount span').remove();

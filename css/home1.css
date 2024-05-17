@@ -48,45 +48,17 @@ body {
     color: #666666;
 }
 
-/*.commentsdiv{*/
-/*    margin:  0 5%;*/
-/*    font-size: 13px;*/
-/*    font-weight: 600;*/
-/*    color: #666666;*/
-/*}*/
 .postquestdiv{
     box-shadow: 0px 0px 10px 0px  rgba(152, 162, 203, 0.25) ;
     width: 80%;
     float: right;
 }
-/*#locationname{*/
-/*    font-size: 24px;*/
-/*    font-weight: 700;*/
-/*    letter-spacing: 1px;*/
-/*    margin: 20px 0 0 10%;*/
-/*    color: #52B2CF;*/
-/*}*/
-
 .imagelocdiv{
     width: 28%;
     aspect-ratio : 1 / 1;
     margin-left: 4%;
     float: left;
 }
-/*#locationname{*/
-/*    font-size: 24px;*/
-/*    font-weight: 700;*/
-/*    letter-spacing: 1px;*/
-/*    margin: 20px 0 0 10%;*/
-/*    color: #52B2CF;*/
-/*}*/
-/*#locationlist{*/
-/*    font-size: 16px;*/
-/*    letter-spacing: 1px;*/
-/*    margin: 20px 0 0 10%;*/
-/*}*/
-/*used for location page end */
-
 /* Styling for sidebar navigation old start here  */
 .sidebar {
     margin-top: 85px;
@@ -269,7 +241,7 @@ body {
     background-color: #0056b3;
 }
 
-/* Styling for the likes count */
+/* Styling for the rate count */
 .rate-count {
     margin-top: 10px;
     font-size: 14px;

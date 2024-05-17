@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/myprofile.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/home1.css">
     <!--   this is used for the sidebar-->
-<!--    <link rel="stylesheet" type="text/css" href="--><?php //echo base_url()?><!--css/home2_myprofile_sidebar.css">-->
 </head>
 
 <body>
@@ -20,7 +19,7 @@
         <div class="searchresults2" id="searchresults"></div>
     </div>
 
-    <!--These are the  Navigation Links -->
+    <!--These are the  Navigation Links of the profile -->
     <ul>
         <li><a id="home-link" >Home</a></li>
         <li><a id="tags-link" >Tags</a></li>
@@ -59,61 +58,59 @@
 
 <script type="text/javascript" lang="javascript">
     var username="<?php echo $username ?>";
-    //backbone fetch the post collection on start
-    $(document).ready(function () {
+    $(document).ready(function () {//when the page is loaded get the user details
         event.preventDefault();
-        postCollection.fetch();
-        $.ajax({//get user details through api
+        postCollection.fetch();//fetch the posted questions
+        $.ajax({//get details of the user through api
             url: "<?php echo base_url() ?>index.php/users/userdetails?username="+username,
             method: "GET"
-        }).done(function (data) {
+        }).done(function (data) {//display the user details in the page
             var div ="<img class='profileimage' src='<?php echo base_url() ?>images/profilepics/"+data.UserImage+"'/>";
             $('.propicdiv').append(div);
             var name ="<span>"+data.Name+"</span>";
             $('.namediv').append(name);
         });
         // Set the Tags link dynamically to navigate using the side bar start
-        // notparametered funton of Posts.php controller
-        $('#tags-link').attr('href', '<?php echo base_url() ?>index.php/posts/questtags');
+        // notparametered funton of controller
+        $('#tags-link').attr('href', '<?php echo base_url() ?>index.php/postquestctrl/questtags');
         $('#Profile-link').attr('href', '<?php echo base_url() ?>index.php/myprofile');
         $('#home-link').attr('href', '<?php echo base_url() ?>index.php/home');
         // Set the Tags link dynamically to navigate using the side bar end
     });
    
-    var Post = Backbone.Model.extend({
-        url: "<?php echo base_url() ?>index.php/myprofile/myposts"
+    var Post = Backbone.Model.extend({//backbone model to get the questionposts
+        url: "<?php echo base_url() ?>index.php/myprofile/myposts" //myposted questions function in myprofile controller
     });
 
-    var PostCollection = Backbone.Collection.extend({
+    var PostCollection = Backbone.Collection.extend({//backbone collection to get the posted questions
         url: "<?php echo base_url() ?>index.php/myprofile/myposts",
         model: Post,
         parse: function(data) {
             return data;
         } 
     });
-    //backbone view to display the posts
-    // var html = "";
+    //backbone view to display the posted questions
     var PostDisplay = Backbone.View.extend({
         el: "#postsdiv",
         initialize: function () {
             this.listenTo(this.model, "add", this.showResults);
         },
-        showResults: function () {
+        showResults: function () {//this function is used to show the questions in the myprofile page
             var html = "";
-            this.model.each(function (m) {
+            this.model.each(function (m) {//this function is used to display the posts and the comments in the page
 
-                html = html + "<div class='questdiv'><a href='<?php echo base_url() ?>index.php/posts/post?postid=" + m.get('PostId') + "'>" +
+                html = html + "<div class='questdiv'><a href='<?php echo base_url() ?>index.php/postquestctrl/post?postid=" + m.get('PostId') + "'>" +
                 "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></a></div>" +
                 "<div class='usercommentsdiv' id='usercommentsdiv" + m.get('PostId') + "'></div>";
 
-            });
+            });//to display the posted questions in the myprofilepage
 
             this.$el.html(html);
 
         }
     });
-    var postCollection = new PostCollection();
-    var postDisplay = new PostDisplay({model: postCollection})
+    var postCollection = new PostCollection();//backbone collection to get the posted questions
+    var postDisplay = new PostDisplay({model: postCollection})//backbone view to display the posted questions
 </script>
 </body>
 </html>
