@@ -73,59 +73,15 @@ class Usersmod extends CI_Model
             }
         }
     }
-    // //query user table to search users
-    // public function searchUser($username){
-    //     $query=$this->db->query("SELECT * FROM users WHERE Username LIKE '".$username."%'");
-    //     return $query->result();
-    // }
-    public function searchUser($question){
+    //query user table to search users
+//    public function searchUser($question){
+//        $query=$this->db->query("SELECT * FROM posts WHERE Question LIKE '".$question."%'");
+//        return $query->result();
+//    }
+    public function searchQuestion($question){
         $query=$this->db->query("SELECT * FROM posts WHERE Question LIKE '".$question."%'");
         return $query->result();
     }
-    //insert rows to following and nitification table when followed
-//    public function followuser($username,$isfollowing){
-//        $users = $this->db->get_where('users', array('Username' => $username));
-//        $userId= $users->row()->UserId;
-//        $following = $this->db->get_where('users', array('Username' => $isfollowing));
-//        $isfollowing= $following->row()->UserId;
-//        $res = $this->db->get_where('following', array('UserId' => $userId,'IsFollowing' => $isfollowing));
-//        if ($res->num_rows() == 1){
-//            $query=$this->db->delete('following', array('UserId' => $userId,'IsFollowing' => $isfollowing));
-//            $this->db->delete('notification', array('FromUser' => $userId,'UserId' => $isfollowing,'Notification'=>'Followed you!'));
-//            return "deleted";
-//        }
-//        else{
-//            $query=$this->db->insert('following', array('UserId' => $userId,'IsFollowing' => $isfollowing));
-//            $this->db->insert('notification', array('FromUser' => $userId,'UserId' => $isfollowing,'Notification'=>'Followed you!'));
-//            return "added";
-//        }
-//    }
-    //query to check if a user is following another
-//    public function checkfollowing($username,$isfollowing){
-//        $users = $this->db->get_where('users', array('Username' => $username));
-//        $userId= $users->row()->UserId;
-//        $following = $this->db->get_where('users', array('Username' => $isfollowing));
-//        $isfollowing= $following->row()->UserId;
-//        $res = $this->db->get_where('following', array('UserId' => $userId,'IsFollowing' => $isfollowing));
-//
-//        if ($res->num_rows() == 1){
-//            return true;
-//        }
-//        else{
-//            return false;
-//        }
-//    }
-    //get number of rows in following table to get counts of followers/following
-//    public function followcount($username){
-//        $users = $this->db->get_where('users', array('Username' => $username));
-//        $userId= $users->row()->UserId;
-//        $res1 = $this->db->get_where('following', array('UserId' => $userId));
-//        $following=$res1->num_rows();
-//        $res2 = $this->db->get_where('following', array('IsFollowing' => $userId));
-//        $followers=$res2->num_rows();
-//        return array('following' => $following,'followers' => $followers);
-//
-//    }
     //select all from users for username
     public function getUser($username)
     {
@@ -143,16 +99,5 @@ class Usersmod extends CI_Model
         $query=$this->db->query("UPDATE users SET Name='".$name."',Email='".$email."',UserImage='".$userimage."' WHERE Username='".$username."'");
         return $query;
     }
-    //select all notificiations for user
-//    public function notifications($username){
-//        $users = $this->db->get_where('users', array('Username' => $username));
-//        $userId= $users->row()->UserId;
-//        $query = $this->db->query("SELECT notification.*, users.Username FROM notification JOIN users ON users.UserId=notification.FromUser WHERE notification.UserId='".$userId."' ORDER BY Timestamp DESC");
-//        if ($query) {
-//            return $query->result();
-//        }
-//        return NULL;
-//    }
 
-    
 }

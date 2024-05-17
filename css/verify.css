@@ -9,7 +9,7 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active{
   -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
-.logodiv  {
+.weblogodiv  {
     margin:3% auto 0 auto;
     height:fit-content;
     width:fit-content;
@@ -41,7 +41,7 @@ input:-webkit-autofill:active{
 	box-shadow: 0 0 10px 4px rgba(199, 182, 237, 0.25);
 }
   
-  .authforms {
+  .authenticateform{
 	padding: 0 3%;
   }
   
@@ -55,14 +55,14 @@ input:-webkit-autofill:active{
 	margin-top: 1.5rem;
   }
   
-  .signlabel, .loginlabel {
+  .signuplbl, .loginlbl {
 	color: #BABABA;
 	position: absolute;
 	top: 1.5rem;
 	transition: 0.25s ease;
   }
   
-  .signfield, .loginfield {
+  .signupfield, .logfield {
 	border: 0;
 	z-index: 1;
 	background-color: transparent;
@@ -70,26 +70,26 @@ input:-webkit-autofill:active{
 	font-size: 1.125rem;
 	padding: 0.25rem 0;
   }
-.signfield{
+.signupfield{
 	border-bottom: 2px solid #B6E3EC;
 }
-.loginfield{
+.logfield{
 	border-bottom: 2px solid #669BBC;
 }
-.signfield:focus, .signfield:valid, .signfield:hover {
+.signupfield:focus, .signupfield:valid, .signupfield:hover {
 	outline: 0;
 	border-bottom-color: #95C2E5;
 }
-.loginfield:focus, .loginfield:valid, .loginfield:hover {
+.logfield:focus, .logfield:valid, .logfield:hover {
 	outline: 0;
 	border-bottom-color: #7EC4CF;
 }
 
-.signfield:focus + .signlabel, .signfield:valid + .signlabel,.signfield:hover + .signlabel{
+.signupfield:focus + .signuplbl, .signupfield:valid + .signuplbl,.signupfield:hover + .signuplbl{
 	color: #95C2E5;
 	transform: translateY(-1.5rem);
   }
-.loginfield:focus + .loginlabel, .loginfield:valid + .loginlabel, .loginfield:hover + .loginlabel {
+.logfield:focus + .loginlbl, .logfield:valid + .loginlbl, .logfield:hover + .loginlbl {
 	color: #7EC4CF;
 	transform: translateY(-1.5rem);
   }
@@ -142,35 +142,35 @@ input:-webkit-autofill:active{
 	background-color: #003049;
   }
  
-  .signspandiv, .loginspandiv {
+  .signtxtdiv, .logintxtdiv {
 	padding: 1rem;
 	text-align: center;
 	color: #585858;
   }
   
-  .signspandiv a {
+  .signtxtdiv a {
 	color: #95C2E5;
 	text-decoration: none;
   }
-  .signspandiv a:hover {
+  .signtxtdiv a:hover {
 	color: #95C2E5;
 	text-decoration:underline;
   }
-  .loginspandiv a {
+  .logintxtdiv a {
 	color: #669BBC;
 	text-decoration: none;
   }
-  .loginspandiv a:hover {
+  .logintxtdiv a:hover {
 	color: #003049;
 	text-decoration:underline;
   }
-  .logheading, .pwresetheading{
+  .loginheading, .pwdresetheading{
 	font-size: 2.5rem;
     font-weight: 550;
     letter-spacing: 1px;
     color: #003049;
 	text-align: center;
   }
-  .errormsg{
+  .errmsg{
 	color: #EB9494;
   }

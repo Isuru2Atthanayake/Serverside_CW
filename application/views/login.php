@@ -10,24 +10,24 @@
 </head>
 
 <body>
-<div class="logodiv"><img class="logoimage" src="<?php echo base_url()?>images/logo.png" alt="Logo"/> </div>
+<div class="weblogodiv"><img class="logoimage" src="<?php echo base_url()?>images/logo.png" alt="Logo"/> </div>
 
 <div class="loginform">
-    <div class="logheading"><span>LOGIN</span></div>
+    <div class="loginheading"><span>LOGIN</span></div>
     <!-- error message if necessary -->
     <?php if (isset($login_error_msg)) { ?>
-    <div class="errormsg">
+    <div class="errmsg">
         <?php echo $login_error_msg ?> 
     </div> <?php } ?>
 
-    <form class="authforms" name="loginform">
+    <form class="authenticateform" name="loginform">
         <div class="input">
-            <input class="loginfield" type=text id="username" name='username' onkeyup='checkinputs();' required/>
-            <label class="loginlabel">Username<span style="color:#EB9494">*</span></label>
+            <input class="logfield" type=text id="username" name='username' onkeyup='checkinputs();' required/>
+            <label class="loginlbl">Username<span style="color:#EB9494">*</span></label>
         </div>
         <div class="input">
-            <input class="loginfield" type=password id="password" name='password' onkeyup='checkinputs();' required/>
-            <label class="loginlabel">Password<span style="color:#EB9494">*</span></label>
+            <input class="logfield" type=password id="password" name='password' onkeyup='checkinputs();' required/>
+            <label class="loginlbl">Password<span style="color:#EB9494">*</span></label>
         </div>
 
         <div class="action">
@@ -35,7 +35,7 @@
         </div>
     </form>
 
-    <div class="loginspandiv">
+    <div class="logintxtdiv">
         <a href="<?php echo base_url()?>index.php/users/passwordreset">Forgot Password?</a><br>
         <span>Don't have an account? <a href="<?php echo base_url()?>index.php/users/signup">Sign Up</a> here </span>
     </div>

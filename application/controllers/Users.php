@@ -10,9 +10,9 @@ class Users extends \Restserver\Libraries\REST_Controller {
         parent::__construct();
 		$this->load->model('usersmod');
 
-        Header('Access-Control-Allow-Origin: *');
-        Header('Access-Control-Allow-Headers: *');
-        Header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE'); 
+//        Header('Access-Control-Allow-Origin: *');
+//        Header('Access-Control-Allow-Headers: *');
+//        Header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
     }
     //load login view
     public function index_get(){
@@ -107,16 +107,26 @@ class Users extends \Restserver\Libraries\REST_Controller {
             }            
         }
          //if action is searchuser, get user details
-         else if($this->get('action') == 'searchuser') {
-            if ($this->usersmod->is_logged_in()) {
-                $question = $this->post('question');
-                $result=$this->usersmod->searchUser($question);
-                $this->response($result); 
-            }
-            else {
-                $this->load->view('login');
-            }      
-        }          
+//         else if($this->get('action') == 'searchuser') {
+//            if ($this->usersmod->is_logged_in()) {
+//                $question = $this->post('question');
+//                $result=$this->usersmod->searchUser($question);
+//                $this->response($result);
+//            }
+//            else {
+//                $this->load->view('login');
+//            }
+//        }
+         else if($this->get('action') == 'searchquestion') {
+             if ($this->usersmod->is_logged_in()) {
+                 $question = $this->post('question');
+                 $result=$this->usersmod->searchQuestion($question);
+                 $this->response($result);
+             }
+             else {
+                 $this->load->view('login');
+             }
+         }
     }
     //load password reset view
     public function passwordreset_get(){

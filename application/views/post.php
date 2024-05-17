@@ -34,7 +34,7 @@
 
 
     <div class='commentareadiv'>
-        <textarea onkeyup='checkinputs();' name="comment" id="comment" maxlength="50"></textarea>
+        <textarea onkeyup='checkinputs();' name="comment" id="comment" maxlength="200"></textarea>
         <button onclick='postcomment();' id='commentbtn' disabled="disabled">Reply</button>
     </div>
     <div class='usercommentsdiv'>
@@ -73,7 +73,7 @@
                         data.Username + "'><span>" + data.Username + "</span></a></div>";
                     $('.usernameimgdiv').append(div3);
 
-        // Add a 'rate' icon with an event handler for liking the post.
+        // Add a 'rate' icon with an event handler for rating the post.
         //             var div4 = "<i onclick='rate();' class='fa-solid fa-star'></i>"+"<br/>";
         //             $('.ratediv').append(div4);
 

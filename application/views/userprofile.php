@@ -16,11 +16,17 @@
 
 <div class="sidebar">
     <!--  444  the search bar inside the side bar start here-->
+<!--    <div>-->
+<!--        <input type="text"  class="searchdiv" id="search" placeholder="Search..." onkeyup='searchusers()'/>-->
+<!--        <div class="searchresults2" id="searchresults"></div>-->
+<!--    </div>-->
+    <!--    search bar for the user to search for questions start -->
     <div>
-        <input type="text"  class="searchdiv" id="search" placeholder="Search..." onkeyup='searchusers()'/>
-        <div class="searchresults2" id="searchresults"></div>
+        <!--            gets the search results from the searchquest function-->
+        <input type="text"  class="searchdiv" id="search" placeholder="Search..." onkeyup='searchquest()'/>
+        <div class="searchresults" id="searchresults"></div>
     </div>
-
+    <!--    search bar for the user to search for questions end -->
     <!--These are the  Navigation Links -->
     <ul>
 <!--        this is the home link-->
@@ -40,9 +46,9 @@
 
 <!--The code of profile Sidebar  start here-->
 <div class="userprofilecontainer">
-    <div class="profiledeetdiv">
-        <div class="topdiv">
-            <div class="profpicdiv"></div>
+    <div class="profileheaderdiv">
+        <div class="toppicdiv">
+            <div class="propicdiv"></div>
         </div>
         <div class="usernamediv"><?php echo $username ?></div>
         <div class="namediv"></div>
@@ -61,7 +67,7 @@
             method: "GET"
         }).done(function (data) {
             var div ="<img class='profileimage' src='<?php echo base_url() ?>images/profilepics/"+data.UserImage+"'/>";
-            $('.profpicdiv').append(div);
+            $('.propicdiv').append(div);
             var name ="<span>"+data.Name+"</span>";
             $('.namediv').append(name);
         });

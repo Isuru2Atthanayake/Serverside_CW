@@ -11,7 +11,7 @@ body {
     background-color: #fff;
     font-family: Arial, sans-serif;
 }
-.profiledeetdiv{
+.profileheaderdiv{
     /*width: 34%;*/
     /*max-width: 34%;*/
     /*float: left;*/
@@ -63,19 +63,14 @@ body {
 .postimage:hover{
 	transform: scale(1.05);
   }
-.topdiv{
+.toppicdiv{
     /*width: 100%;*/
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
 }
-.profpicdiv{
-    /*width: 62%;*/
-    /*height: 250px;*/
-    /*float: left;*/
-    /*align-items: center;*/
-
+.propicdiv{
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -129,7 +124,6 @@ body {
 /*}*/
 .profbottomdiv{
     /*width: 100%;*/
-
     display: inline-block;
     margin: 5px;
     padding: 10px 20px;
@@ -142,31 +136,7 @@ body {
 a{
     text-decoration: none;
 }
-/*#followbutton{*/
-/*    padding: 10px;*/
-/*    background-color: #90CDD6;*/
-/*    width: 40%;*/
-/*    letter-spacing: 1px;*/
-/*    margin: auto;*/
-/*    font-weight: 500;*/
-/*    font-size: 18px;*/
-/*    text-align: center;*/
-/*    color: #ffffff;*/
-/*    border-radius: 20px;*/
-/*    transition: transform .4s;*/
-/*}*/
 
-/* Styling for each question box */
-/*.question-box {*/
-/*    border-bottom: 1px solid #eee;*/
-/*    padding: 20px;*/
-/*    margin-bottom: 20px;*/
-/*    !* background-color: #bed0e4; *!*/
-/*    box-shadow: 0 0 10px rgba(0,0,0,0.1);*/
-/*    !*background-color: #60a3f0;*!*/
-/*    background-color: #efc109;*/
-/*    border-radius: 20px;*/
-/*}*/
 .question-content a{
     color: #666666;
     text-decoration: none;
@@ -176,23 +146,11 @@ a{
     font-size: 20px;
 }
 
-
-/*.comments-section {*/
-/*    margin-top: 20px;*/
-/*    background-color: #f9f9f9;*/
-/*    padding: 10px;*/
-/*    border-radius: 5px;*/
-/*}*/
-
-/*#followbutton:hover{*/
-/*    transform: scale(1.05);*/
-/*}*/
 .logoutlink1 a, .editprlink a{
     font-size: 16px;
     font-weight: 550;
     letter-spacing: 1px;
     text-decoration: underline;
-
     /*display: inline-block; !* Align properly within the list *!*/
     /*width: 100%; !* Full width to align with other links *!*/
     /*padding: 10px 0; !* Padding to make it look like a button *!*/

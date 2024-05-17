@@ -14,35 +14,35 @@
 </head>
 
 <body>
-    <div class="logodiv"><img class="logoimage" src="<?php echo base_url() ?>images/logo.png" alt="Logo" /> </div>
+    <div class="weblogodiv"><img class="logoimage" src="<?php echo base_url() ?>images/logo.png" alt="Logo" /> </div>
 
     <div class="signform">
-        <form class="authforms" name="signupform">
-            <div class="errormsg" id="errormsg"></div>
+        <form class="authenticateform" name="signupform">
+            <div class="errmsg" id="errmsg"></div>
             <div class="input">
-                <input class="signfield" type=text id="username" name='username'
+                <input class="signupfield" type=text id="username" name='username'
                     onkeyup='checkusername(); checkinputs();' required />
-                <label class="signlabel">Username <span style="color:#EB9494">*</span></label>
+                <label class="signuplbl">Username <span style="color:#EB9494">*</span></label>
             </div>
             <div class="input">
-                <input class="signfield" type=text id="email" name='email' onkeyup='checkinputs(); validateemail()'
+                <input class="signupfield" type=text id="email" name='email' onkeyup='checkinputs(); validateemail()'
                     required />
-                <label class="signlabel">Email <span style="color:#EB9494">*</span></label>
+                <label class="signuplbl">Email <span style="color:#EB9494">*</span></label>
             </div>
             <div class="input">
-                <input class="signfield" type=text id="name" name='name' onkeyup='checkinputs();' required />
-                <label class="signlabel">Name</label>
+                <input class="signupfield" type=text id="name" name='name' onkeyup='checkinputs();' required />
+                <label class="signuplbl">Name</label>
             </div>
             <div class="input">
-                <input class="signfield" type=password id="password" name='password' onkeyup='checkinputs();'
+                <input class="signupfield" type=password id="password" name='password' onkeyup='checkinputs();'
                     required />
-                <label class="signlabel">Password <span style="color:#EB9494">*</span></label>
+                <label class="signuplbl">Password <span style="color:#EB9494">*</span></label>
             </div>
             <div class="action">
                 <input class="signupbtn" type=submit id="createUser" disabled="disabled" value="SIGN UP" />
             </div>
         </form>
-        <div class="signspandiv">
+        <div class="signtxtdiv">
             <span>Already have an account? <a href="<?php echo base_url() ?>index.php/users/login">Login</a> </span>
         </div>
     </div>
@@ -51,7 +51,7 @@
     //check if required inputs are empty
     function checkinputs() {
         if (document.forms["signupform"]["username"].value != "" && document.forms["signupform"]["email"].value != "" &&
-            document.forms["signupform"]["password"].value != "" && document.getElementById("errormsg").innerHTML == "") {
+            document.forms["signupform"]["password"].value != "" && document.getElementById("errmsg").innerHTML == "") {
             document.getElementById('createUser').disabled = false;
         }
         else{
@@ -63,10 +63,10 @@
         var atposition = x.indexOf("@");
         var dotposition = x.lastIndexOf(".");
         if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= x.length) {
-            document.getElementById("errormsg").innerHTML = "Please enter a valid e-mail address";
+            document.getElementById("errmsg").innerHTML = "Please enter a valid e-mail address";
         }
         else {
-            document.getElementById("errormsg").innerHTML = "";
+            document.getElementById("errmsg").innerHTML = "";
             checkinputs();
         }
     }
@@ -77,11 +77,11 @@
             method: "POST"
         }).done(function (data) {
             if (data == 0) {
-                document.getElementById("errormsg").innerHTML = "";
+                document.getElementById("errmsg").innerHTML = "";
                 checkinputs();
             }
             else {
-                document.getElementById("errormsg").innerHTML = "Username Already Exists!"
+                document.getElementById("errmsg").innerHTML = "Username Already Exists!"
             }
         });
     }

@@ -201,7 +201,7 @@ body {
     right: 25%;
 }
 
-.searchresults, .notifications{
+.searchresults{
     position: relative;
     display: none;
     height: fit-content;
@@ -216,7 +216,7 @@ body {
 .searchresults{
     width: 80%;
     max-width: 70%;
-    max-height: 400px;
+    /*max-height: 400px;*/
     left: 15%;
 }
 /* the search bar end here */

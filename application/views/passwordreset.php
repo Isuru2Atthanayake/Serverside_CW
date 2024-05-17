@@ -9,23 +9,24 @@
 </head>
 <body>
 <div class="pwform">
-    <div class="pwresetheading"><span>RESET PASSWORD</span></div>
-    <div class="errormsg" id="errormsg"></div>
-    <form class="authforms" name="loginform">
+<!--    this does the passwordreset using the username and newpassword -->
+    <div class="pwdresetheading"><span>RESET PASSWORD</span></div>
+    <div class="errmsg" id="errmsg"></div>
+    <form class="authenticateform" name="loginform">
         <div class="input">
-            <input class="loginfield" type=text id="username" name='username' onkeyup='checkinputs();' required/>
-            <label class="loginlabel">Username<span style="color:#EB9494">*</label>
+            <input class="logfield" type=text id="username" name='username' onkeyup='checkinputs();' required/>
+            <label class="loginlbl">Username<span style="color:#EB9494">*</label>
         </div>
         <div class="input">
-            <input class="loginfield" type=password id="password" name='password' onkeyup='checkinputs();' required/>
-            <label class="loginlabel">New Password<span style="color:#EB9494">*</label>
+            <input class="logfield" type=password id="password" name='password' onkeyup='checkinputs();' required/>
+            <label class="loginlbl">New Password<span style="color:#EB9494">*</label>
         </div>
         <div class="action">
             <input class="loginbtn" type=submit disabled="disabled" id="changepw" value="RESET" />
         </div>
     </form>
 
-    <div class="loginspandiv">
+    <div class="logintxtdiv">
         <span>Or <a href="<?php echo base_url()?>index.php/users/signup">Sign Up</a> here</span>
     </div>
 </div>
@@ -61,7 +62,7 @@ $("#changepw").click(function(event) {
             location.href = "<?php echo base_url() ?>index.php/myprofile";
         }
         else {
-            document.getElementById("errormsg").innerHTML = "Username Doesn't Exist!"
+            document.getElementById("errmsg").innerHTML = "Username Doesn't Exist!"
         }
     });
     });
