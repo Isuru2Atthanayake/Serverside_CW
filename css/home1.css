@@ -7,14 +7,8 @@ body {
     color: #333;
     /* display: flex; */
 }
-/*used for location page start */
-.locationlistdiv{
-    width: 20%;
-    float: left;
-    position: fixed;
-    display: flex;
-    flex-flow: column;
-}
+/*used for questtag page start */
+
 .styled-button {
     display: inline-block;
     padding: 10px 20px;
@@ -65,13 +59,13 @@ body {
     width: 80%;
     float: right;
 }
-#locationname{
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin: 20px 0 0 10%;
-    color: #52B2CF;
-}
+/*#locationname{*/
+/*    font-size: 24px;*/
+/*    font-weight: 700;*/
+/*    letter-spacing: 1px;*/
+/*    margin: 20px 0 0 10%;*/
+/*    color: #52B2CF;*/
+/*}*/
 
 .imagelocdiv{
     width: 28%;
@@ -79,18 +73,18 @@ body {
     margin-left: 4%;
     float: left;
 }
-#locationname{
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin: 20px 0 0 10%;
-    color: #52B2CF;
-}
-#locationlist{
-    font-size: 16px;
-    letter-spacing: 1px;
-    margin: 20px 0 0 10%;
-}
+/*#locationname{*/
+/*    font-size: 24px;*/
+/*    font-weight: 700;*/
+/*    letter-spacing: 1px;*/
+/*    margin: 20px 0 0 10%;*/
+/*    color: #52B2CF;*/
+/*}*/
+/*#locationlist{*/
+/*    font-size: 16px;*/
+/*    letter-spacing: 1px;*/
+/*    margin: 20px 0 0 10%;*/
+/*}*/
 /*used for location page end */
 
 /* Styling for sidebar navigation old start here  */

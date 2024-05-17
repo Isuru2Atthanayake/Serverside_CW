@@ -8,7 +8,7 @@
 </head>
 <body>
 <!--//the container  of the posted questions start here-->
-<div class='postcontainer'>
+<div class='questpostcontainer'>
     <div class='usernameimgdiv'>
         <!-- Placeholder for user image and username -->
     </div>
@@ -33,7 +33,7 @@
     </div>
 
 
-    <div class='commentareadiv'>
+    <div class='questcommentdiv'>
         <textarea onkeyup='checkinputs();' name="comment" id="comment" maxlength="200"></textarea>
         <button onclick='postcomment();' id='commentbtn' disabled="disabled">Reply</button>
     </div>
@@ -73,7 +73,7 @@
                         data.Username + "'><span>" + data.Username + "</span></a></div>";
                     $('.usernameimgdiv').append(div3);
 
-        // Add a 'rate' icon with an event handler for rating the post.
+        // Add a 'rate' icon with an event handler for liking the post.
         //             var div4 = "<i onclick='rate();' class='fa-solid fa-star'></i>"+"<br/>";
         //             $('.ratediv').append(div4);
 
@@ -175,6 +175,7 @@
     }
     //get all comments in the post
     function getComments(){
+        //get the comments of the postedquestions using the postid
         $.ajax({
                 url: "<?php echo base_url() ?>index.php/home/comments?postid="+postid,
                 method: "GET"
@@ -197,7 +198,7 @@
             method: "GET"
         }).done(function (res) {
             $('.ratecount span').remove();
-            // var div = "<span>" + res + " Ratings</span>";
+            //append the rate count to the ratecount div
             $('.ratecount').append(div);
         });
     }

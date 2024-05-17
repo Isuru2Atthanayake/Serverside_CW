@@ -13,13 +13,9 @@
 <!--The code of Sidebar navigation start here-->
 <div class="sidebar">
 <!--  444  the search bar inside the side bar start here-->
-<!--    <div>-->
-<!--        <input type="text"  class="searchdiv" id="search" placeholder="Search..." onkeyup='searchusers()'/>-->
-<!--        <div class="searchresults2" id="searchresults"></div>-->
-<!--    </div>-->
     <div>
         <input type="text"  class="searchdiv" id="search" placeholder="Search..." onkeyup='searchquest()'/>
-        <div class="searchresults" id="searchresults"></div>
+        <div class="searchresults2" id="searchresults"></div>
     </div>
 
     <!--These are the  Navigation Links which are used to navigate in the page -->
@@ -101,6 +97,22 @@
 
     //code to display data with questions --- end---
 
+            //get the usercomments of the each posted questons and then it is used to display the questions accordingly
+            //$.ajax({
+            //    url: "<?php //echo base_url() ?>//index.php/home/comments?postid="+m.get('PostId'),
+            //    method: "GET"
+            //}).done(function (res) {
+            //    if(res.length!=0){
+            //        for (i = 0; i < res.length; i++) {
+            //            if(i<2){
+            //                var div ="<span><a class='commuserlink' href='<?php //echo base_url() ?>//index.php/users/userprofile/?username="+res[i].Username+"'>"+res[i].Username+"</a>"
+            //                +res[i].CommentBody+"</span></br>";
+            //                $('#commentsdiv'+m.get('PostId')).append(div);
+            //            }
+		    //      }
+            //    }
+            //});
+
         $.ajax({
             url: "<?php echo base_url() ?>index.php/home/comments?postid="+m.get('PostId'),
             method: "GET"
@@ -154,74 +166,6 @@
             });
         });
     }
-
-    // <script type="text/javascript" lang="javascript">
-        var username="<?php echo $username ?>";
-        //search function WHEN USER TYPES IN SEARCH BAR
-        //function searchusers() {
-        //     if($('#search').val().length==0){
-        //          document.getElementById("searchresults").style.display = "none";
-        //     }
-        //     else{//overlay only displayed when something is typed
-        //          document.getElementById("searchresults").style.display = "block";
-        //     }
-        //     var userdata = {
-        //           question: $('#search').val().toLowerCase()
-        //     };
-        //     $.ajax({//get users from the search string
-        //           url: "<?php //echo base_url() ?>//index.php/users/user/action/searchuser",
-        //           data: JSON.stringify(userdata),
-        //           contentType: "application/json",
-        //           method: "POST"
-        //       }).done(function (data) {
-        //          $('#searchresults div').remove();
-        //          $('#searchresults a').remove();
-        //          if(data.length==0){//display no results if array length is 0
-        //               var div ="<div class ='user noresult'>No Results</div>";
-        //               $('#searchresults').append(div);
-        //          }
-        //          else{
-        //               for (i = 0; i < data.length; i++) {
-        //                    var div ="<a class='userlinks' href='<?php //echo base_url() ?>//index.php/posts/post?postid="
-        //                    +data[i].PostId+"'><div class ='user'><div class='searuserdeet'>"+data[i].Question+"<br>"+data[i].QuestTitle+"</div></div></a>";
-        //                    $('#searchresults').append(div);
-        //          }
-        //          }
-        //     });
-        //}
-
-        function searchquest() {
-            if($('#search').val().length==0){
-                document.getElementById("searchresults").style.display = "none";
-            }
-            else{//overlay only displayed when something is typed
-                document.getElementById("searchresults").style.display = "block";
-            }
-            var userdata = {
-                question: $('#search').val().toLowerCase()
-            };
-            $.ajax({//get users from the search string
-                //searchquestion function in users controller to search questions
-                url: "<?php echo base_url() ?>index.php/users/user/action/searchquestion",
-                data: JSON.stringify(userdata),
-                contentType: "application/json",
-                method: "POST"
-            }).done(function (data) {
-                $('#searchresults div').remove();
-                $('#searchresults a').remove();
-                if(data.length==0){//display no results if array length is 0
-                    var div ="<div class ='user noresult'>No Results</div>";
-                    $('#searchresults').append(div);
-                }
-                else{
-                    for (i = 0; i < data.length; i++) {
-                        var div ="<a class='userlinks' href='<?php echo base_url() ?>index.php/posts/post?postid="
-                            +data[i].PostId+"'><div class ='user'><div class='searuserdeet'>"+data[i].Question+"<br>"+data[i].QuestTitle+"</div></div></a>";
-                        $('#searchresults').append(div);
-                    }
-                }
-            });
-        }
 </script>
 </body>
 </html>

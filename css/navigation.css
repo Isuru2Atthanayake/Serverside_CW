@@ -54,7 +54,6 @@ body {
 /*buttons in the nav bar start */
 .navdiv{
     width: 25%;
-    /*margin: 0 0 0 2%;*/
     display: flex;
     justify-content: space-around;
     padding: 10px;
@@ -90,7 +89,7 @@ body {
     font-size: 12px; /* Smaller font size for text under icons */
 }
 
-.navelementdiv, .profilediv {
+.navelementdiv, .userprofdiv {
     margin-right: 20px; /* Margin for spacing between links */
 }
 .icon-button:hover {
@@ -100,14 +99,13 @@ body {
 }
 
 /*buttons in the nav bar end */
-.profilediv{
+.userprofdiv{
     float: right;
     height: 100%;
     width: 13%;
     max-width:13%;
     margin: 0 2% 0 0;
     position: relative;
-    /*top: 1%;*/
 }
 .userlink{
     position: absolute;
@@ -126,32 +124,25 @@ body {
     color: #52B2CF;
 	text-decoration: underline;
 }
-
-/*.searchresults1{*/
-/*    position: fixed;*/
-/*    display: none;*/
+/*.searchresults{*/
+/*    position: fixed; */
+/*    display: none; */
 /*    height: fit-content;*/
 /*    top: 70px;*/
 /*    right: 0;*/
 /*    bottom: 0;*/
-/*    background-color: white;*/
+/*    background-color: white; */
 /*    box-shadow: 0 0 10px 4px rgba(126, 196, 207, 0.25);*/
-/*    z-index: 2;*/
+/*    z-index: 2; */
 /*    border-radius: 10px;*/
 /*}*/
-/*.searchresults1{*/
-/*    width: 30%;*/
+/*.searchresults{*/
+/*    width: 30%; */
 /*    max-width: 30%;*/
-/*    !*max-height: 400px;*!*/
+/*    max-height: 400px; */
 /*    left: 40%;*/
 /*}*/
 
-.notifications{
-    width: 30%; 
-    max-width: 30%;
-    max-height: 500px; 
-    left: 60%;
-}
 .user{
     height: 56px;
     padding: 0 2%;
@@ -173,7 +164,7 @@ body {
     border-radius: 50%;
     object-fit: cover;
 }
-.searuserdeet{
+.searchqestdat{
     padding: 3px 0 0 65px;
     box-sizing: border-box;
 }
@@ -183,20 +174,7 @@ body {
     padding-top: 15px;
     box-sizing: border-box;
 }
-.notifications div{
-    width: 100%;
-    box-sizing: border-box;
-    padding:10px 0 10px 5%;
-    height:fit-content;
-    box-shadow: 0px 0px 4px 0px rgba(82, 178, 207, 0.25)
-}
-.notifications a{
-    color: #666666;
-    text-decoration: none;
-}
-.notifications a:hover{
-    color: #52B2CF;
-}
+
 .commentspam{
     font-size: 14px;
     color: #666666;

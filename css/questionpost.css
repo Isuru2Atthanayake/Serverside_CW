@@ -1,4 +1,4 @@
-.postcontainer {
+.questpostcontainer {
     width: 800px; /* Adjust the width as needed */
     margin: 20px auto; /* Center the container and provide some margin around it */
     background-color: #ffffff; /* Background color for the box */
@@ -120,7 +120,7 @@
     font-size: 20px;
     color: #666666;
 }
-.commentareadiv{
+.questcommentdiv{
     margin: 15px 0;
     width: 95%;
     display: block;

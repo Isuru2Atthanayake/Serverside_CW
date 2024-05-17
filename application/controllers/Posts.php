@@ -11,6 +11,9 @@ class Posts extends \Restserver\Libraries\REST_Controller {
 		$this->load->model('usersmod');//this loads the usersmod model to access the userstable in the database
         $this->load->model('postquestmod');
 
+//        Header('Access-Control-Allow-Origin: *');
+//        Header('Access-Control-Allow-Headers: *');
+//        Header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
     }
     //index routes to create posted question view
     public function index_get(){

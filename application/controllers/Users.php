@@ -117,7 +117,7 @@ class Users extends \Restserver\Libraries\REST_Controller {
 //                $this->load->view('login');
 //            }
 //        }
-         else if($this->get('action') == 'searchquestion') {
+         else if($this->get('action') == 'searchquest') {
              if ($this->usersmod->is_logged_in()) {
                  $question = $this->post('question');
                  $result=$this->usersmod->searchQuestion($question);

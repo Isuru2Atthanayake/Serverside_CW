@@ -15,17 +15,11 @@
 <!--The code of Sidebar  start here -->
 <div class="sidebar">
     <!--  444  the search bar inside the side bar start here-->
-<!--    <div>-->
-<!--        <input type="text"  class="searchdiv" id="search" placeholder="Search..." onkeyup='searchusers()'/>-->
-<!--        <div class="searchresults2" id="searchresults"></div>-->
-<!--    </div>-->
-<!--    search bar for the user to search for questions start -->
-        <div>
-<!--            gets the search results from the searchquest function-->
-            <input type="text"  class="searchdiv" id="search" placeholder="Search..." onkeyup='searchquest()'/>
-            <div class="searchresults" id="searchresults"></div>
-        </div>
-<!--    search bar for the user to search for questions end -->
+    <div>
+        <input type="text"  class="searchdiv" id="search" placeholder="Search..." onkeyup='searchquest()'/>
+        <div class="searchresults2" id="searchresults"></div>
+    </div>
+
     <!--These are the  Navigation Links -->
     <ul>
         <li><a id="home-link" >Home</a></li>

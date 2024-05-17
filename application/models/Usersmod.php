@@ -78,6 +78,7 @@ class Usersmod extends CI_Model
 //        $query=$this->db->query("SELECT * FROM posts WHERE Question LIKE '".$question."%'");
 //        return $query->result();
 //    }
+
     public function searchQuestion($question){
         $query=$this->db->query("SELECT * FROM posts WHERE Question LIKE '".$question."%'");
         return $query->result();

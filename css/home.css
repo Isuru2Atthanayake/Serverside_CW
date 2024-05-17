@@ -3,23 +3,23 @@
     display: block;
     overflow: auto;
 }
-.locationdiv{
-    top: 0px;
-    margin:  1% 5%;
-    font-size: 16px;
-    letter-spacing: 0.5px;
-    
-}
-/*removes the link and add colour to the text*/
-.locationdiv a{
-    color: #666666;
-    text-decoration: none;
-    transition: color .4s;
-}
-.locationdiv a:hover{
-    color: #52B2CF;
-    text-decoration: none;
-}
+/*.locationdiv{*/
+/*    top: 0px;*/
+/*    margin:  1% 5%;*/
+/*    font-size: 16px;*/
+/*    letter-spacing: 0.5px;*/
+/*    */
+/*}*/
+/*!*removes the link and add colour to the text*!*/
+/*.locationdiv a{*/
+/*    color: #666666;*/
+/*    text-decoration: none;*/
+/*    transition: color .4s;*/
+/*}*/
+/*.locationdiv a:hover{*/
+/*    color: #52B2CF;*/
+/*    text-decoration: none;*/
+/*}*/
 .fa-solid, .commuserlink{
     margin-right: 3%;
 }
@@ -154,7 +154,7 @@
     margin: 20px 0 0 10%;
     color: #52B2CF;
 
-    font-size: 20px; /* Larger font size for the location name */
+    font-size: 20px; /* Larger font size for the questtag name */
     font-weight: bold; /* Bold for emphasis */
     margin-bottom: 20px; /* Space below the header */
     padding-bottom: 10px; /* Padding for visual separation */
