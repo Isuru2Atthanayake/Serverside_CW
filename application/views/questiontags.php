@@ -15,7 +15,8 @@
             <span id='questtagname'></span>
             <div id="questtaglist"> </div>
         </div>
-        <div class="postlocadiv"></div>
+<!--        <div class="postlocadiv"></div>-->
+            <div class="postquestdiv"></div>
     </div>
 
 <script type="text/javascript" lang="javascript">
@@ -53,7 +54,7 @@
 
     var html = "";
     var PostDisplay = Backbone.View.extend({
-        el: ".postlocadiv",
+        el: ".postquestdiv",
         initialize: function () {
             this.listenTo(this.model, "add", this.showResults);
         },
