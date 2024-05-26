@@ -75,7 +75,7 @@
         //display all the details of the relavent questions in backbone view
         html = html + "<div class='question-box'>" +
             "<div class='question-content'>" +
-            //"<a href='<?php //echo base_url() ?>//index.php/posts/notparametered?key=" + m.get('dbcolumnname') + "'>" +
+            //"<a href='<?php //echo base_url() ?>//index.php/postquestctrl/notparametered?key=" + m.get('dbcolumnname') + "'>" +
             "<a href='<?php echo base_url() ?>index.php/postquestctrl/questtags?questtagid=" + m.get('QuesttagId') + "'>" +
             "<span><i class='fa-solid fa-cube'></i>" + m.get('QuesttagName') + "</span></a></div>" +
             "<div class='userratediv'>" +
@@ -87,7 +87,7 @@
 
             "<a href='<?php echo base_url() ?>index.php/postquestctrl/post?postid=" + m.get('PostId') + "'></br>" +
             "<span><i class='fa-solid fa-post_id'></i>" + m.get('Question') + "</span></a></div>" +
-            //"<a class='styled-button' href='<?php //echo base_url() ?>//index.php/posts/post?postid=" + m.get('PostId') + "'><br>" +
+            //"<a class='styled-button' href='<?php //echo base_url() ?>//index.php/postquestctrl/post?postid=" + m.get('PostId') + "'><br>" +
             "<div class='usercomments-section' id='usercommentsdiv" + m.get('PostId') + "'></div>"+
             "<a class='styled-button' href='<?php echo base_url() ?>index.php/postquestctrl/post?postid=" + m.get('PostId') + "'>View Question</a>" +
             "<a class='styled-button reply-button' href='<?php echo base_url() ?>index.php/postquestctrl/post?postid=" + m.get('PostId') + "'>Reply</a>" +

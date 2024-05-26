@@ -47,11 +47,6 @@ class Users extends \Restserver\Libraries\REST_Controller {
             $this->load->view('login');
         }
     }
-    //api to get all users
-//    public function user_get(){
-//        $result = $this->usersmod->getUsers();
-//        $this->response($result);
-//    }
     public function user_post() {//this function is used to create a user
         //if action is signup, create a user
         if($this->get('action') == 'signup') {
