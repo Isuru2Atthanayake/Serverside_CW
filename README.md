@@ -1,0 +1,1 @@
+A web application, which is a type of application developed for the purpose of providing knowledge for the users, in this application the users can post questions, and the users could answer them accordingly.The technologies used in this project are Html,CSS, PHP using  code ignitor
